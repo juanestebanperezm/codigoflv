@@ -8,4 +8,12 @@ router.get("/",(req,res)=>{
 })
 
 
-module.exports=router;
+router.get("/inicio/",(req,res)=>{
+    res.status(200).send("hpta")
+})
+
+router.post("/crearreto",(req,res)=>{
+    
+})
+
+module.exports=router

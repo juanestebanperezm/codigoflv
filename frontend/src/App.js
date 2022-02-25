@@ -5,8 +5,8 @@ import Lateral from './components/Lateral';
 function App() {
   return (
     <div className="App">
-      <h1>Hola amigitos</h1>
       <Cabecera/>
+      <h1>Hola amigitos</h1>
       <Lateral/>
     </div>
   );

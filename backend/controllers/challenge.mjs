@@ -67,26 +67,10 @@ const deleteChallenge = async (req, res) => {
 
     res.status(404).json({
       ok: false,
-      msg: "Estoy agarrando señal carnal",
+      msg: "El sistema está caído: estoy agarrando señal carnal",
       error
     })
   }
 };
-
-
-// // Editar Reto
-
-// const deleteChallenge = async (req, res) => {
-
-//   try {
-
-//   } catch (error) {
-
-//   }
-  
-// }
-
-
-
 
 export { addChallenge, viewChallenge, viewOneChallenge, deleteChallenge };

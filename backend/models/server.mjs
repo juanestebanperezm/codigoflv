@@ -4,20 +4,21 @@ import cors from 'cors';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-import userRouter from "../routes/user.mjs";
+import challengesRouter from "../routes/challenge.mjs";
 import main from "../database/config.mjs";
 
 class AppServer {
 
     constructor() {
+        // Express
         this.app = express();
+
+        // Rutas de la aplicación
         this.paths = {
-            users:'/users',
+            challenges:'/challenges',
         }
 
+        // Puertos
         this.port = process.env.PORT || 8080;
 
         // Database connection
@@ -26,10 +27,9 @@ class AppServer {
         // Middlewares
         this.middlewares();
 
-        // Routes
+        // Rutas
         this.routes();
 
-        // Sockets
     }
 
     middlewares() {
@@ -49,7 +49,7 @@ class AppServer {
     }
 
     routes() {
-        this.app.use(this.paths.users, userRouter);
+        this.app.use(this.paths.challenges, challengesRouter);
     }
 
 

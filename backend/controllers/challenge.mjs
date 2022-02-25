@@ -1,7 +1,7 @@
 /**
- * Middleware para añadir un usuario
+ * Middleware para añadir un reto
  */
-const addUser = async (req, res) => {
+const addChallenge = async (req, res) => {
     try {
         return res.status(200).json({
             ok: true,
@@ -11,7 +11,7 @@ const addUser = async (req, res) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Habla con el que hizo esta chimbada pa que lo arregle',
+            msg: 'Hable con el que hizo esta chimbada pa que lo arregle',
             error
         })
     }
@@ -19,5 +19,5 @@ const addUser = async (req, res) => {
 
 
 export {
-    addUser
+    addChallenge
 }

@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
 
+/**
+ * Función para establecer la conexión a la base de datos
+ */
 const main = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/social_network');
+        await mongoose.connect(process.env.DB_KEY_CNN);
         console.log('Conexión exitosa con la base de datos...');
         
     } catch (error) {

@@ -4,9 +4,7 @@ import mongoose from "mongoose";
 //Modelo
 import Reto from "../modelos/Retos.mjs";
 
-/**
- * Middleware para añadir un reto
- */
+//Middleware para añadir un reto
 const addChallenge = async (req, res) => {
   try {
     const { title, description, language, dificultad } = req.body;
@@ -42,4 +40,19 @@ const viewChallenge = async (req, res) => {
   }
 };
 
-export { addChallenge, viewChallenge };
+
+//Ver un solo reto
+
+const viewOneChallenge=async(req,res)=>{
+  try{
+
+  }catch(error){
+    res.status(404).json({
+      ok:false,
+      msg:"¿Nos parecemos a Bancolombia? pues obvio, mantenemos caidos",
+      error,
+    });
+  }
+};
+
+export { addChallenge, viewChallenge,viewOneChallenge };

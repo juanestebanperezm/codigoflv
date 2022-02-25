@@ -3,8 +3,6 @@ import "../styles/Lateral.css";
 import "../styles/js styles/efectos.js";
 
 
-
-
 function Lateral() {
   return (
     <div className="contenedor">

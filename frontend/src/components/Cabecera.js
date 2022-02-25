@@ -6,6 +6,7 @@ import React from "react";
 import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
+import Login from "./Login";
 import Preparate from "./Preparate";
 
 //ESTILOS
@@ -37,6 +38,9 @@ function Cabecera() {
                   <li className="nav-link-item">
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
+                  <li className="nav-link-item">
+                    <Link to="/login">Login</Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -47,6 +51,7 @@ function Cabecera() {
           <Route exact path="/certificado" element={<Certificado/>}/>
           <Route exact path="/compite" element={<Compite/>}/>
           <Route exact path="/cuenta" element={<Cuenta/>}/>
+          <Route exact path="/login" element={<Login/>}/>
         </Routes>
       </div>
     </BrowserRouter>

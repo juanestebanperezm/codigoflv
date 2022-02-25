@@ -6,8 +6,10 @@ import React from "react";
 import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
+
 import Preparate from "./preparate/Preparate";
 import Reto from "./Reto";
+
 
 //ESTILOS
 import "../styles/Cabecera.css";
@@ -38,6 +40,9 @@ function Cabecera() {
                   <li className="nav-link-item">
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
+                  <li className="nav-link-item">
+                    <Link to="/login">Login</Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -49,6 +54,7 @@ function Cabecera() {
           <Route exact path="/compite" element={<Compite/>}/>
           <Route exact path="/reto/:id" element={<Reto/>}/>
           <Route exact path="/cuenta" element={<Cuenta/>}/>
+          <Route exact path="/login" element={<Login/>}/>
         </Routes>
       </div>
     </BrowserRouter>

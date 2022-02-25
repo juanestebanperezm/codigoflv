@@ -52,4 +52,41 @@ const viewOneChallenge = async (req, res) => {
   }
 };
 
-export { addChallenge, viewChallenge, viewOneChallenge };
+
+// Eliminar Reto
+
+const deleteChallenge = async (req, res) => {
+
+  try {
+
+      const { id } = req.params;
+      const reto = await Reto.findByIdAndDelete(id);
+      res.status(200).json({reto})
+
+  } catch (error) {
+
+    res.status(404).json({
+      ok: false,
+      msg: "Estoy agarrando señal carnal",
+      error
+    })
+  }
+};
+
+
+// // Editar Reto
+
+// const deleteChallenge = async (req, res) => {
+
+//   try {
+
+//   } catch (error) {
+
+//   }
+  
+// }
+
+
+
+
+export { addChallenge, viewChallenge, viewOneChallenge, deleteChallenge };

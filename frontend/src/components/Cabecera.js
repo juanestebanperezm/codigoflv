@@ -1,28 +1,55 @@
-import React from 'react'
-import "../styles/Cabecera.css"
+import { BrowserRouter as Router, Switch, Route, Link, Routes, BrowserRouter } from "react-router-dom";
+import React from "react";
+
+//Componentes Externos
+
+import Certificado from "./Certificado"
+import Cuenta from "./Cuenta"
+import Compite from "./Compite"
+import Preparate from "./Preparate";
+
+//ESTILOS
+import "../styles/Cabecera.css";
 
 function Cabecera() {
   return (
-    <div>
-      <div className='header'>
-        <nav>
-          <div className="container">
-            <ul className='nav-links'>
-              <li className="logo"><a>Logo</a></li>
-              <li className='nav-link-item'><a href='#'>Preparate</a></li>
-              <li className='nav-link-item'><a href='#'>Certificado</a></li>
-              <li className='nav-link-item'><a href='#'>Compite</a></li>
-            </ul>
+    <BrowserRouter>
+      <div>
+        <div className="header">
+          <nav>
             <div className="container">
-              <ul className='nav-links'>
-                <li className='nav-link-item'><a href='#'>Cuenta</a></li>
+              <ul className="nav-links">
+                <li className="logo">
+                  <a>Logo</a>
+                </li>
+                <li className="nav-link-item">
+                  <Link to="/preparate">Preparate</Link>
+                </li>
+                <li className="nav-link-item">
+                  <Link to="/certificate">Certificado</Link>
+                </li>
+                <li className="nav-link-item">
+                  <Link to="/compite">Compite</Link>
+                </li>
               </ul>
+              <div className="container">
+                <ul className="nav-links">
+                  <li className="nav-link-item">
+                    <Link to="/cuenta">Cuenta</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
+        <Routes>
+          <Route exact path="/preparate" element={<Preparate/>}/>
+          <Route exact path="/certificado" element={<Certificado/>}/>
+          <Route exact path="/compite" element={<Compite/>}/>
+          <Route exact path="/cuenta" element={<Cuenta/>}/>
+        </Routes>
       </div>
-    </div>
-  )
+    </BrowserRouter>
+  );
 }
-
-export default Cabecera
+export default Cabecera;

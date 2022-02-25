@@ -1,10 +1,11 @@
 import React from 'react'
-import "../styles/Cuenta.css"
+import "../styles/Compite.css"
+
 
 function Cuenta() {
   return (
     <div>
-        <h1>Cuenta works!</h1>
+        <h1>siii</h1>
     </div>
   )
 }

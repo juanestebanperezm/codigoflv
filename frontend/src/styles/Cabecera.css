@@ -1,3 +1,4 @@
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -78,6 +79,7 @@ nav {
     height: 60px;
     background: #39424e;
     width: 100%;
+    position: fixed;
 }
 
 .header {

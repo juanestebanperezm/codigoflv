@@ -16,6 +16,7 @@ class AppServer {
         // Rutas de la aplicación
         this.paths = {
             challenges:'/challenges',
+            
         }
 
         // Puertos

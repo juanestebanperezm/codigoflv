@@ -10,35 +10,35 @@ import Login from "./Login";
 import Preparate from "./Preparate";
 
 //ESTILOS
-import "../styles/Cabecera.css";
+import styles from "../styles/Cabecera.module.css";
 
 function Cabecera() {
   return (
     <BrowserRouter>
       <div>
-        <div className="header">
+        <div className={styles.header}>
           <nav>
-            <div className="container">
-              <ul className="nav-links">
-                <li className="logo">
+            <div className={styles.container}>
+              <ul className={styles['nav-links']}>
+                <li className={styles.logo}>
                   <a>Logo</a>
                 </li>
-                <li className="nav-link-item">
+                <li className={styles['nav-link-item']}>
                   <Link to="/preparate">Preparate</Link>
                 </li>
-                <li className="nav-link-item">
+                <li className={styles['nav-link-item']}>
                   <Link to="/certificate">Certificado</Link>
                 </li>
-                <li className="nav-link-item">
+                <li className={styles['nav-link-item']}>
                   <Link to="/compite">Compite</Link>
                 </li>
               </ul>
-              <div className="container">
-                <ul className="nav-links">
-                  <li className="nav-link-item">
+              <div className={styles.container}>
+                <ul className={styles['nav-links']}>
+                  <li className={styles['nav-link-item']}>
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
-                  <li className="nav-link-item">
+                  <li className={styles['nav-link-item']}>
                     <Link to="/login">Login</Link>
                   </li>
                 </ul>

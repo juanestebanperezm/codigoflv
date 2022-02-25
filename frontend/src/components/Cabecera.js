@@ -6,7 +6,8 @@ import React from "react";
 import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
-import Preparate from "./Preparate";
+import Preparate from "./preparate/Preparate";
+import Reto from "./Reto";
 
 //ESTILOS
 import "../styles/Cabecera.css";
@@ -46,6 +47,7 @@ function Cabecera() {
           <Route exact path="/preparate" element={<Preparate/>}/>
           <Route exact path="/certificado" element={<Certificado/>}/>
           <Route exact path="/compite" element={<Compite/>}/>
+          <Route exact path="/reto/:id" element={<Reto/>}/>
           <Route exact path="/cuenta" element={<Cuenta/>}/>
         </Routes>
       </div>

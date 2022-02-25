@@ -4,7 +4,7 @@ import "../styles/Preparate.css"
 function Preparate() {
   return (
     <div>
-        <h1>Preparate works!</h1>
+        
     </div>
   )
 }

@@ -2,14 +2,15 @@
 
 
 Para instalar las dependencias y poder ejecutar el proyecto 💯 🤑 🤠 👽
-`
+
+```
 cd frontend
 npm install
 
 cd backend
 npm install
 
-`
+```
 
 
 Esta es la descripción principal del proyecto.

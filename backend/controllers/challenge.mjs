@@ -1,5 +1,4 @@
 //Paquetes
-import mongoose from "mongoose";
 
 //Modelo
 import Reto from "../modelos/Retos.mjs";
@@ -25,11 +24,8 @@ const addChallenge = async (req, res) => {
 //Ver todos los retos
 const viewChallenge = async (req, res) => {
   try {
-  
-    const result=await Reto.find()
-    return res.json(result)
-
-
+    const result = await Reto.find();
+    return res.json(result);
   } catch (error) {
     console.log(error);
     res.status(404).json({
@@ -40,19 +36,20 @@ const viewChallenge = async (req, res) => {
   }
 };
 
-
 //Ver un solo reto
 
-const viewOneChallenge=async(req,res)=>{
-  try{
-
-  }catch(error){
+const viewOneChallenge = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const reto = await Reto.findById(id);
+    res.status(200).json(reto);
+  } catch (error) {
     res.status(404).json({
-      ok:false,
-      msg:"¿Nos parecemos a Bancolombia? pues obvio, mantenemos caidos",
+      ok: false,
+      msg: "¿Nos parecemos a Bancolombia? pues obvio, mantenemos caidos",
       error,
     });
   }
 };
 
-export { addChallenge, viewChallenge,viewOneChallenge };
+export { addChallenge, viewChallenge, viewOneChallenge };

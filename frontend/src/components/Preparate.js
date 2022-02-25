@@ -35,6 +35,12 @@ function Preparate() {
 
          </div>
        } )}
-      </div>)}
-       
+      </div>)
+      
+}
+
+
 export default Preparate
+
+
+      

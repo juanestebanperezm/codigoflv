@@ -1,9 +1,16 @@
 import React from "react";
 import "../styles/Lateral.css";
+import "../styles/js styles/efectos.js";
+
+
+
 
 function Lateral() {
   return (
     <div className="contenedor">
+      <div className="btnAbrir">
+        <span className="arrowL"></span>
+      </div>
       <a href="#" className="btn">
         Unete A la Familia
       </a>

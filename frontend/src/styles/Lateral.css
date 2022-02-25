@@ -17,6 +17,7 @@
     text-align: center;
     border: 0px;
     line-height: 50px;
+    z-index: 10;
 }
 .item:hover{
     background-color: #4e5966;
@@ -47,4 +48,29 @@
     background-color: #fff;
     margin: 2rem;
 
+}
+.btnAbrir{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: #242a31;
+    border-radius: 50%;
+    border: 3px dashed #fff;
+    clip-path: inset(0 0 0 49%);
+    padding-right: 5px;
+    cursor: pointer;
+}
+.arrowL{
+    display: block;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-image: url("assets/left-arrow.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }

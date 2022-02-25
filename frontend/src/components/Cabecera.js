@@ -52,4 +52,5 @@ function Cabecera() {
     </BrowserRouter>
   );
 }
+
 export default Cabecera;

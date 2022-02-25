@@ -1,6 +1,6 @@
 import React from 'react'
-
 import "../styles/Compite.css"
+
 
 function Cuenta() {
   return (

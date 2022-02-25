@@ -5,7 +5,10 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import challengesRouter from "../routes/challenge.mjs";
+import router from "../routes/user.mjs"
+
 import main from "../database/config.mjs";
+import usersRouter from "../routes/user.mjs";
 
 class AppServer {
 
@@ -16,6 +19,7 @@ class AppServer {
         // Rutas de la aplicación
         this.paths = {
             challenges:'/challenges',
+            users:'/users'
             
         }
 
@@ -51,6 +55,7 @@ class AppServer {
 
     routes() {
         this.app.use(this.paths.challenges, challengesRouter);
+        this.app.use(this.paths.users,usersRouter)
     }
 
 

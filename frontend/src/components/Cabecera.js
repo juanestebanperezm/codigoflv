@@ -7,7 +7,9 @@ import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
 import Login from "./Login";
+
 import Preparate from "./Preparate";
+import Registro from "./Registro";
 
 //ESTILOS
 import "../styles/Cabecera.css";
@@ -35,6 +37,9 @@ function Cabecera() {
               </ul>
               <div className="container">
                 <ul className="nav-links">
+                <li className="nav-link-item">
+                    <Link to="/registro">Registro</Link>
+                  </li>
                   <li className="nav-link-item">
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
@@ -52,6 +57,7 @@ function Cabecera() {
           <Route exact path="/compite" element={<Compite/>}/>
           <Route exact path="/cuenta" element={<Cuenta/>}/>
           <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/registro" element={<Registro/>}/>
         </Routes>
       </div>
     </BrowserRouter>

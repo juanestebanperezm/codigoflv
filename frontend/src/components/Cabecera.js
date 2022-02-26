@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Switch, Route, Link, Routes, BrowserRouter } from "react-router-dom";
 import React from "react";
 
-//Componentes Externos
+// Componentes Externos
 
 import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
+
 
 import Login from "./Login";
 import Reto from "./Reto"
@@ -14,6 +15,7 @@ import Registro from "./Registro";
 
 
 //ESTILOS
+
 import styles from "../styles/Cabecera.module.css";
 
 function Cabecera() {
@@ -37,12 +39,12 @@ function Cabecera() {
                   <Link to="/compite">Compite</Link>
                 </li>
               </ul>
-              <div className="container">
-                <ul className="nav-links">
-                <li className="nav-link-item">
+              <div className={styles.container}>
+                <ul className={styles['nav-links']}>
+                  <li className={styles['nav-link-item']}>
                     <Link to="/registro">Registro</Link>
                   </li>
-                  <li className="nav-link-item">
+                  <li className="{syles['nav-link-item']}">
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
                   <li className={styles['nav-link-item']}>

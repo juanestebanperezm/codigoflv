@@ -1,5 +1,10 @@
+//Modulos
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
+
+//Componente externo
+
+import MirrorCode from "./MirrorCode";
 
 function Reto() {
   const { id } = useParams();
@@ -22,6 +27,7 @@ function Reto() {
       <h1>{description}</h1>
       <h1>{language}</h1>
       <h1>{dificultad}</h1>
+      <MirrorCode/>
     </div>
   );
 }

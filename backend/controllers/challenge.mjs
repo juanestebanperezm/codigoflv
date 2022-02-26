@@ -87,18 +87,17 @@ const deleteChallenge = async (req, res) => {
 
 // Editar Reto
 
-const editChallenge =  async (req,res) => {
-
+const editChallenge =  async (req, res) => {
   try {
 
     const { id } = req.params;
     const { title, description, language, dificultad} = req.body;
-    const findRetoAndUpdate = await Reto.findByIdAndUpdate(id, {$set: { title: title, description: description,language: language,dificultad: dificultad }}, {returnOriginal:true, runValidators:true});
+    const dbChallenge = await Reto.findByIdAndUpdate(id, {$set: { title, description, language, dificultad }}, { returnOriginal:false } ,);
     
     res.status(200).json({
       ok:true,
       msg:'Reto actualizado',
-      findRetoAndUpdate
+      challenge:dbChallenge
     });
 
   } catch (error) {

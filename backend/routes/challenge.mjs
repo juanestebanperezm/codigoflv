@@ -29,14 +29,18 @@ router.post('/', [
 ], addChallenge);
 
 /*Borrar un reto por id*/
-router.delete('borrar-reto/:id', [
+router.delete('/:id', [
     param('id', 'El id del reto a borrar es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
     validateErrors
 ], deleteChallenge);
 
 // /*Editar un por id*/
-router.put('/editar-reto/:id', [
+router.put('/:id', [
     param('id', 'El id del reto a borrar es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
+    body('title', 'El título del reto es obligatorio').notEmpty(),
+    body('description','La descripción del reto es obligatoria').notEmpty(),
+    body('language', 'El lenguaje al que pertenece este reto es obligatorio').isIn(['javascript','python']),
+    body('dificultad', 'La dificultad del reto es obligatoria').isIn(['facil','medio','dificil','modoJH']),
     validateErrors
 ], editChallenge);
 

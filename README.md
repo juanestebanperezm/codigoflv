@@ -10,6 +10,9 @@ npm install
 cd backend
 npm install
 
+npm i dotenv
+npm i bcrypt
+
 ```
 
 

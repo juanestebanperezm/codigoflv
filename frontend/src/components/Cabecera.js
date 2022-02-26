@@ -6,12 +6,16 @@ import React from "react";
 import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
-import Login from "./Login"
-import Preparate from "./preparate/Preparate";
-import Reto from "./Reto";
 
 
-// ESTILOS
+import Login from "./Login";
+import Reto from "./Reto"
+import Preparate from "../components/preparate/Preparate";
+import Registro from "./Registro";
+
+
+//ESTILOS
+
 import styles from "../styles/Cabecera.module.css";
 
 function Cabecera() {
@@ -38,6 +42,9 @@ function Cabecera() {
               <div className={styles.container}>
                 <ul className={styles['nav-links']}>
                   <li className={styles['nav-link-item']}>
+                    <Link to="/registro">Registro</Link>
+                  </li>
+                  <li className="{syles['nav-link-item']}">
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
                   <li className={styles['nav-link-item']}>
@@ -55,6 +62,7 @@ function Cabecera() {
           <Route exact path="/reto/:id" element={<Reto/>}/>
           <Route exact path="/cuenta" element={<Cuenta/>}/>
           <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/registro" element={<Registro/>}/>
         </Routes>
       </div>
     </BrowserRouter>

@@ -8,8 +8,8 @@ import Cuenta from "./Cuenta"
 import Compite from "./Compite"
 
 import Login from "./Login";
-
-import Preparate from "./Preparate";
+import Reto from "./Reto"
+import Preparate from "../components/preparate/Preparate";
 import Registro from "./Registro";
 
 

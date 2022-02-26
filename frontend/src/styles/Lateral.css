@@ -55,9 +55,9 @@
     align-items: center;
     position: absolute;
     top: 40%;
-    right: -50px;
-    width: 100px;
-    height: 100px;
+    right: -35px;
+    width: 70px;
+    height: 70px;
     background-color: #242a31;
     border-radius: 50%;
     border: 3px dashed #fff;
@@ -68,9 +68,35 @@
 .arrowL{
     display: block;
     content: "";
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-image: url("assets/left-arrow.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+.btnCerrar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    right: -35px;
+    width: 70px;
+    height: 70px;
+    background-color: #242a31;
+    border-radius: 50%;
+    border: 3px dashed #fff;
+    clip-path: inset(0 0 0 49%);
+    padding-right: 5px;
+    cursor: pointer;
+}
+.arrowR{
+    display: block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-image: url("assets/left-arrow.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
 }

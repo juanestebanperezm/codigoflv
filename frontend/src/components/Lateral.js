@@ -11,6 +11,9 @@ function Lateral() {
       <div className="btnAbrir">
         <span className="arrowL"></span>
       </div>
+      <div className="btnCerrar">
+        <span className="arrowR"></span>
+      </div>
       <a href="#" className="btn">
         Unete A la Familia
       </a>

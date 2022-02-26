@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 
 import challengesRouter from "../routes/challenge.mjs";
 import main from "../database/config.mjs";
+import usersRouter from "../routes/user.mjs";
 
 class AppServer {
 
@@ -15,8 +16,8 @@ class AppServer {
 
         // Rutas de la aplicación
         this.paths = {
-            challenges:'/challenges',
-            
+            challenges: '/retos',
+            users: '/usuarios'
         }
 
         // Puertos
@@ -32,14 +33,17 @@ class AppServer {
         this.routes();
 
     }
-
+    
     middlewares() {
-        const __filename = fileURLToPath(import.meta.url);
+        const __filename = fileURLToPath(
+            import.meta.url);
         const __dirname = dirname(__filename);
         this.app.use(cors());
-        this.app.use(morgan('tiny')); 
+        this.app.use(morgan('tiny'));
         this.app.use(express.json());
-        this.app.use(express.urlencoded({ extended:true }));
+        this.app.use(express.urlencoded({
+            extended: true
+        }));
         this.app.use(express.static(path.join(__dirname, '../public')));
     }
 
@@ -51,6 +55,7 @@ class AppServer {
 
     routes() {
         this.app.use(this.paths.challenges, challengesRouter);
+        this.app.use(this.paths.users, usersRouter)
     }
 
 

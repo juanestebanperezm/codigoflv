@@ -1,5 +1,7 @@
 import React from 'react'
-import "../styles/Compite.css"
+
+// ESTILOS
+import styles from "../styles/Cuenta.module.css"
 
 
 function Cuenta() {

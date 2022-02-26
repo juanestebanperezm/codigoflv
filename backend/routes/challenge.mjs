@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { param } from 'express-validator';
+import { body, param } from 'express-validator';
 
 //Controladores
 import { addChallenge, viewOneChallenge ,getChallenges ,deleteChallenge } from "../controllers/challenge.mjs";
@@ -20,7 +20,13 @@ router.get('/:id', [
 
 
 /*Añadir un reto*/
-router.post('/', addChallenge);
+router.post('/', [
+    body('title', 'El título del reto es obligatorio').notEmpty(),
+    body('description','La descripción del reto es obligatoria').notEmpty(),
+    body('language', 'El lenguaje al que pertenece este reto es obligatorio').isIn(['javascript','python']),
+    body('dificultad', 'La dificultad del reto es obligatoria').isIn(['facil','medio','dificil','modoJH']),
+    validateErrors
+], addChallenge);
 
 /*Borrar un reto por id*/
 router.delete('/:id', [

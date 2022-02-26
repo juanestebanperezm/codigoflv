@@ -21,11 +21,18 @@ const addChallenge = async (req, res) => {
 //Ver todos los retos
 const getChallenges = async (req, res) => {
   try {
-    const result = await Reto.find();
-    return res.json(result);
+    const { limit = 30, skip = 0 } = req.query;
+    const [totalChallenges, challenges] = await Promise.all([Reto.countDocuments(), Reto.find().limit(+limit).skip(+skip)]);
+    
+    return res.status(200).json({
+      ok:true,
+      total:totalChallenges,
+      challenges,
+    });
+
   } catch (error) {
     console.log(error);
-    res.status(404).json({
+    res.status(500).json({
       ok: false,
       msg: "Mor el endpoint esta caido, estamos trabajando como burros para arreglarlo",
       error,
@@ -40,7 +47,7 @@ const viewOneChallenge = async (req, res) => {
     const reto = await Reto.findById(id);
     res.status(200).json(reto);
   } catch (error) {
-    res.status(404).json({
+    res.status(500).json({
       ok: false,
       msg: "¿Nos parecemos a Bancolombia? pues obvio, mantenemos caidos",
       error,
@@ -58,8 +65,7 @@ const deleteChallenge = async (req, res) => {
       res.status(200).json({reto})
 
   } catch (error) {
-
-    res.status(404).json({
+    res.status(500).json({
       ok: false,
       msg: "El sistema está caído: estoy agarrando señal carnal",
       error

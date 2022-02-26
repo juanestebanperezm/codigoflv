@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+
+// Componentes Externos
 import { Card } from "./Card";
-import "../../styles/Preparate.css";
+
+// ESTILOS
+import styles from "../../styles/Preparate.module.css";
 
 function Preparate() {
   const [reto, setReto] = useState([]);
@@ -22,13 +26,13 @@ function Preparate() {
         {!reto
           ? "Cargando datos, ve tomandote una cerveza"
           : reto.map((info) => {
-              const { id } = info;
-              return (
-                <div key={id}>
-                  <Card {...info} />;
-                </div>
-              );
-            })}
+            const { id } = info;
+            return (
+              <div key={id}>
+                <Card {...info} />;
+              </div>
+            );
+          })}
       </div>
     </>
   );

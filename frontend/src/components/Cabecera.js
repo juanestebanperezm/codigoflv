@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Switch, Route, Link, Routes, BrowserRouter } from "react-router-dom";
 import React from "react";
 
-//Componentes Externos
+// Componentes Externos
 
 import Certificado from "./Certificado"
 import Cuenta from "./Cuenta"
 import Compite from "./Compite"
-
+import Login from "./Login"
 import Preparate from "./preparate/Preparate";
 import Reto from "./Reto";
 
 
-//ESTILOS
+// ESTILOS
 import styles from "../styles/Cabecera.module.css";
 
 function Cabecera() {

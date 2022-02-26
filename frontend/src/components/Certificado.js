@@ -1,6 +1,7 @@
 import React from 'react'
 
-import "../styles/Certificado.css"
+// ESTILOS
+import styles from "../styles/Certificado.module.css"
 
 function Certificado() {
   return (

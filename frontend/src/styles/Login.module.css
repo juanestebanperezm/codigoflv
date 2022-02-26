@@ -7,11 +7,8 @@
 	font-family: Raleway, sans-serif;
 }
 
-body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
-}
-
 .container {
+	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -1,25 +1,21 @@
 import { Router } from "express";
 
 //Controladores
-import { 
-    addChallenge, 
-    viewOneChallenge,
-    viewChallenge,
-    deleteChallenge } from "../controllers/challenge.mjs";
+import { addChallenge, viewOneChallenge ,getChallenges ,deleteChallenge } from "../controllers/challenge.mjs";
 
 /*Router de los retos*/
 const router = Router();
 
-//Gets
-router.get('/retos',viewChallenge);
-router.get('/retos/:id',viewOneChallenge)
+/*Obtener todos los retos*/
+router.get('/', getChallenges);
 
-//Posts
+/*Obtener reto por id*/
+router.get('/:id', viewOneChallenge);
+
+/*Añadir un reto*/
 router.post('/', addChallenge);
 
-// Delete 
-router.delete('/borrar-reto/:id', deleteChallenge);
-
-
+/*Borrar un reto por id*/
+router.delete('/:id', deleteChallenge);
 
 export default router;

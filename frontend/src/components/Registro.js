@@ -31,7 +31,7 @@ function Registro() {
           className={styles["inlinein"]}
         ></input>
         
-        <button className="name noselect">Registrate</button>
+        <button className={styles["name noselect"]}>Registrate</button>
       </div>
      
     

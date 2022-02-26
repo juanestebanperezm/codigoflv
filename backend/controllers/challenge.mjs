@@ -12,7 +12,7 @@ const addChallenge = async (req, res) => {
       msg:"Estamos coronando HP!",
       reto
     });
-    
+
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -67,7 +67,11 @@ const deleteChallenge = async (req, res) => {
 
       const { id } = req.params;
       const reto = await Reto.findByIdAndDelete(id);
-      res.status(200).json({reto})
+      res.status(200).json({
+        ok:true,
+        msg:'Reto eliminado',
+        reto
+      });
 
   } catch (error) {
     res.status(500).json({

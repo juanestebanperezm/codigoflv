@@ -4,7 +4,8 @@ import { Router } from "express";
 import { 
     addChallenge, 
     viewOneChallenge,
-    viewChallenge } from "../controllers/challenge.mjs";
+    viewChallenge,
+    deleteChallenge } from "../controllers/challenge.mjs";
 
 /*Router de los retos*/
 const router = Router();
@@ -15,5 +16,10 @@ router.get('/retos/:id',viewOneChallenge)
 
 //Posts
 router.post('/', addChallenge);
+
+// Delete 
+router.delete('/borrar-reto/:id', deleteChallenge);
+
+
 
 export default router;

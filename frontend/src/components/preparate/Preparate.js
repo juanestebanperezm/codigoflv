@@ -7,32 +7,34 @@ import { Card } from "./Card";
 import styles from "../../styles/Preparate.module.css";
 
 function Preparate() {
-  const [reto, setReto] = useState([]);
+  const [todos, setReto] = useState([]);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
-    const URL = "http://localhost:3000/challenges/retos";
-    const data = await fetch(URL);
-    const challenge = await data.json();
-    setReto(challenge);
-  };
+    const URL = "http://localhost:3000/retos";
+    const response = await fetch(URL);
+    const responseJSON = await response.json();
+    setReto(responseJSON.challenges);
+    
+  }
+
 
   return (
     <>
-      <div>
-        {!reto
+      <div className={styles["container"]}>
+         {!todos
           ? "Cargando datos, ve tomandote una cerveza"
-          : reto.map((info) => {
+          : todos.map((info) => {
             const { id } = info;
             return (
               <div key={id}>
                 <Card {...info} />;
               </div>
             );
-          })}
+          })} 
       </div>
     </>
   );

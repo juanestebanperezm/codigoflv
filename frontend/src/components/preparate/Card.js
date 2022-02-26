@@ -1,20 +1,22 @@
 import { useNavigate } from "react-router-dom";
 
+import styles from "../../styles/Card.module.css";
+
 export const Card = ({ id, description, title, language, dificultad }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/reto/${id}`);
+    navigate(`/retos/${id}`);
   };
 
   return (
-    <div>
-      <h1 onClick={handleClick} style={{ color: "red", cursor: "pointer" }}>
-        {title}
-      </h1>
-      <h1>{description}</h1>
-      <h1>{language}</h1>
-      <h1>{dificultad}</h1>
-    </div>
+    <>
+      <div className={styles["contaner_copy"]}>
+        <h1>{title}</h1>
+        <p className={styles["descrip"]}>{description}</p>
+        <p className={styles["lan"]}>{language}</p>
+        <p>{dificultad}</p>
+      </div>
+    </>
   );
 };

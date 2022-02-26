@@ -17,25 +17,25 @@ function Lateral() {
       <span className={styles.line}></span>
       <div>
         <a href="#" className={styles.item}>
-          Frontend
+          JavaScript
         </a>
         <a href="#" className={styles.item}>
-          Backend
+          Python
         </a>
         <a href="#" className={styles.item}>
-          Fullstack
+          C# Proximamente
         </a>
         <a href="#" className={styles.item}>
-          Criptomonedas
+          Java Proximamente
         </a>
         <a href="#" className={styles.item}>
-          Manage Data
+          C++ Proximamente
         </a>
         <a href="#" className={styles.item}>
-          Habilidades Blandas
+          SQL Proximamente
         </a>
         <a href="#" className={styles.item}>
-          bases de Datos
+          Php Proximamente
         </a>
       </div>
     </div>

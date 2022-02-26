@@ -1,6 +1,3 @@
-//Paquetes
-
-//Modelo
 import Reto from "../modelos/Retos.mjs";
 
 //Middleware para añadir un reto
@@ -10,7 +7,12 @@ const addChallenge = async (req, res) => {
     const reto = new Reto({ title, description, language, dificultad });
     await reto.save();
 
-    return res.status(200).send("Estamos coronando HP!");
+    return res.status(201).send({
+      ok:true,
+      msg:"Estamos coronando HP!",
+      reto
+    });
+
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -22,13 +24,20 @@ const addChallenge = async (req, res) => {
 };
 
 //Ver todos los retos
-const viewChallenge = async (req, res) => {
+const getChallenges = async (req, res) => {
   try {
-    const result = await Reto.find();
-    return res.json(result);
+    const { limit = 30, skip = 0 } = req.query;
+    const [totalChallenges, challenges] = await Promise.all([Reto.countDocuments(), Reto.find().limit(+limit).skip(+skip)]);
+    
+    return res.status(200).json({
+      ok:true,
+      total:totalChallenges,
+      challenges,
+    });
+
   } catch (error) {
     console.log(error);
-    res.status(404).json({
+    res.status(500).json({
       ok: false,
       msg: "Mor el endpoint esta caido, estamos trabajando como burros para arreglarlo",
       error,
@@ -37,14 +46,13 @@ const viewChallenge = async (req, res) => {
 };
 
 //Ver un solo reto
-
 const viewOneChallenge = async (req, res) => {
   try {
     const { id } = req.params;
     const reto = await Reto.findById(id);
     res.status(200).json(reto);
   } catch (error) {
-    res.status(404).json({
+    res.status(500).json({
       ok: false,
       msg: "¿Nos parecemos a Bancolombia? pues obvio, mantenemos caidos",
       error,
@@ -54,18 +62,19 @@ const viewOneChallenge = async (req, res) => {
 
 
 // Eliminar Reto
-
 const deleteChallenge = async (req, res) => {
-
   try {
 
       const { id } = req.params;
       const reto = await Reto.findByIdAndDelete(id);
-      res.status(200).json({reto})
+      res.status(200).json({
+        ok:true,
+        msg:'Reto eliminado',
+        reto
+      });
 
   } catch (error) {
-
-    res.status(404).json({
+    res.status(500).json({
       ok: false,
       msg: "El sistema está caído: estoy agarrando señal carnal",
       error
@@ -73,4 +82,4 @@ const deleteChallenge = async (req, res) => {
   }
 };
 
-export { addChallenge, viewChallenge, viewOneChallenge, deleteChallenge };
+export { addChallenge, getChallenges, viewOneChallenge, deleteChallenge };

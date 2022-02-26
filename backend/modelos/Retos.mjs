@@ -1,15 +1,9 @@
 import moongose from "mongoose";
-const {Schema,model}=moongose;
+const { Schema , model }=moongose;
 
 
 //Este esquema require poder almacenar un array donde se establezcan las categorias de un reto
 //Ya que puede tener varias, Matematicas, estructuras de datos, string y muchas de estas combinadas :O 
-
-const options = {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
-}
-
 
 const challengeSchema = new Schema({
     title: {
@@ -22,14 +16,29 @@ const challengeSchema = new Schema({
     },
     language: {
         type: String,
-        required: false
+        required: true
     },
     dificultad: {
         type: String,
-        required: [false]
+        required: true
+    },
+    created_at: {
+        type:Date,
+        default:Date.now
+    },
+    updated_at: {
+        type:Date,
+        default:Date.now
     }
-}, options);
+});
 
-const Reto=model("challenge",challengeSchema);
+
+challengeSchema.methods.toJSON = function () {
+    const {__v, _id, ...challenges} = this.toObject();
+    challenges.id = _id;
+    return challenges;
+}
+
+const Reto = model("challenge", challengeSchema);
  
-export default Reto
+export default Reto;

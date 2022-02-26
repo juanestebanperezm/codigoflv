@@ -2,7 +2,7 @@ import { Router } from "express";
 import { body, param } from 'express-validator';
 
 //Controladores
-import { addChallenge, viewOneChallenge ,getChallenges ,deleteChallenge } from "../controllers/challenge.mjs";
+import { addChallenge, viewOneChallenge ,getChallenges ,deleteChallenge, editChallenge} from "../controllers/challenge.mjs";
 import { validateChallengeID } from "../database/challenge-validators.mjs";
 import { validateErrors } from "../middlewares/validate-errors.mjs";
 
@@ -29,9 +29,15 @@ router.post('/', [
 ], addChallenge);
 
 /*Borrar un reto por id*/
-router.delete('/:id', [
+router.delete('borrar-reto/:id', [
     param('id', 'El id del reto a borrar es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
     validateErrors
 ], deleteChallenge);
+
+// /*Editar un por id*/
+router.put('/editar-reto/:id', [
+    param('id', 'El id del reto a borrar es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
+    validateErrors
+], editChallenge);
 
 export default router;

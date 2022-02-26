@@ -66,14 +66,16 @@ const deleteChallenge = async (req, res) => {
   try {
 
       const { id } = req.params;
-      const reto = await Reto.findByIdAndDelete(id);
+      const findRetoAndDelete = await Reto.findByIdAndDelete(id);
+
       res.status(200).json({
         ok:true,
         msg:'Reto eliminado',
-        reto
+        findRetoAndDelete
       });
 
   } catch (error) {
+
     res.status(500).json({
       ok: false,
       msg: "El sistema está caído: estoy agarrando señal carnal",
@@ -82,4 +84,31 @@ const deleteChallenge = async (req, res) => {
   }
 };
 
-export { addChallenge, getChallenges, viewOneChallenge, deleteChallenge };
+
+// Editar Reto
+
+const editChallenge =  async (req,res) => {
+
+  try {
+
+    const { id } = req.params;
+    const { title, description, language, dificultad} = req.body;
+    const findRetoAndUpdate = await Reto.findByIdAndUpdate(id, {$set: { title: title, description: description,language: language,dificultad: dificultad }}, {returnOriginal:true, runValidators:true});
+    
+    res.status(200).json({
+      ok:true,
+      msg:'Reto actualizado',
+      findRetoAndUpdate
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: "El sistema está caído: estoy agarrando señal carnal",
+      error
+    })
+  }
+}
+
+
+export { addChallenge, getChallenges, viewOneChallenge, deleteChallenge, editChallenge };

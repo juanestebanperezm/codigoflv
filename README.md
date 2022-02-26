@@ -6,6 +6,8 @@ Para instalar las dependencias y poder ejecutar el proyecto 💯 🤑 🤠 👽
 ```
 cd frontend
 npm install
+npm i @monaco-editor/react
+npm i react-codemirror2
 
 cd backend
 npm install

@@ -1,5 +1,5 @@
 import moongose from "mongoose";
-const {Schema,model}=moongose;
+const { Schema , model }=moongose;
 
 
 //Este esquema require poder almacenar un array donde se establezcan las categorias de un reto
@@ -15,12 +15,20 @@ const challengeSchema = new Schema({
         required: [true, "Aqui tenes que explicar la gente no adivina lo que estas tratando de inventar"]
     },
     language: {
-        type: [String],
-        required: false
+        type: String,
+        required: true
     },
     dificultad: {
         type: String,
-        required: [false]
+        required: true
+    },
+    created_at: {
+        type:Date,
+        default:Date.now
+    },
+    updated_at: {
+        type:Date,
+        default:Date.now
     }
 });
 

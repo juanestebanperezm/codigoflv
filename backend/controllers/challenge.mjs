@@ -7,7 +7,12 @@ const addChallenge = async (req, res) => {
     const reto = new Reto({ title, description, language, dificultad });
     await reto.save();
 
-    return res.status(200).send("Estamos coronando HP!");
+    return res.status(201).send({
+      ok:true,
+      msg:"Estamos coronando HP!",
+      reto
+    });
+    
   } catch (error) {
     console.log(error);
     res.status(500).json({

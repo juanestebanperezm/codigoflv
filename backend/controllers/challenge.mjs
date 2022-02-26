@@ -1,6 +1,3 @@
-//Paquetes
-
-//Modelo
 import Reto from "../modelos/Retos.mjs";
 
 //Middleware para añadir un reto
@@ -22,7 +19,7 @@ const addChallenge = async (req, res) => {
 };
 
 //Ver todos los retos
-const viewChallenge = async (req, res) => {
+const getChallenges = async (req, res) => {
   try {
     const result = await Reto.find();
     return res.json(result);
@@ -37,7 +34,6 @@ const viewChallenge = async (req, res) => {
 };
 
 //Ver un solo reto
-
 const viewOneChallenge = async (req, res) => {
   try {
     const { id } = req.params;
@@ -54,9 +50,7 @@ const viewOneChallenge = async (req, res) => {
 
 
 // Eliminar Reto
-
 const deleteChallenge = async (req, res) => {
-
   try {
 
       const { id } = req.params;
@@ -73,4 +67,4 @@ const deleteChallenge = async (req, res) => {
   }
 };
 
-export { addChallenge, viewChallenge, viewOneChallenge, deleteChallenge };
+export { addChallenge, getChallenges, viewOneChallenge, deleteChallenge };

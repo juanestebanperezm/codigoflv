@@ -6,14 +6,12 @@ Para instalar las dependencias y poder ejecutar el proyecto 💯 🤑 🤠 👽
 ```
 cd frontend
 npm install
-npm i @monaco-editor/react
-npm i react-codemirror2
+npm i @monaco-editor/react react-codemirror2 @material-ui/core
 
 cd backend
 npm install
 
-npm i dotenv
-npm i bcrypt
+npm i dotenv bcrypt
 
 ```
 

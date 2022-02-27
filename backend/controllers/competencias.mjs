@@ -104,5 +104,36 @@ const deleteCompetencia = async (req, res) => {
     });
   }
 };
+// Editar Competencia
 
-export { addCompetencia, getCompetencias, editCompetencia, deleteCompetencia };
+const editCompetencia = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, description, premio, creador, final, estado } = req.body;
+    const dbCompetencia = await Competencia.findByIdAndUpdate(
+      id,
+      { $set: { title, description, premio, creador, final, estado } },
+      { returnOriginal: false }
+    );
+
+    res.status(200).json({
+      ok: true,
+      msg: " actualizado",
+      competencia: dbCompetencia,
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: "El sistema está caído: estoy agarrando señal carnal",
+      error,
+    });
+  }
+};
+
+export {
+  addCompetencia,
+  getCompetencias,
+  editCompetencia,
+  deleteCompetencia,
+  editCompetencia,
+};

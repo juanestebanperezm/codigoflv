@@ -46,7 +46,7 @@ function Cabecera() {
                     <Link to="/registro">Registro developer</Link>
                   </li>
                   <li className={styles['nav-link-item']}>
-                    <Link to="/registroempresa">Registro Empresas</Link>
+                    <Link to="/registroempresa">Para Empresas</Link>
                   </li>
                   <li className="{syles['nav-link-item']}">
                     <Link to="/cuenta">Cuenta</Link>

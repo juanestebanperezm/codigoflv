@@ -1,0 +1,25 @@
+.informacion-general {
+  margin: auto;
+  width: 50%;
+  padding: 15px;
+}
+
+.titulo {
+  padding-top: 10%;
+  color: #111;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+}
+
+.parrafos {
+  color: rgb(184, 184, 184);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 22px;
+  line-height: 20px;
+  text-align: center;
+  text-justify: inter-word;
+}

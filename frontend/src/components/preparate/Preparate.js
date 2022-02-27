@@ -31,7 +31,7 @@ function Preparate() {
             const { id } = info;
             return (
               <div key={id}>
-                <Card {...info} />;
+                <Card {...info} />
               </div>
             );
           })} 

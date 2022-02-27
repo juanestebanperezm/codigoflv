@@ -9,7 +9,7 @@ function Compite() {
   const fetchApi = async () => {
     const respuesta = await fetch(URL);
     const respuestaJSON = await respuesta.json();
-    setCompetencia(respuestaJSON.competencias);
+    setCompetencia(respuestaJSON.competences);
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Compite() {
         {!competencias
           ? "Cargando competencias"
           : competencias
-              .filter((e) => e.estado == true)
+              .filter((e) => e.state === true)
               .map((comp) => {
                 return (
                   <div className={styles["tarjeta"]}>
@@ -49,7 +49,7 @@ function Compite() {
         {!competencias
           ? "Cargando, ten paciencia o puedes ir golpeando el computador :D"
           : competencias
-              .filter((e) => e.estado == false)
+              .filter((e) => e.state === false)
               .map((comp) => {
                 return (
                   <div className={styles["tarjeta"]}>

@@ -1,4 +1,4 @@
-import Reto from "../models/Retos.mjs ";
+import Reto from "../models/retos.mjs ";
 
 //Middleware para añadir un reto
 const addChallenge = async (req, res) => {

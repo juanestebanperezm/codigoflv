@@ -9,9 +9,8 @@ const answerSchema = new Schema({
     title: String,
     userBy: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-    required: [true, "Aqui va id de usuario que va a comtestar la prejunta"],
+      ref: "user",
+    }
   },
 
   idQuestion: {
@@ -19,8 +18,7 @@ const answerSchema = new Schema({
     answerBy: {
       type: Schema.Types.ObjectId,
       ref: "challenge",
-    },
-    required: [true, "Aqui va id de la pregunta que se va a contestar"],
+    }
   },
   language: {
     type: String,
@@ -28,14 +26,11 @@ const answerSchema = new Schema({
   },
   argument: {
     type: String,
-    required: [true, "Aqui tenes que explicar la respuesta al reto"],
+    required:true,
   },
   code: {
     type: String,
-    required: [
-      true,
-      "Aqui tenes que pegar el codigo para la respuesta al reto",
-    ],
+    required: true,
   },
   created_at: {
     type: Date,

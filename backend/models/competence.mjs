@@ -39,6 +39,6 @@ competenceSchema.methods.toJSON = function () {
   return competences;
 };
 
-const Competence = model("competence", competenceSchema);
+const Competence = model("Competence", competenceSchema);
 
 export default Competence;

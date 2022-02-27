@@ -61,7 +61,7 @@ class AppServer {
     this.app.use(this.paths.challenges, challengesRouter);
     this.app.use(this.paths.users, usersRouter);
     this.app.use(this.paths.competencias, competenciasRouter);
-    this.app.use(this.paths.respuestas, respuestaRouter);
+    this.app.use(this.paths.respuestas, answerRouter);
   }
 
   async databaseConnection() {

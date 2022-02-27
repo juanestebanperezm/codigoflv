@@ -1,12 +1,11 @@
-import competence from "../modelos/competences.mjs";
-import Reto from "../modelos/Retos.mjs";
+import Competence from "../models/competence.mjs";
 
 //Middleware para agregar competences
 
 const addCompetence = async (req, res) => {
   try {
     const { title, description, prize, creator, final, state } = req.body;
-    const competence = new competence({
+    const competence = new Competence({
       title,
       description,
       prize,
@@ -37,8 +36,8 @@ const getCompetences = async (req, res) => {
   try {
     const { limit = 30, skip = 0 } = req.query;
     const [totalCompetences, competences] = await Promise.all([
-      competence.countDocuments(),
-      competence
+      Competence.countDocuments(),
+      Competence
         .find()
         .limit(+limit)
         .skip(+skip),
@@ -65,7 +64,7 @@ const editCompetence = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, prize, creator, final, state } = req.body;
-    const dbCompetence = await competence.findByIdAndUpdate(
+    const dbCompetence = await Competence.findByIdAndUpdate(
       id,
       { $set: { title, description, prize, creator, final, state } },
       { returnOriginal: false }
@@ -90,7 +89,7 @@ const editCompetence = async (req, res) => {
 const deleteCompetence = async (req, res) => {
   try {
     const { id } = req.params;
-    const findCompetenceAndDelete = await Reto.findByIdAndDelete(id);
+    const findCompetenceAndDelete = await Competence.findByIdAndDelete(id);
 
     res.status(200).json({
       ok: true,
@@ -106,36 +105,11 @@ const deleteCompetence = async (req, res) => {
   }
 };
 
-// Editar competence
-
-const editCompetence = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { title, description, prize, creator, final, state } = req.body;
-    const dbCompetence = await competence.findByIdAndUpdate(
-      id,
-      { $set: { title, description, prize, creator, final, state } },
-      { returnOriginal: false }
-    );
-
-    res.status(200).json({
-      ok: true,
-      msg: " actualizado",
-      competence: dbCompetence,
-    });
-  } catch (error) {
-    res.status(500).json({
-      ok: false,
-      msg: "El sistema está caído: estoy agarrando señal carnal",
-      error,
-    });
-  }
-};
 
 export {
   addCompetence,
   getCompetences,
   editCompetence,
   deleteCompetence,
-  editCompetence,
+
 };

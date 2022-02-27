@@ -7,8 +7,6 @@ import {
   getCompetences,
   editCompetence,
   deleteCompetence,
-  editCompetence,
-  getCompetences,
 } from "../controllers/competence.mjs";
 
 //Router de compentencias

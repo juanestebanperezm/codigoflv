@@ -12,6 +12,7 @@ import Login from "./Login";
 import Reto from "./Reto"
 import Preparate from "../components/preparate/Preparate";
 import Registro from "./Registro";
+import RegistroEmpresas from "./RegistroEmpresas";
 
 
 //ESTILOS
@@ -42,7 +43,10 @@ function Cabecera() {
               <div className={styles.container}>
                 <ul className={styles['nav-links']}>
                   <li className={styles['nav-link-item']}>
-                    <Link to="/registro">Registro</Link>
+                    <Link to="/registro">Registro developer</Link>
+                  </li>
+                  <li className={styles['nav-link-item']}>
+                    <Link to="/registroempresa">Registro Empresas</Link>
                   </li>
                   <li className="{syles['nav-link-item']}">
                     <Link to="/cuenta">Cuenta</Link>
@@ -63,6 +67,7 @@ function Cabecera() {
           <Route exact path="/cuenta" element={<Cuenta/>}/>
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/registro" element={<Registro/>}/>
+          <Route exact path="/registroempresa" element={<RegistroEmpresas/>}/>
         </Routes>
       </div>
     </BrowserRouter>

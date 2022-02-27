@@ -3,9 +3,11 @@ import morgan from "morgan";
 import cors from 'cors';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-
-import challengesRouter from "../routes/challenge.mjs";
 import main from "../database/config.mjs";
+
+//Enrutadores
+import challengesRouter from "../routes/challenge.mjs";
+import competenciasRouter from "../routes/competencias.mjs";
 import usersRouter from "../routes/user.mjs";
 
 class AppServer {
@@ -17,7 +19,8 @@ class AppServer {
         // Rutas de la aplicación
         this.paths = {
             challenges: '/retos',
-            users: '/usuarios'
+            users: '/usuarios',
+            competencias:'/competencias'
         }
 
         // Puertos
@@ -56,6 +59,7 @@ class AppServer {
     routes() {
         this.app.use(this.paths.challenges, challengesRouter);
         this.app.use(this.paths.users, usersRouter)
+        this.app.use(this.paths.competencias,competenciasRouter)
     }
 
 

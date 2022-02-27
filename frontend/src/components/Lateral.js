@@ -11,6 +11,9 @@ function Lateral() {
       <div className={styles.btnAbrir}>
         <span className={styles.arrowL}></span>
       </div>
+      <div className={styles.btnCerrar}>
+        <span className={styles.arrowR}></span>
+      </div>
       <a href="#" className={styles.btn}>
         Unete A la Familia
       </a>
@@ -22,21 +25,7 @@ function Lateral() {
         <a href="#" className={styles.item}>
           Python
         </a>
-        <a href="#" className={styles.item}>
-          C# Proximamente
-        </a>
-        <a href="#" className={styles.item}>
-          Java Proximamente
-        </a>
-        <a href="#" className={styles.item}>
-          C++ Proximamente
-        </a>
-        <a href="#" className={styles.item}>
-          SQL Proximamente
-        </a>
-        <a href="#" className={styles.item}>
-          Php Proximamente
-        </a>
+        
       </div>
     </div>
   );

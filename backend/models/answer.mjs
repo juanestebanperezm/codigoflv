@@ -4,8 +4,8 @@ const { Schema, model } = moongose;
 //Este esquema require poder almacenar un array donde se establezcan las categorias de una respúesta
 //Ya que puede tener varias, Matematicas, estructuras de datos, string y muchas de estas combinadas :O
 
-const repuestaSchema = new Schema({
-  id_usuario: {
+const answerSchema = new Schema({
+  idUser: {
     title: String,
     userBy: {
       type: Schema.Types.ObjectId,
@@ -14,9 +14,9 @@ const repuestaSchema = new Schema({
     required: [true, "Aqui va id de usuario que va a comtestar la prejunta"],
   },
 
-  id_pregunta: {
+  idQuestion: {
     type: String,
-    respuestaBy: {
+    answerBy: {
       type: Schema.Types.ObjectId,
       ref: "challenge",
     },
@@ -26,11 +26,11 @@ const repuestaSchema = new Schema({
     type: String,
     required: true,
   },
-  argumento: {
+  argument: {
     type: String,
     required: [true, "Aqui tenes que explicar la respuesta al reto"],
   },
-  codigo: {
+  code: {
     type: String,
     required: [
       true,
@@ -47,12 +47,12 @@ const repuestaSchema = new Schema({
   },
 });
 
-repuestaSchema.methods.toJSON = function () {
-  const { __v, _id, ...respuestas } = this.toObject();
-  respuestas.id = _id;
-  return respuestas;
+answerSchema.methods.toJSON = function () {
+  const { __v, _id, ...answers } = this.toObject();
+  answers.id = _id;
+  return answers;
 };
 
-const Respuesta = model("respuesta", repuestaSchema);
+const Answer = model("answer", answerSchema);
 
-export default Respuesta;
+export default Answer;

@@ -1,22 +1,23 @@
-import Respuesta from "../modelos/Respuestas.mjs";
+import Answer from "../models/answer.mjs";
 
 //Middleware para añadir una respuesta
-const addRespuesta = async (req, res) => {
+
+const addAnswer = async (req, res) => {
   try {
-    const { id_usuario, id_pregunta, language, argumento, codigo } = req.body;
-    const respuesta = new Respuesta({
-      id_usuario,
-      id_pregunta,
+    const { idUser, idQuestion, language, argument, code } = req.body;
+    const answer = new Answer({
+      idUser,
+      idQuestion,
       language,
-      argumento,
-      codigo,
+      argument,
+      code,
     });
-    await respuesta.save();
+    await answer.save();
 
     return res.status(201).send({
       ok: true,
       msg: "Estamos coronando HP!",
-      respuesta,
+      answer,
     });
   } catch (error) {
     console.log(error);
@@ -29,20 +30,21 @@ const addRespuesta = async (req, res) => {
 };
 
 //Ver todas las respuestas
-const getRespuestas = async (req, res) => {
+
+const getAnswers = async (req, res) => {
   try {
     const { limit = 30, skip = 0 } = req.query;
-    const [totalrespuesta, respuestas] = await Promise.all([
-      Respuesta.countDocuments(),
-      Respuesta.find()
+    const [totalAnswers, answer] = await Promise.all([
+      Answer.countDocuments(),
+      Answer.find()
         .limit(+limit)
         .skip(+skip),
     ]);
 
     return res.status(200).json({
       ok: true,
-      total: totalChallenges,
-      respuestas,
+      total: totalAnswers,
+      answer,
     });
   } catch (error) {
     console.log(error);
@@ -55,11 +57,12 @@ const getRespuestas = async (req, res) => {
 };
 
 //Ver una sola respuesta
-const viewOneRespuesta = async (req, res) => {
+
+const viewOneAnswer = async (req, res) => {
   try {
     const { id } = req.params;
-    const respuesta = await Respuesta.findById(id);
-    res.status(200).json(respuesta);
+    const answer = await Answer.findById(id);
+    res.status(200).json(answer);
   } catch (error) {
     res.status(500).json({
       ok: false,
@@ -70,14 +73,15 @@ const viewOneRespuesta = async (req, res) => {
 };
 
 // Eliminar Respuesta
-const deleteRespuesta = async (req, res) => {
+
+const deleteAnswer = async (req, res) => {
   try {
     const { id } = req.params;
-    const reto = await Respuesta.findByIdAndDelete(id);
+    const answer = await Answer.findByIdAndDelete(id);
     res.status(200).json({
       ok: true,
       msg: "Respuesta eliminada",
-      reto,
+      answer,
     });
   } catch (error) {
     res.status(500).json({
@@ -90,20 +94,20 @@ const deleteRespuesta = async (req, res) => {
 
 // Editar Respuesta
 
-const editRespuesta = async (req, res) => {
+const editAnswer = async (req, res) => {
   try {
     const { id } = req.params;
-    const { id_usuario, id_pregunta, language, argumento, codigo } = req.body;
-    const dbRespuesta = await Respuesta.findByIdAndUpdate(
+    const { idUser, idQuestion, language, argument, code } = req.body;
+    const dbAnswer = await Answer.findByIdAndUpdate(
       id,
-      { $set: { id_usuario, id_pregunta, language, argumento, codigo } },
+      { $set: { idUser, idQuestion, language, argument, code } },
       { returnOriginal: false }
     );
 
     res.status(200).json({
       ok: true,
       msg: "Respuesta actualizado",
-      respuesta: dbRespuesta,
+      answer: dbAnswer,
     });
   } catch (error) {
     res.status(500).json({
@@ -114,10 +118,4 @@ const editRespuesta = async (req, res) => {
   }
 };
 
-export {
-  addRespuesta,
-  getRespuestas,
-  viewOneRespuesta,
-  deleteRespuesta,
-  editRespuesta,
-};
+export { addAnswer, getAnswers, viewOneAnswer, deleteAnswer, editAnswer };

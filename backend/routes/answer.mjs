@@ -3,23 +3,23 @@ import { body, param } from "express-validator";
 
 /*controladores*/
 import {
-  addRespuesta,
-  viewOneRespuesta,
-  getRespuestas,
-  deleteRespuesta,
-  editRespuesta,
-} from "../controllers/Respuesta.mjs";
-import { validateRespuestaID } from "../database/respuesta-validador.mjs";
-import { validateErrors } from "../middlewares/validate-errors.mjs";
+  addAnswer,
+  viewOneAnswer,
+  getAnswers,
+  deleteAnswer,
+  editAnswer,
+} from "../controllers/answer.mjs";
+import { validateAnswerID } from "../database/answerValidador.mjs";
+import { validateErrors } from "../middlewares/validateErrors.mjs";
 
 /*Router de los retos*/
-const respuestaRouter = Router();
+const answerRouter = Router();
 
 /*Obtener todos los retos*/
-respuestaRouter.get("/", getRespuestas);
+answerRouter.get("/", getAnswers);
 
 /*Obtener reto por id*/
-respuestaRouter.get(
+answerRouter.get(
   "/:id",
   [
     param(
@@ -27,37 +27,34 @@ respuestaRouter.get(
       "El id del reto a obtener es obligatorio y debe ser un id de mongo."
     )
       .isMongoId()
-      .custom(validateRespuestaID),
+      .custom(validateAnswerID),
     validateErrors,
   ],
-  viewOneRespuesta
+  viewOneAnswer
 );
 
 /*Añadir una respuesta*/
-respuestaRouter.post(
+answerRouter.post(
   "/",
   [
-    body("id_usuario", "El id de usuario es obligatori").notEmpty(),
-    body("id_pregunta", "El id de la pregunta es obligatorio").notEmpty(),
+    body("id de usuario", "El id de usuario es obligatori").notEmpty(),
+    body("id de pregunta", "El id de la pregunta es obligatorio").notEmpty(),
     body(
       "language",
       "El lenguaje al que pertenece la respuesta es obligatorio"
     ).isIn(["javascript", "python"]),
+    body("argumento", "El argumento de la respuesta es obligatoria").notEmpty(),
     body(
-      "argiumento",
-      "El argumento de la respuesta es obligatoria"
-    ).notEmpty(),
-    body(
-      "argiumento",
+      "codigo",
       "El codigo que corresponde a la respuesta es obligatoria"
     ).notEmpty(),
     validateErrors,
   ],
-  addRespuesta
+  addAnswer
 );
 
 /*Borrar una respuesta por id*/
-respuestaRouter.delete(
+answerRouter.delete(
   "/:id",
   [
     param(
@@ -65,14 +62,14 @@ respuestaRouter.delete(
       "El id de la respuesta a borrar es obligatorio y debe ser un id de mongo."
     )
       .isMongoId()
-      .custom(validateRespuestaID),
+      .custom(validateAnswerID),
     validateErrors,
   ],
-  deleteRespuesta
+  deleteAnswer
 );
 
 // /*Editar un por id*/
-respuestaRouter.put(
+answerRouter.put(
   "/:id",
   [
     param(
@@ -80,24 +77,21 @@ respuestaRouter.put(
       "El id del reto a borrar es obligatorio y debe ser un id de mongo."
     )
       .isMongoId()
-      .custom(validateRespuestaID),
-    body("id_usuario", "El id de usuario es obligatori").notEmpty(),
-    body("id_pregunta", "El id de la pregunta es obligatorio").notEmpty(),
+      .custom(validateAnswerID),
+    body("id Usuario", "El id de usuario es obligatori").notEmpty(),
+    body("id de pregunta", "El id de la pregunta es obligatorio").notEmpty(),
     body(
       "language",
       "El lenguaje al que pertenece la respuesta es obligatorio"
     ).isIn(["javascript", "python"]),
+    body("argumento", "El argumento de la respuesta es obligatoria").notEmpty(),
     body(
-      "argiumento",
-      "El argumento de la respuesta es obligatoria"
-    ).notEmpty(),
-    body(
-      "argiumento",
+      "codigo",
       "El codigo que corresponde a la respuesta es obligatoria"
     ).notEmpty(),
     validateErrors,
   ],
-  editRespuesta
+  editAnswer
 );
 
-export default respuestaRouter;
+export default answerRouter;

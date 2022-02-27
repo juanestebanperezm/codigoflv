@@ -1,25 +1,25 @@
-import Competencia from "../modelos/Competencias.mjs";
+import competence from "../modelos/competences.mjs";
 import Reto from "../modelos/Retos.mjs";
 
-//Middleware para agregar competencias
+//Middleware para agregar competences
 
-const addCompetencia = async (req, res) => {
+const addCompetence = async (req, res) => {
   try {
-    const { title, description, premio, creador, final, estado } = req.body;
-    const competencia = new Competencia({
+    const { title, description, prize, creator, final, state } = req.body;
+    const competence = new competence({
       title,
       description,
-      premio,
-      creador,
+      prize,
+      creator,
       final,
-      estado,
+      state,
     });
-    await competencia.save();
+    await competence.save();
 
     return res.status(201).send({
       ok: true,
-      msg: "La competencia ha sido creada, ahora espera que te inunden de solicitudes, buena suerte!",
-      competencia,
+      msg: "La competence ha sido creada, ahora espera que te inunden de solicitudes, buena suerte!",
+      competence,
     });
   } catch (error) {
     console.log(error);
@@ -31,22 +31,23 @@ const addCompetencia = async (req, res) => {
   }
 };
 
-//Ver todas las competencias
+//Ver todas las competences
 
-const getCompetencias = async (req, res) => {
+const getCompetences = async (req, res) => {
   try {
     const { limit = 30, skip = 0 } = req.query;
-    const [totalCompetencias, competencias] = await Promise.all([
-      Competencia.countDocuments(),
-      Competencia.find()
+    const [totalCompetences, competences] = await Promise.all([
+      competence.countDocuments(),
+      competence
+        .find()
         .limit(+limit)
         .skip(+skip),
     ]);
 
     return res.status(200).json({
       ok: true,
-      total: totalCompetencias,
-      competencias,
+      total: totalCompetences,
+      competences,
     });
   } catch (error) {
     console.log(error);
@@ -58,22 +59,22 @@ const getCompetencias = async (req, res) => {
   }
 };
 
-//Editar competencias
+//Editar competences
 
-const editCompetencia = async (req, res) => {
+const editCompetence = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, premio, creador, final, estado } = req.body;
-    const dbCompetencia = await Competencia.findByIdAndUpdate(
+    const { title, description, prize, creator, final, state } = req.body;
+    const dbCompetence = await competence.findByIdAndUpdate(
       id,
-      { $set: { title, description, premio, creador, final, estado } },
+      { $set: { title, description, prize, creator, final, state } },
       { returnOriginal: false }
     );
 
     res.status(200).json({
       ok: true,
-      msg: "claro patron, ya el premio de 5 millones de pesos quedo actualizado a 500 mil pesos, gracias por ilusionar a estos maricas",
-      competencia: dbCompetencia,
+      msg: "claro patron, ya el prize de 5 millones de pesos quedo actualizado a 500 mil pesos, gracias por ilusionar a estos maricas",
+      competence: dbCompetence,
     });
   } catch (error) {
     res.status(500).json({
@@ -84,17 +85,17 @@ const editCompetencia = async (req, res) => {
   }
 };
 
-//Eliminar Competencia
+//Eliminar competence
 
-const deleteCompetencia = async (req, res) => {
+const deleteCompetence = async (req, res) => {
   try {
     const { id } = req.params;
-    const findCompetenciaAndDelete = await Reto.findByIdAndDelete(id);
+    const findCompetenceAndDelete = await Reto.findByIdAndDelete(id);
 
     res.status(200).json({
       ok: true,
       msg: "y se marcho, y a su barco le llamo, libertad",
-      findCompetenciaAndDelete,
+      findCompetenceAndDelete,
     });
   } catch (error) {
     res.status(500).json({
@@ -104,22 +105,23 @@ const deleteCompetencia = async (req, res) => {
     });
   }
 };
-// Editar Competencia
 
-const editCompetencia = async (req, res) => {
+// Editar competence
+
+const editCompetence = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, premio, creador, final, estado } = req.body;
-    const dbCompetencia = await Competencia.findByIdAndUpdate(
+    const { title, description, prize, creator, final, state } = req.body;
+    const dbCompetence = await competence.findByIdAndUpdate(
       id,
-      { $set: { title, description, premio, creador, final, estado } },
+      { $set: { title, description, prize, creator, final, state } },
       { returnOriginal: false }
     );
 
     res.status(200).json({
       ok: true,
       msg: " actualizado",
-      competencia: dbCompetencia,
+      competence: dbCompetence,
     });
   } catch (error) {
     res.status(500).json({
@@ -131,9 +133,9 @@ const editCompetencia = async (req, res) => {
 };
 
 export {
-  addCompetencia,
-  getCompetencias,
-  editCompetencia,
-  deleteCompetencia,
-  editCompetencia,
+  addCompetence,
+  getCompetences,
+  editCompetence,
+  deleteCompetence,
+  editCompetence,
 };

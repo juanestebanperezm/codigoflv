@@ -1,19 +1,15 @@
-import {Router} from "express"
+import { Router } from "express";
 
-import {
-    addUser,viewUsers
-} from "../controllers/user.mjs"
+import { addUser, viewUsers } from "../controllers/user.mjs";
 
 //Router
 
-const usersRouter=Router();
-
+const usersRouter = Router();
 
 //Gets
-usersRouter.get('/',viewUsers)
+usersRouter.get("/", viewUsers);
 
 //Post
-usersRouter.post("/",addUser)
-
+usersRouter.post("/", addUser);
 
 export default usersRouter;

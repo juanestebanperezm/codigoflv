@@ -7,9 +7,9 @@ import main from "../database/config.mjs";
 
 //Enrutadores
 import challengesRouter from "../routes/challenge.mjs";
-import competenciasRouter from "../routes/competencias.mjs";
+import competenciasRouter from "../routes/competence.mjs";
 import usersRouter from "../routes/user.mjs";
-import respuestaRouter from "../routes/respuesta.mjs";
+import answerRouter from "../routes/answer.mjs";
 
 class AppServer {
   constructor() {
@@ -21,7 +21,7 @@ class AppServer {
       challenges: "/retos",
       users: "/usuarios",
       competencias: "/competencias",
-      respuesta: "/respuestas",
+      respuestas: "/respuestas",
     };
 
     // Puertos
@@ -61,7 +61,7 @@ class AppServer {
     this.app.use(this.paths.challenges, challengesRouter);
     this.app.use(this.paths.users, usersRouter);
     this.app.use(this.paths.competencias, competenciasRouter);
-    this.app.use(this.paths.respuesta, respuestaRouter);
+    this.app.use(this.paths.respuestas, respuestaRouter);
   }
 
   async databaseConnection() {

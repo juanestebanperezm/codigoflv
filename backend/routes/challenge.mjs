@@ -9,17 +9,17 @@ import {
   deleteChallenge,
   editChallenge,
 } from "../controllers/challenge.mjs";
-import { validateChallengeID } from "../database/challenge-validators.mjs";
-import { validateErrors } from "../middlewares/validate-errors.mjs";
+import { validateChallengeID } from "../database/challengeValidators.mjs";
+import { validateErrors } from "../middlewares/validateErrors.mjs";
 
 /*Router de los retos*/
-const challengerouter = Router();
+const challengeRouter = Router();
 
 /*Obtener todos los retos*/
-challengerouter.get("/", getChallenges);
+challengeRouter.get("/", getChallenges);
 
 /*Obtener reto por id*/
-challengerouter.get(
+challengeRouter.get(
   "/:id",
   [
     param(
@@ -34,11 +34,11 @@ challengerouter.get(
 );
 
 /*Añadir un reto*/
-challengerouter.post(
+challengeRouter.post(
   "/",
   [
-    body("title", "El título del reto es obligatorio").notEmpty(),
-    body("description", "La descripción del reto es obligatoria").notEmpty(),
+    body("titulo", "El título del reto es obligatorio").notEmpty(),
+    body("descripción", "La descripción del reto es obligatoria").notEmpty(),
     body(
       "language",
       "El lenguaje al que pertenece este reto es obligatorio"
@@ -55,7 +55,7 @@ challengerouter.post(
 );
 
 /*Borrar un reto por id*/
-router.delete(
+challengeRouter.delete(
   "/:id",
   [
     param(
@@ -70,7 +70,7 @@ router.delete(
 );
 
 // /*Editar un por id*/
-challengerouter.put(
+challengeRouter.put(
   "/:id",
   [
     param(
@@ -79,8 +79,8 @@ challengerouter.put(
     )
       .isMongoId()
       .custom(validateChallengeID),
-    body("title", "El título del reto es obligatorio").notEmpty(),
-    body("description", "La descripción del reto es obligatoria").notEmpty(),
+    body("titletitulo", "El título del reto es obligatorio").notEmpty(),
+    body("descripción", "La descripción del reto es obligatoria").notEmpty(),
     body(
       "language",
       "El lenguaje al que pertenece este reto es obligatorio"
@@ -96,4 +96,4 @@ challengerouter.put(
   editChallenge
 );
 
-export default challengerouter;
+export default challengeRouter;

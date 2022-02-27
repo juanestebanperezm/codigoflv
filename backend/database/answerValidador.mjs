@@ -1,15 +1,14 @@
-import Respuesta from "../modelos/Respuestas.mjs";
-import Reto from "../modelos/Respuestas.mjs";
+import Answer from "../models/answer.mjs";
 
 /**
  * @param {String} id - Identificador de la respuesta
  * @returns - Error si el id de la respuesta no existe, de lo contrario sigue el flujo
  */
-const validateRespuestaID = async (id) => {
+const validateAnswerID = async (id) => {
   try {
-    const dbRespuesta = await Respuesta.findById(id);
+    const dbAnswer = await Answer.findById(id);
 
-    if (!dbRespuesta) {
+    if (!dbAnswer) {
       throw new Error(`La respuesta con id ${id} no existe`);
     }
 
@@ -19,4 +18,4 @@ const validateRespuestaID = async (id) => {
   }
 };
 
-export { validateRespuestaID };
+export { validateAnswerID };

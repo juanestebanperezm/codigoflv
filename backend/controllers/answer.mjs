@@ -1,16 +1,23 @@
-import Reto from "../models/Retos.mjs ";
+import Answer from "../models/answer.mjs";
 
-//Middleware para añadir un reto
-const addChallenge = async (req, res) => {
+//Middleware para añadir una respuesta
+
+const addAnswer = async (req, res) => {
   try {
-    const { title, description, language, difficulty } = req.body;
-    const reto = new Reto({ title, description, language, difficulty });
-    await reto.save();
+    const { idUser, idQuestion, language, argument, code } = req.body;
+    const answer = new Answer({
+      idUser,
+      idQuestion,
+      language,
+      argument,
+      code,
+    });
+    await answer.save();
 
     return res.status(201).send({
       ok: true,
       msg: "Estamos coronando HP!",
-      reto,
+      answer,
     });
   } catch (error) {
     console.log(error);
@@ -22,21 +29,22 @@ const addChallenge = async (req, res) => {
   }
 };
 
-//Ver todos los retos
-const getChallenges = async (req, res) => {
+//Ver todas las respuestas
+
+const getAnswers = async (req, res) => {
   try {
     const { limit = 30, skip = 0 } = req.query;
-    const [totalChallenges, challenges] = await Promise.all([
-      Reto.countDocuments(),
-      Reto.find()
+    const [totalAnswers, answer] = await Promise.all([
+      Answer.countDocuments(),
+      Answer.find()
         .limit(+limit)
         .skip(+skip),
     ]);
 
     return res.status(200).json({
       ok: true,
-      total: totalChallenges,
-      challenges,
+      total: totalAnswers,
+      answer,
     });
   } catch (error) {
     console.log(error);
@@ -48,12 +56,13 @@ const getChallenges = async (req, res) => {
   }
 };
 
-//Ver un solo reto
-const viewOneChallenge = async (req, res) => {
+//Ver una sola respuesta
+
+const viewOneAnswer = async (req, res) => {
   try {
     const { id } = req.params;
-    const reto = await Reto.findById(id);
-    res.status(200).json(reto);
+    const answer = await Answer.findById(id);
+    res.status(200).json(answer);
   } catch (error) {
     res.status(500).json({
       ok: false,
@@ -63,16 +72,16 @@ const viewOneChallenge = async (req, res) => {
   }
 };
 
-// Eliminar Reto
-const deleteChallenge = async (req, res) => {
+// Eliminar Respuesta
+
+const deleteAnswer = async (req, res) => {
   try {
     const { id } = req.params;
-    const findRetoAndDelete = await Reto.findByIdAndDelete(id);
-
+    const answer = await Answer.findByIdAndDelete(id);
     res.status(200).json({
       ok: true,
-      msg: "Reto eliminado",
-      findRetoAndDelete,
+      msg: "Respuesta eliminada",
+      answer,
     });
   } catch (error) {
     res.status(500).json({
@@ -83,22 +92,22 @@ const deleteChallenge = async (req, res) => {
   }
 };
 
-// Editar Reto
+// Editar Respuesta
 
-const editChallenge = async (req, res) => {
+const editAnswer = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, language, difficulty } = req.body;
-    const dbChallenge = await Reto.findByIdAndUpdate(
+    const { idUser, idQuestion, language, argument, code } = req.body;
+    const dbAnswer = await Answer.findByIdAndUpdate(
       id,
-      { $set: { title, description, language, difficulty } },
+      { $set: { idUser, idQuestion, language, argument, code } },
       { returnOriginal: false }
     );
 
     res.status(200).json({
       ok: true,
-      msg: "Reto actualizado",
-      challenge: dbChallenge,
+      msg: "Respuesta actualizado",
+      answer: dbAnswer,
     });
   } catch (error) {
     res.status(500).json({
@@ -109,10 +118,4 @@ const editChallenge = async (req, res) => {
   }
 };
 
-export {
-  addChallenge,
-  getChallenges,
-  viewOneChallenge,
-  deleteChallenge,
-  editChallenge,
-};
+export { addAnswer, getAnswers, viewOneAnswer, deleteAnswer, editAnswer };

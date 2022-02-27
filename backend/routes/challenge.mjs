@@ -1,47 +1,99 @@
 import { Router } from "express";
-import { body, param } from 'express-validator';
+import { body, param } from "express-validator";
 
 //Controladores
-import { addChallenge, viewOneChallenge ,getChallenges ,deleteChallenge, editChallenge} from "../controllers/challenge.mjs";
-import { validateChallengeID } from "../database/challenge-validators.mjs";
-import { validateErrors } from "../middlewares/validate-errors.mjs";
+import {
+  addChallenge,
+  viewOneChallenge,
+  getChallenges,
+  deleteChallenge,
+  editChallenge,
+} from "../controllers/challenge.mjs";
+import { validateChallengeID } from "../database/challengeValidators.mjs";
+import { validateErrors } from "../middlewares/validateErrors.mjs";
 
 /*Router de los retos*/
-const router = Router();
+const challengeRouter = Router();
 
 /*Obtener todos los retos*/
-router.get('/', getChallenges);
+challengeRouter.get("/", getChallenges);
 
 /*Obtener reto por id*/
-router.get('/:id', [
-    param('id','El id del reto a obtener es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
-    validateErrors
-] , viewOneChallenge);
-
+challengeRouter.get(
+  "/:id",
+  [
+    param(
+      "id",
+      "El id del reto a obtener es obligatorio y debe ser un id de mongo."
+    )
+      .isMongoId()
+      .custom(validateChallengeID),
+    validateErrors,
+  ],
+  viewOneChallenge
+);
 
 /*Añadir un reto*/
-router.post('/', [
-    body('title', 'El título del reto es obligatorio').notEmpty(),
-    body('description','La descripción del reto es obligatoria').notEmpty(),
-    body('language', 'El lenguaje al que pertenece este reto es obligatorio').isIn(['javascript','python']),
-    body('dificultad', 'La dificultad del reto es obligatoria').isIn(['facil','medio','dificil','modoJH']),
-    validateErrors
-], addChallenge);
+challengeRouter.post(
+  "/",
+  [
+    body("titulo", "El título del reto es obligatorio").notEmpty(),
+    body("descripción", "La descripción del reto es obligatoria").notEmpty(),
+    body(
+      "language",
+      "El lenguaje al que pertenece este reto es obligatorio"
+    ).isIn(["javascript", "python"]),
+    body("dificultad", "La dificultad del reto es obligatoria").isIn([
+      "facil",
+      "medio",
+      "dificil",
+      "modoJH",
+    ]),
+    validateErrors,
+  ],
+  addChallenge
+);
 
 /*Borrar un reto por id*/
-router.delete('/:id', [
-    param('id', 'El id del reto a borrar es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
-    validateErrors
-], deleteChallenge);
+challengeRouter.delete(
+  "/:id",
+  [
+    param(
+      "id",
+      "El id del reto a borrar es obligatorio y debe ser un id de mongo."
+    )
+      .isMongoId()
+      .custom(validateChallengeID),
+    validateErrors,
+  ],
+  deleteChallenge
+);
 
 // /*Editar un por id*/
-router.put('/:id', [
-    param('id', 'El id del reto a borrar es obligatorio y debe ser un id de mongo.').isMongoId().custom(validateChallengeID),
-    body('title', 'El título del reto es obligatorio').notEmpty(),
-    body('description','La descripción del reto es obligatoria').notEmpty(),
-    body('language', 'El lenguaje al que pertenece este reto es obligatorio').isIn(['javascript','python']),
-    body('dificultad', 'La dificultad del reto es obligatoria').isIn(['facil','medio','dificil','modoJH']),
-    validateErrors
-], editChallenge);
+challengeRouter.put(
+  "/:id",
+  [
+    param(
+      "id",
+      "El id del reto a borrar es obligatorio y debe ser un id de mongo."
+    )
+      .isMongoId()
+      .custom(validateChallengeID),
+    body("titletitulo", "El título del reto es obligatorio").notEmpty(),
+    body("descripción", "La descripción del reto es obligatoria").notEmpty(),
+    body(
+      "language",
+      "El lenguaje al que pertenece este reto es obligatorio"
+    ).isIn(["javascript", "python"]),
+    body("dificultad", "La dificultad del reto es obligatoria").isIn([
+      "facil",
+      "medio",
+      "dificil",
+      "modoJH",
+    ]),
+    validateErrors,
+  ],
+  editChallenge
+);
 
-export default router;
+export default challengeRouter;

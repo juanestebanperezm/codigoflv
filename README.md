@@ -6,7 +6,7 @@ Para instalar las dependencias y poder ejecutar el proyecto 💯 🤑 🤠 👽
 ```
 cd frontend
 npm install
-npm i @monaco-editor/react react-codemirror2 @material-ui/core
+npm i @monaco-editor/react react-codemirror2 @material-ui/core react-bootstrap bootstrap@5.1.3
 
 cd backend
 npm install

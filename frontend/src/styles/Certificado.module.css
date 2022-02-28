@@ -1,0 +1,14 @@
+.container{
+    margin: auto;
+    display: inline-flex;
+   padding: 100px;
+}
+
+
+.carduno{
+    margin: 20px;
+}
+
+.carddos{
+    margin: 20px;
+}

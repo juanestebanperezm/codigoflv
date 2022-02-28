@@ -61,7 +61,7 @@ function Cabecera() {
         </div>
         <Routes>
           <Route exact path="/preparate" element={<Preparate/>}/>
-          <Route exact path="/certificado" element={<Certificado/>}/>
+          <Route exact path="/certificate" element={<Certificado/>}/>
           <Route exact path="/compite" element={<Compite/>}/>
           <Route exact path="/reto/:id" element={<Reto/>}/>
           <Route exact path="/cuenta" element={<Cuenta/>}/>

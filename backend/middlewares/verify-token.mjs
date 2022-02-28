@@ -8,7 +8,6 @@ const verifyToken = (req,res,next) => {
     try {
         const token = req.header('codigosancocho-token');
         // Se verifica que el token venga en la petición
-
         if ( !token ) {
             return res.status(401).json({
                 ok: false,

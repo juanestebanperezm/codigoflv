@@ -24,7 +24,7 @@ const validateUserID = async (id) => {
  * @param {String} email - Correo eletrónico a buscar
  * @returns - Error si el el correo electrónico existe, de lo contrario continua el flujo
  */
-const findExistingEmail = async (email) => {
+const findExistingUsedEmail = async (email) => {
   try {
     const dbUser = await User.findOne({ email });
 
@@ -40,4 +40,43 @@ const findExistingEmail = async (email) => {
   }
 };
 
-export { validateUserID, findExistingEmail };
+/**
+ * Middleware para validar correo y contraseña
+ */
+const validateEmailAndPassword = async (req,res,next) => {
+  try {
+    const { email, password } = req.body; 
+    const dbUser = await User.findOne({ email });
+
+    if (!dbUser) {
+      return res.status(400).json({
+        ok: false,
+        msg: 'Credenciales incorrectas :('
+      });
+    }
+
+    const passwordMatch = await dbUser.matchPassword(password);
+   
+    if (!passwordMatch) {
+      return res.status(400).json({
+        ok: false,
+        msg: 'Credenciales incorrectas :('
+      });
+    }
+
+    req.user = dbUser;
+    next();
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Haber que te digo, mmmm sera que nos quedamos sin plata para pagar por esto?",
+      error,
+    });
+  }
+};
+
+
+
+export { validateUserID, findExistingUsedEmail, validateEmailAndPassword };

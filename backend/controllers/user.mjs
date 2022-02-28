@@ -1,6 +1,7 @@
 //Paquetes
 
 //Modelo
+import { generateJWT } from "../helpers/generate-jwt.mjs";
 import User from "../models/user.mjs";
 
 //Middleware para añadir un user
@@ -12,8 +13,11 @@ const addUser = async (req, res) => {
     user.password = await user.encryptPassword(password);
     await user.save();
 
+    const token = await generateJWT(user.id);
+
     return res.status(201).send({
       ok:true,
+      token,
       user
     });
   } catch (error) {

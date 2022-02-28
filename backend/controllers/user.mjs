@@ -10,6 +10,7 @@ const addUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = new User({ name, email });
+
     user.password = await user.encryptPassword(password);
     await user.save();
 
@@ -20,6 +21,7 @@ const addUser = async (req, res) => {
       token,
       user
     });
+    
   } catch (error) {
     console.log(error);
     res.status(500).json({

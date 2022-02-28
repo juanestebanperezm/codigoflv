@@ -1,87 +1,131 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Registro.module.css";
 
+//Que gonorrea usar este paquete, el propio espaguetti esta puta mierda, pero bueno...
+import * as Yup from "yup";
+import { Formik, Field, ErrorMessage, FieldArray } from "formik";
+
+import {
+  Container,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Card,
+  CardBody,
+  CardHeader,
+  FormFeedback,
+} from "reactstrap";
+
 function Registro() {
-  const [first, setName] = useState("");
-  const [last, setLast] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeat_password, setRepeatPassword] = useState("");
-
-
-  const URL = "http://localhost:3000/usuarios";
-
-  const username = { name:{first,last}, email, password,repeat_password };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    fetch(URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(username),
-    }).then(() => {
-      console.log(":)");
-    });
-  };
-
   return (
-    <div className={styles["fondo"]}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles["input-fields"]}>
-          <label className={styles["chapa"]}>Primer nombre</label>
-          <input
-            type="text"
-            placeholder="Nombre de usuario"
-            className={styles["inlinein"]}
-            name="first"
-            onChange={(e) => setName(e.target.value)}
-            value={username.name.first}
-          ></input>
-          <label className={styles["chapa"]}>Segundo nombre</label>
-          <input
-            type="text"
-            placeholder="Nombre de usuario"
-            className={styles["inlinein"]}
-            name="last"
-            onChange={(e) => setLast(e.target.value)}
-            value={username.name.last}
-          ></input>
-          <label className={styles["chapa"]}>Correo</label>
-          <input
-            type="email"
-            placeholder="Email"
-            className={styles["inlinein"]}
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          ></input>
-          <label className={styles["chapa"]}>
-            La clave y ojo pone algo bien facil
-          </label>
-          <input
-            type="password"
-            placeholder="Contraseña"
-            className={styles["inlinein"]}
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          ></input>
-          <label className={styles["chapa"]}>
-            Repite la contraseña
-          </label>
-          <input
-            type="password"
-            placeholder="Contraseña"
-            className={styles["inlinein"]}
-            name="password"
-            onChange={(e) => setRepeatPassword(e.target.value)}
-            value={repeat_password}
-          ></input>
+    <Container className="p-5">
+      <Card>
+        <CardHeader></CardHeader>
+        <CardBody>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              password: "",
+              bio: "",
+            }}
+            validate={(values) => {
+              const errors = {};
 
-          <button className={styles["name noselect"]}>Registrate</button>
-        </div>
-      </form>
-    </div>
+              // We need a name
+              if (!values.name) errors.name = "Required";
+
+              // We need a valid e-mail
+              if (!values.email) errors.email = "Required";
+              else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
+                errors.email = "Invalid email address";
+
+              // We need a valid password
+              if (!values.password) errors.password = "Required";
+              else if (`${values.password}`.length < 7)
+                errors.password =
+                  "Password must be larger than 7 characters";
+
+              console.log({ values, errors });
+
+              return errors;
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+
+                setSubmitting(false);
+              }, 250);
+            }}
+          >
+            {(props) => {
+              const {
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                /* y otras más */
+              } = props;
+              return (
+                <Form onSubmit={handleSubmit}>
+                  <h1>Form</h1>
+                  <FormGroup>
+                    <Label for="name">Name</Label>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder="Woody Allen"
+                      invalid={errors.name && touched.name}
+                      tag={Field}
+                    />
+                    <FormFeedback>{errors.name}</FormFeedback>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="email">Email</Label>
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="contoso@domain.com"
+                      invalid={errors.email && touched.email}
+                      tag={Field}
+                    />
+                    <FormFeedback>{errors.email}</FormFeedback>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="password">Password</Label>
+                    <Input
+                      type="password"
+                      name="password"
+                      placeholder="Provide a password"
+                      invalid={errors.password && touched.password}
+                      tag={Field}
+                    />
+                    <FormFeedback>{errors.password}</FormFeedback>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="bio">Text Area</Label>
+                    <Input
+                      type="textarea"
+                      name="bio"
+                      tag={Field}
+                    />
+                  </FormGroup>
+
+                  <Button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? `Loading` : `Submit`}
+                  </Button>
+                </Form>
+              );
+            }}
+          </Formik>
+        </CardBody>
+      </Card>
+    </Container>
   );
 }
 

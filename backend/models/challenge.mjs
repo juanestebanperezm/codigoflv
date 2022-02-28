@@ -3,6 +3,9 @@ const { Schema, model } = moongose;
 
 //Este esquema require poder almacenar un array donde se establezcan las categorias de un reto
 //Ya que puede tener varias, Matematicas, estructuras de datos, string y muchas de estas combinadas :O
+const options = {
+  timestamps: true
+}
 
 const challengeSchema = new Schema({
   title: {
@@ -10,7 +13,7 @@ const challengeSchema = new Schema({
     required: [
       true,
       "El titulo es obligatorio ome, o es que la gente adivina de que trata?",
-    ],
+    ]
   },
   description: {
     type: String,
@@ -26,16 +29,8 @@ const challengeSchema = new Schema({
   dificulty: {
     type: String,
     required: true,
-  },
-  created_at: {
-    type: Date,
-    default: Date.now,
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  }
+}, options);
 
 challengeSchema.methods.toJSON = function () {
   const { __v, _id, ...challenges } = this.toObject();
@@ -43,6 +38,6 @@ challengeSchema.methods.toJSON = function () {
   return challenges;
 };
 
-const Reto = model("challenge", challengeSchema);
+const Reto = model("Challenge", challengeSchema);
 
 export default Reto;

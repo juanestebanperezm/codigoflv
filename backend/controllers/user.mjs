@@ -1,17 +1,21 @@
 //Paquetes
 
 //Modelo
-import UserSchema from "../models/users.mjs";
+import User from "../models/user.mjs";
 
 //Middleware para añadir un user
 
 const addUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const user = new UserSchema({ name, email, password });
+    const user = new User({ name, email });
+    user.password = await user.encryptPassword(password);
     await user.save();
 
-    return res.status(200).send("Estamos coronando HP!");
+    return res.status(201).send({
+      ok:true,
+      user
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({

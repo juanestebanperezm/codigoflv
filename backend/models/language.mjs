@@ -3,9 +3,7 @@ const { Schema, model } = moongose;
 
 //Este esquema require poder almacenar un array donde se establezcan las categorias de una respúesta
 //Ya que puede tener varias, Matematicas, estructuras de datos, string y muchas de estas combinadas :O
-const options = {
-  timestamps: true,
-}
+const options = { timestamps: true }
 
 const answerSchema = new Schema({
   idUser: {

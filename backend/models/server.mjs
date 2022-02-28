@@ -3,8 +3,8 @@ import morgan from "morgan";
 import cors from "cors";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import main from "../database/config.mjs";
 
+import main from "../database/config.mjs";
 //Enrutadores
 import challengesRouter from "../routes/challenge.mjs";
 import competenciasRouter from "../routes/competence.mjs";

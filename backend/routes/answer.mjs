@@ -1,15 +1,9 @@
 import { Router } from "express";
 import { body, param } from "express-validator";
 
-/*controladores*/
-import {
-  addAnswer,
-  viewOneAnswer,
-  getAnswers,
-  deleteAnswer,
-  editAnswer,
-} from "../controllers/answer.mjs";
-import { validateAnswerID } from "../database/answerValidador.mjs";
+// Controladores
+import { addAnswer, viewOneAnswer, getAnswers, deleteAnswer, editAnswer, } from "../controllers/answer.mjs";
+import { validateAnswerID } from "../database/answerValidadors.mjs";
 import { validateErrors } from "../middlewares/validateErrors.mjs";
 
 /*Router de los retos*/

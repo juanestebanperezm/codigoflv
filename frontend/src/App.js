@@ -1,12 +1,18 @@
-import './App.css';
-import Cabecera from './components/Cabecera';
-import Lateral from './components/Lateral';
+import "./App.css";
+
+//Componentes
+import Cabecera from "./components/Cabecera";
+import Footer from "./components/Footer";
+
+
 
 function App() {
+
+  
   return (
     <div className="App">
-      <Cabecera/>
-      <Lateral/>
+      <Cabecera />
+      <Footer/>
     </div>
   );
 }

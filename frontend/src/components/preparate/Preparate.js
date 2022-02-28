@@ -23,8 +23,11 @@ function Preparate() {
 
 
   return (
-    <>
+    <>  
+ 
+    
       <div className={styles["container"]}>
+        
          {!todos
           ? "Cargando datos, ve tomandote una cerveza"
           : todos.map((info) => {

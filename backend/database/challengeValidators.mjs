@@ -1,4 +1,4 @@
-import Reto from "../models/retos.mjs";
+import Challenge from "../models/challenge.mjs";
 
 /**
  * @param {String} id - Identificador del usuario
@@ -6,7 +6,7 @@ import Reto from "../models/retos.mjs";
  */
 const validateChallengeID = async (id) => {
   try {
-    const dbReto = await Reto.findById(id);
+    const dbReto = await Challenge.findById(id);
 
     if (!dbReto) {
       throw new Error(`El reto con id ${id} no existe`);

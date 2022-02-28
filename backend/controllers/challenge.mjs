@@ -1,10 +1,10 @@
-import Reto from "../models/retos.mjs ";
+import Challenge from "../models/challenge.mjs";
 
 //Middleware para añadir un reto
 const addChallenge = async (req, res) => {
   try {
     const { title, description, language, difficulty } = req.body;
-    const reto = new Reto({ title, description, language, difficulty });
+    const reto = new Challenge({ title, description, language, difficulty });
     await reto.save();
 
     return res.status(201).send({
@@ -27,8 +27,8 @@ const getChallenges = async (req, res) => {
   try {
     const { limit = 30, skip = 0 } = req.query;
     const [totalChallenges, challenges] = await Promise.all([
-      Reto.countDocuments(),
-      Reto.find()
+      Challenge.countDocuments(),
+      Challenge.find()
         .limit(+limit)
         .skip(+skip),
     ]);
@@ -52,8 +52,11 @@ const getChallenges = async (req, res) => {
 const viewOneChallenge = async (req, res) => {
   try {
     const { id } = req.params;
-    const reto = await Reto.findById(id);
-    res.status(200).json(reto);
+    const dbChallenge = await Challenge.findById(id);
+    return res.status(200).json({
+      ok:true,
+      challenge:dbChallenge
+    });
   } catch (error) {
     res.status(500).json({
       ok: false,
@@ -67,7 +70,7 @@ const viewOneChallenge = async (req, res) => {
 const deleteChallenge = async (req, res) => {
   try {
     const { id } = req.params;
-    const findRetoAndDelete = await Reto.findByIdAndDelete(id);
+    const findRetoAndDelete = await Challenge.findByIdAndDelete(id);
 
     res.status(200).json({
       ok: true,
@@ -89,7 +92,7 @@ const editChallenge = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, language, difficulty } = req.body;
-    const dbChallenge = await Reto.findByIdAndUpdate(
+    const dbChallenge = await Challenge.findByIdAndUpdate(
       id,
       { $set: { title, description, language, difficulty } },
       { returnOriginal: false }

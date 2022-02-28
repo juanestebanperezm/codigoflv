@@ -1,12 +1,13 @@
 import React from "react";
 
 import  "../styles/Footer.css"
+import monaChina from "../styles/assets/temporalAdvertisement.jpg"
 
 function Footer() {
   return (
     <div>
       <div className="dummy_page">
-        Aqui va un anuncio publicitario
+        <img src={ monaChina } alt='anuncio pedorro' className="advertisement"/>
       </div>
       <div className="footer">
         <div className="contain">
@@ -35,7 +36,7 @@ function Footer() {
             <ul>
               <li>#0209 el parcero no muestra bien el nombre en discord</li>
               <li>Will Dv</li>
-              <li>lier</li>
+              <li>ema4hhh</li>
               <li>juanjhoaneti</li>
               <li>janko</li>
             </ul>

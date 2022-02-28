@@ -48,7 +48,7 @@ function Cabecera() {
                   <li className={styles['nav-link-item']}>
                     <Link to="/registroempresa">Para Empresas</Link>
                   </li>
-                  <li className="{syles['nav-link-item']}">
+                  <li className={styles['nav-link-item']}>
                     <Link to="/cuenta">Cuenta</Link>
                   </li>
                   <li className={styles['nav-link-item']}>

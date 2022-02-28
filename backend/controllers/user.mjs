@@ -2,13 +2,13 @@
 
 //Modelo
 import { generateJWT } from "../helpers/generate-jwt.mjs";
-import User from "../models/user.mjs";
+import UserSchema from "../models/user.mjs";
 
 //Middleware para añadir un user
 const addUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const user = new User({ name, email });
+    const user = new UserSchema({ name, email });
 
     user.password = await user.encryptPassword(password);
     await user.save();

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 // ESTILOS
 import styles from "../styles/Compite.module.css";
 
+
 function Compite() {
   const URL = "http://localhost:3000/competencias";
   const [competencias, setCompetencia] = useState();
@@ -17,7 +18,8 @@ function Compite() {
   }, []);
 
   return (
-    <div className={styles["contenedor"]}>
+
+      <div className={styles["contenedor"]}>
       <p className={styles["all"]}>Todas las competencias</p>
       <h1 className={styles["campeonatos"]}>Competencias con premios</h1>
 
@@ -62,6 +64,7 @@ function Compite() {
               })}
       </div>
     </div>
+   
   );
 }
 

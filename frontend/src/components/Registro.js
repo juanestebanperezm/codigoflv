@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import styles from "../styles/Registro.module.css";
 
 function Registro() {
-  const [name, setName] = useState("");
+  const [first, setName] = useState("");
+  const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repeat_password, setRepeatPassword] = useState("");
+
 
   const URL = "http://localhost:3000/usuarios";
 
+  const username = { name:{first,last}, email, password,repeat_password };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = { name, email, password };
 
     fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
+      body: JSON.stringify(username),
     }).then(() => {
       console.log(":)");
     });
@@ -25,16 +28,23 @@ function Registro() {
     <div className={styles["fondo"]}>
       <form onSubmit={handleSubmit}>
         <div className={styles["input-fields"]}>
-          <label className={styles["chapa"]}>
-            Nickname, apodo, chapa o como queras llamarte
-          </label>
+          <label className={styles["chapa"]}>Primer nombre</label>
           <input
             type="text"
             placeholder="Nombre de usuario"
             className={styles["inlinein"]}
-            name="name"
+            name="first"
             onChange={(e) => setName(e.target.value)}
-            value={name}
+            value={username.name.first}
+          ></input>
+          <label className={styles["chapa"]}>Segundo nombre</label>
+          <input
+            type="text"
+            placeholder="Nombre de usuario"
+            className={styles["inlinein"]}
+            name="last"
+            onChange={(e) => setLast(e.target.value)}
+            value={username.name.last}
           ></input>
           <label className={styles["chapa"]}>Correo</label>
           <input
@@ -56,12 +66,17 @@ function Registro() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           ></input>
-          {/*   <label className={styles["chapa"]}>Repita la clave</label>
-        <input
-          type="password"
-          placeholder="Confirma tu contraseña"
-          className={styles["inlinein"]}
-        ></input> */}
+          <label className={styles["chapa"]}>
+            Repite la contraseña
+          </label>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            className={styles["inlinein"]}
+            name="password"
+            onChange={(e) => setRepeatPassword(e.target.value)}
+            value={repeat_password}
+          ></input>
 
           <button className={styles["name noselect"]}>Registrate</button>
         </div>

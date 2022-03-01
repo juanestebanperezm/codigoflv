@@ -5,7 +5,7 @@ import '../../styles/Advertesiment.css'
 
 function AdvertesimentLeft() {
   return (
-    <div class="sidenavLeft">
+    <div class="addLeft">
       <img src={ monaChina } alt="Anuncio pa' comer" />
       <a>Si ves esto es porque hay poco contenido arriba</a>
     </div>

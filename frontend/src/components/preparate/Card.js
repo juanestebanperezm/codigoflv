@@ -15,7 +15,7 @@ export const Card = ({ id, description, title, language, dificultad }) => {
         <h1>{title}</h1>
         <p className={styles["descrip"]}>{description}</p>
         <p className={styles["lan"]}>{language}</p>
-        <p>{dificultad}</p>
+        <p></p>
       </div>
     </>
   );

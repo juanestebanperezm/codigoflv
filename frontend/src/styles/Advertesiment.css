@@ -1,4 +1,4 @@
-.sidenavLeft {
+.addLeft {
   width: 15%;
   position: fixed;
   z-index: -1;
@@ -7,7 +7,7 @@
   overflow-x: hidden;
   padding: 8px 0;
 }
-.sidenavRight {
+.addRight {
   width: 15%;
   position: fixed;
   z-index: -1;
@@ -15,4 +15,12 @@
   left: 82.6%;
   overflow-x: hidden;
   padding: 8px 0;
+}
+.advertisement {
+  margin: 0px;
+  width: 10%;
+  height: 10%;
+}
+.subb {
+  margin: 0px;
 }

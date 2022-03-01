@@ -1,7 +1,7 @@
 import Challenge from "../models/challenge.mjs";
 
 //Middleware para añadir un reto
-const addChallenge = async (req, res) => {
+const createChallenge = async (req, res) => {
   try {
     const { title, description, language, difficulty } = req.body;
     const reto = new Challenge({ title, description, language, difficulty });
@@ -49,7 +49,7 @@ const getChallenges = async (req, res) => {
 };
 
 //Ver un solo reto
-const viewOneChallenge = async (req, res) => {
+const getSingleChallenge = async (req, res) => {
   try {
     const { id } = req.params;
     const dbChallenge = await Challenge.findById(id);
@@ -88,7 +88,7 @@ const deleteChallenge = async (req, res) => {
 
 // Editar Reto
 
-const editChallenge = async (req, res) => {
+const updateChallenge = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, language, difficulty } = req.body;
@@ -113,9 +113,9 @@ const editChallenge = async (req, res) => {
 };
 
 export {
-  addChallenge,
+  createChallenge,
   getChallenges,
-  viewOneChallenge,
+  getSingleChallenge,
   deleteChallenge,
-  editChallenge,
+  updateChallenge,
 };

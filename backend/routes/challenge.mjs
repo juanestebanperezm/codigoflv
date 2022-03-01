@@ -3,11 +3,11 @@ import { body, param } from "express-validator";
 
 //Controladores
 import {
-  addChallenge,
-  viewOneChallenge,
+  createChallenge,
+  getSingleChallenge,
   getChallenges,
   deleteChallenge,
-  editChallenge,
+  updateChallenge,
 } from "../controllers/challenge.mjs";
 import { validateChallengeID } from "../database/challengeValidators.mjs";
 import { validateErrors } from "../middlewares/validateErrors.mjs";
@@ -30,7 +30,7 @@ challengeRouter.get(
       .custom(validateChallengeID),
     validateErrors,
   ],
-  viewOneChallenge
+  getSingleChallenge
 );
 
 /*Añadir un reto*/
@@ -51,7 +51,7 @@ challengeRouter.post(
     ]),
     validateErrors,
   ],
-  addChallenge
+  createChallenge
 );
 
 /*Borrar un reto por id*/
@@ -93,7 +93,7 @@ challengeRouter.put(
     ]),
     validateErrors,
   ],
-  editChallenge
+  updateChallenge
 );
 
 export default challengeRouter;

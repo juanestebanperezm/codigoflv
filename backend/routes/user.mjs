@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { body } from "express-validator";
 
-import { addUser, userLogin, viewUsers } from "../controllers/user.mjs";
+import { createUser, userLogin, getUsers } from "../controllers/user.mjs";
 import { findExistingUsedEmail, validateEmailAndPassword } from "../database/userValidators.mjs";
 import { validateErrors } from "../middlewares/validateErrors.mjs";
 
@@ -9,7 +9,7 @@ import { validateErrors } from "../middlewares/validateErrors.mjs";
 const usersRouter = Router();
 
 // Obtener todos los usuarios
-usersRouter.get("/", viewUsers);
+usersRouter.get("/", getUsers);
 
 // Registro usuario
 usersRouter.post("/", [
@@ -19,7 +19,7 @@ usersRouter.post("/", [
     body('password','La contraseña es obligatoria, el mínimo de caracteres es 6').isLength(6),
     body('repeat_password','Repetir contraseña debe ser igual a contraseña').exists().custom((repeat_password, { req }) => repeat_password === req.body.password),
     validateErrors
-], addUser);
+], createUser);
 
 // Iniciar sesión
 usersRouter.post('/login', [

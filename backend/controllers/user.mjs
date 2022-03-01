@@ -1,11 +1,8 @@
-//Paquetes
-
-//Modelo
 import { generateJWT } from "../helpers/generate-jwt.mjs";
 import UserSchema from "../models/user.mjs";
 
 //Middleware para añadir un user
-const addUser = async (req, res) => {
+const createUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = new UserSchema({ name, email });
@@ -41,7 +38,7 @@ const userLogin = async (req, res) => {
       ok:true,
       token,
       user
-    })
+    });
 
   } catch (error) {
     console.log(error);
@@ -55,7 +52,7 @@ const userLogin = async (req, res) => {
 
 //Middleware para obtener todos los usuarios
 //TODO: Arreglar esta vuelta (si hay alguna algo que arreglar)
-const viewUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const result = await UserSchema.find();
     return res.json(result);
@@ -69,4 +66,4 @@ const viewUsers = async (req, res) => {
   }
 };
 
-export { addUser, viewUsers, userLogin };
+export { createUser, getUsers, userLogin };

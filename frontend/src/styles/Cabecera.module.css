@@ -83,7 +83,7 @@ nav {
 }
 
 .header {
-    position: static;
+    position: fixed;
 }
 
 .header .container {

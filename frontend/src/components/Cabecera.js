@@ -22,7 +22,7 @@ import styles from "../styles/Cabecera.module.css";
 function Cabecera() {
   return (
     <BrowserRouter>
-      <div>
+      <div >
         <div className={styles.header}>
           <nav>
             <div className={styles.container}>

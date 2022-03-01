@@ -1,14 +1,18 @@
 .container{
     margin: auto;
-    display: inline-flex;
-   padding: 100px;
+  width: 50%;
+  padding: 80px;
+  justify-content: center;
+  display:flexbox
+  
+   
 }
 
 
 .carduno{
-    margin: 20px;
+    margin: 10px;
 }
 
 .carddos{
-    margin: 20px;
+    margin: 10px;
 }

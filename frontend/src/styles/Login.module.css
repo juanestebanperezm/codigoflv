@@ -1,10 +1,26 @@
+.row {
+    display: table;
+	margin: auto;
+	width: 50%;
+   
+}
+.column {
+    display: table-cell;
+}
+
+.anuncios{
+	display: table;
+    width: 100%; 
+    table-layout: fixed; 
+    border-spacing: 10px; 
+}
 .input-fields {
 	margin: auto;
 	width: 50%;
 	display: grid;
 	justify-content: center;
-	padding: 15%;
-	background-color: rgb(27, 27, 27);
+	padding: 5%;
+	
   
   }
   
@@ -16,7 +32,7 @@
   }
   
   .chapa{
-	  color: white;
+	  color: rgb(0, 0, 0);
 	  margin: 5px;
   }
   
@@ -29,7 +45,7 @@
   
   .inlinein {
 	border-radius: 3%;
-	border: 1px solid black;
+	border: 1px solid rgb(0, 0, 0);
 	padding: 2%;
 	margin-bottom: 10%;
   }

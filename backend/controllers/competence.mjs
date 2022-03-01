@@ -2,7 +2,7 @@ import Competence from "../models/competence.mjs";
 
 //Middleware para agregar competences
 
-const addCompetence = async (req, res) => {
+const createCompetence = async (req, res) => {
   try {
     const { title, description, prize, creator, final, state } = req.body;
     const competence = new Competence({
@@ -105,11 +105,24 @@ const deleteCompetence = async (req, res) => {
   }
 };
 
+//Actualizar competencia
+const updateCompetence = async (req, res) => {
+  try {
+   
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: "parcero eso no quiere borrar jajaja se va a embalar si no borra eso antes de tiempo",
+      error,
+    });
+  }
+};
+
 
 export {
-  addCompetence,
+  createCompetence,
   getCompetences,
   editCompetence,
   deleteCompetence,
-
+  updateCompetence
 };

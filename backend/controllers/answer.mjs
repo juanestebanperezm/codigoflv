@@ -2,7 +2,7 @@ import Answer from "../models/answer.mjs";
 
 //Middleware para añadir una respuesta
 
-const addAnswer = async (req, res) => {
+const createAnswer = async (req, res) => {
   try {
     const { idUser, idQuestion, language, argument, code } = req.body;
     const answer = new Answer({
@@ -58,7 +58,7 @@ const getAnswers = async (req, res) => {
 
 //Ver una sola respuesta
 
-const viewOneAnswer = async (req, res) => {
+const getSingleAnswer = async (req, res) => {
   try {
     const { id } = req.params;
     const answer = await Answer.findById(id);
@@ -94,7 +94,7 @@ const deleteAnswer = async (req, res) => {
 
 // Editar Respuesta
 
-const editAnswer = async (req, res) => {
+const updateAnswer = async (req, res) => {
   try {
     const { id } = req.params;
     const { idUser, idQuestion, language, argument, code } = req.body;
@@ -118,4 +118,4 @@ const editAnswer = async (req, res) => {
   }
 };
 
-export { addAnswer, getAnswers, viewOneAnswer, deleteAnswer, editAnswer };
+export { createAnswer, getAnswers, getSingleAnswer, deleteAnswer, updateAnswer };

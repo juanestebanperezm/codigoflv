@@ -2,7 +2,7 @@ import { Router } from "express";
 import { body, param } from "express-validator";
 
 // Controladores
-import { addAnswer, viewOneAnswer, getAnswers, deleteAnswer, editAnswer, } from "../controllers/answer.mjs";
+import { createAnswer, getSingleAnswer, getAnswers, deleteAnswer, updateAnswer, } from "../controllers/answer.mjs";
 import { validateAnswerID } from "../database/answerValidadors.mjs";
 import { validateErrors } from "../middlewares/validateErrors.mjs";
 
@@ -24,7 +24,7 @@ answerRouter.get(
       .custom(validateAnswerID),
     validateErrors,
   ],
-  viewOneAnswer
+  getSingleAnswer
 );
 
 /*Añadir una respuesta*/
@@ -44,7 +44,7 @@ answerRouter.post(
     ).notEmpty(),
     validateErrors,
   ],
-  addAnswer
+  createAnswer
 );
 
 /*Borrar una respuesta por id*/
@@ -85,7 +85,7 @@ answerRouter.put(
     ).notEmpty(),
     validateErrors,
   ],
-  editAnswer
+  updateAnswer
 );
 
 export default answerRouter;

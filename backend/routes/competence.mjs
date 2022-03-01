@@ -3,9 +3,9 @@ import { body, param } from "express-validator";
 
 //Controladores
 import {
-  addCompetence,
+  createCompetence,
   getCompetences,
-  editCompetence,
+  updateCompetence,
   deleteCompetence,
 } from "../controllers/competence.mjs";
 
@@ -13,10 +13,10 @@ import {
 const competenceRouter = Router();
 
 //Posts
-competenceRouter.post("/", addCompetence);
+competenceRouter.post("/", createCompetence);
 
 //Edit
-competenceRouter.put("/:id", editCompetence);
+competenceRouter.put("/:id", updateCompetence);
 
 //Delete
 competenceRouter.delete("/:id", deleteCompetence);

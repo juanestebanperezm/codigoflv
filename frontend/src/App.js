@@ -5,6 +5,7 @@ import Cabecera from "./components/Cabecera";
 import Footer from "./components/Footer";
 import Advertisement from "./components/advertisement/Advertisement";
 import Lateral from "./components/Lateral";
+import { Navigation } from "./routers/Navigation";
 
 
 function App() {
@@ -12,8 +13,7 @@ function App() {
   return (
     <div className="App">
       <Cabecera />
-     
-     
+      <Navigation />
     </div>
   );
 }

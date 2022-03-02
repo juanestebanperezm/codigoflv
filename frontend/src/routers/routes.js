@@ -31,7 +31,7 @@ const ROUTES = [
     component: () => <Compite />
   },
   {
-    path: "/reto",
+    path: "/reto/:id",
     key: "RETO",
     component: () => <Reto />
   },

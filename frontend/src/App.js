@@ -12,9 +12,8 @@ function App() {
   return (
     <div className="App">
       <Cabecera />
-      <Lateral/>
-      <Advertisement />
-      <Footer/>
+      <Advertisement/>
+      
     </div>
   );
 }

@@ -3,13 +3,18 @@ import { body } from "express-validator";
 
 import { createUser, userLogin, getUsers } from "../controllers/user.mjs";
 import { findExistingUsedEmail, validateEmailAndPassword } from "../database/userValidators.mjs";
+import { validateRole } from "../middlewares/validate-role.mjs";
 import { validateErrors } from "../middlewares/validateErrors.mjs";
+import { verifyToken } from "../middlewares/verify-token.mjs";
 
 // Router
 const usersRouter = Router();
 
 // Obtener todos los usuarios
-usersRouter.get("/", getUsers);
+usersRouter.get("/", [
+    verifyToken,
+    validateRole('')
+], getUsers);
 
 // Registro usuario
 usersRouter.post("/", [

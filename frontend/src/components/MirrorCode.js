@@ -20,9 +20,10 @@ function MirrorCode() {
 
   return (
     <div>
-      <button onClick={handleSave}></button>
+     
       <Editor
-        height="100px"
+        height="400px"
+        width="700px"
         theme="vs-dark"
         default-language="javascript"
         value={contentMarkdown}

@@ -5,7 +5,7 @@ import '../../styles/Advertesiment.css'
 
 function AdvertesimentRight() {
   return (
-    <div class="sidenavRight">
+    <div className="addRight">
       <img src={ monaChina } alt="Anuncio pa' comer" />
       <a>espero no que esté cuando pongan contenido</a>
     </div>

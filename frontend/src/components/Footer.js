@@ -1,13 +1,14 @@
 import React from "react";
 
 import  "../styles/Footer.css"
-import monaChina from "../styles/assets/temporalAdvertisement.jpg"
+
+import AdvertisementBottom from "./advertisement/AdvertisementBottom";
 
 function Footer() {
   return (
     <div>
       <div className="dummy_page">
-        <img src={ monaChina } alt='anuncio pedorro' className="advertisement"/>
+        <AdvertisementBottom />
       </div>
       <div className="footer">
         <div className="contain">

@@ -30,6 +30,12 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  role: {
+    type:String,
+    required: true,
+    default:'PROGRAMADOR',
+    uppercase:true
+  },
   picture: {
     url: {
       type: String,

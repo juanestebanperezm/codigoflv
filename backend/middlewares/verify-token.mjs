@@ -1,10 +1,11 @@
 import User from "../models/user.mjs";
+import jwt from 'jsonwebtoken';
 
 /**
  * Middleware para verificar que el token enviado por el usuario sea válido
  * @returns - Error si no lo es, de lo contrario continua el flujo
  */
-const verifyToken = (req,res,next) => {
+const verifyToken = async (req,res,next) => {
     try {
         const token = req.header('codigosancocho-token');
         // Se verifica que el token venga en la petición

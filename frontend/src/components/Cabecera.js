@@ -3,7 +3,7 @@ import React from "react";
 
 //ROUTER
 
-import ROUTES, { RenderRoutes } from "../routes";
+import { Navigation } from "../routers/Navigation"
 
 
 //ESTILOS
@@ -47,7 +47,7 @@ function Cabecera() {
           </div>
         </div>
       </nav>
-      <RenderRoutes routes={ROUTES} />
+      <Navigation />
     </div>
   );
 }

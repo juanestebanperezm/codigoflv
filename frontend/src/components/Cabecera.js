@@ -5,6 +5,7 @@ import React from "react";
 
 import { Navigation } from "../routers/Navigation"
 
+import logo from "../assets/logo.png"
 
 //ESTILOS
 
@@ -17,7 +18,8 @@ function Cabecera() {
         <div className={styles.container}>
           <ul className={styles['nav-links']}>
             <li className={styles.logo}>
-              Logo
+              <img src={logo} width="80px"></img>
+              Codigo sancocho
             </li>
             <li className={styles['nav-link-item']}>
               <Link to="/preparate">Preparate</Link>

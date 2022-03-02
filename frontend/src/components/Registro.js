@@ -7,7 +7,6 @@ import * as Yup from "yup";
 
 import { Button, Grid, TextField } from "@mui/material";
 import { Box } from "@material-ui/core";
-import { Button,TextField } from "@mui/material";
 
 
 //Schema de validacion

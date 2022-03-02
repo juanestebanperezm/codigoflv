@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <Cabecera />
       <Navigation />
+      <Footer/>
     </div>
   );
 }

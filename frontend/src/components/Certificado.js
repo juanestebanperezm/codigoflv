@@ -1,63 +1,121 @@
 import React from "react";
 
-// ESTILOS
-import styles from "../styles/Certificado.module.css";
-
-//Componentes de Bootstrap React
-
-import { Card,Button } from "react-bootstrap";
+// MUI
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { Box } from "@mui/material";
 
 function Certificado() {
   return (
    
-    <div className={styles.container}>
-     <div className={styles.carduno}>
-     <Card style={{ width: "30rem" }}>
-        <Card.Img variant="top" width={150} src="https://technodyan.com/wp-content/uploads/2018/03/python.png" />
-        <Card.Body>
-          <Card.Title><h1>Python</h1></Card.Title>
-          <Card.Text>
-            Certificate en Python despues de adquirir tus primeros 10.000 puntos de EXP o tambien por medio de donaciones (free to play o pay to win 🤑 ).
-          </Card.Text>
-          <br/>
-          <Button variant="primary">Dame ese carton</Button>
-          
-        </Card.Body>
-      </Card>
-     </div>
-      <div className={styles.carddos}>
-      <Card style={{ width: "30rem"  }} >
-        <Card.Img variant="top" width={150} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" />
-        <Card.Body>
-          <Card.Title><h1>JavaScript</h1></Card.Title>
-          <Card.Text>
-          Certificate en JavaScript despues de adquirir tus primeros 10.000 puntos de EXP o tambien por medio de donaciones (free to play o pay to win 🤑 ).
-          </Card.Text>
-          <br/>
-          <Button variant="primary">Dame ese carton</Button>
-        </Card.Body>
-      </Card>
-      
-
-      </div>
-      <div className={styles.cardtres}>
-      <Card style={{ width: "30rem"  }} >
-        <Card.Img variant="top" width={150} src="https://images.emojiterra.com/google/android-10/512px/1f477.png" />
-        <Card.Body>
-          <Card.Title><h1>Trabajamos en mas</h1></Card.Title>
-          <Card.Text>
-          Estamos trabajando para traerte mas lenguajes 🕗.
-          </Card.Text>
-          <br/>
+      <div style={{
         
-        </Card.Body>
-      </Card>
-      
-
+        padding: '8px 150px 50px 250px'
+    }}>
+        <Grid container spacing={2} columns={16}>
+        <Grid item xs={8}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://logos-marcas.com/wp-content/uploads/2021/10/Python-Emblema.png"
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Python
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Certificate en Python 🐍, despues de adquirir 10.000 puntos de
+                EXP o convierte en usuario Boost 🚀
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" color="secondary" variant="contained">
+                Certificarse
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={8}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                JavaScript
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Certificate en JavaScript 🖥, despues de adquirir 10.000 puntos
+                de experiencia o convierte en usuario Boost 🚀
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" color="secondary" variant="contained">
+                Certificarse
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={8}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png"
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                C++
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Certificate en C++ ➕ ➕ , despues de adquirir 10.000 puntos de
+                experiencia o convierte en usuario Boost 🚀
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" color="secondary" variant="contained">
+                Certificarse
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={8}>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://images.emojiterra.com/google/android-11/512px/1f468-1f4bb.png"
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Estamos trabajando 👷
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Proximamente mas lenguajes y sus certficados 🚧
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" color="secondary" variant="contained">
+                Inicio
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      </Grid>
       </div>
-    </div>
-      
-    
+  
   );
 }
 

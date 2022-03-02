@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 // Componentes Externos
-import { Card } from "./Card";
+import { CardView } from "./Card";
 
 // ESTILOS
 import styles from "../../styles/Preparate.module.css";
@@ -33,7 +33,7 @@ function Preparate() {
               const { id } = info;
               return (
                 <div key={id}>
-                  <Card {...info} />
+                  <CardView {...info} />
                 </div>
               );
             })}

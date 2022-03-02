@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-//ROUTER
-
-import { Navigation } from "../routers/Navigation"
 
 import logo from "../assets/logo.png"
 
@@ -49,7 +46,6 @@ function Cabecera() {
           </div>
         </div>
       </nav>
-      <Navigation />
     </div>
   );
 }

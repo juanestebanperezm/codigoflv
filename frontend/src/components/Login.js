@@ -1,7 +1,9 @@
+import { Box, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import { Button } from "@mui/material";
+import { width } from "@mui/system";
 import React from "react";
-
-// ESTILOS
-import styles from "../styles/Login.module.css";
+import { boolean } from "yup";
 
 //Imagenes anuncios
 
@@ -9,48 +11,48 @@ import monachina1 from "../components/advertisement/assets/monachina1.jpg";
 import monachina2 from "../components/advertisement/assets/monachina2.jpg"
 import monachina3 from "../components/advertisement/assets/monachina3.jpg"
 
-
+const useStyles = makeStyles({
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    width: "80%",
+    margin: "auto",
+    paddingTop: "10%",
+  },
+  box: {
+  },
+  textField: {
+    display: "block",
+    marginBottom: "5px",
+  },
+})
 function Login() {
-  return (
-    <div>
-      <div className={styles["row"]}>
-        <div className={styles["column"]}>
-          <img width={"250px"} src={monachina1} alt="" />
-        </div>
-        <div className={styles["column"]}>
-          <img width={"250px"} src={monachina2} alt="" />
-        </div>
-        <div className={styles["column"]}>
-          <img width={"250px"} src={monachina3} alt="" />
-        </div>
-      </div>
-      <div className={styles["input-fields"]}>
-        <label className={styles["chapa"]}>Nombre de usuario</label>
-        <input
-          type="text"
-          placeholder="Nombre de usuario"
-          className={styles["inlinein"]}
-        ></input>
-        <label className={styles["chapa"]}>Contraseña</label>
-        <input
-          type="password"
-          placeholder="Contraseña"
-          className={styles["inlinein"]}
-        ></input>
+  const classes = useStyles();
 
-        <button className={styles["name noselect"]}>Ingresar</button>
-      </div>
-      <div className={styles["row"]}>
-        <div className={styles["column"]}>
-          <img width={"250px"} src={monachina1} alt="" />
-        </div>
-        <div className={styles["column"]}>
-          <img width={"250px"} src={monachina2} alt="" />
-        </div>
-        <div className={styles["column"]}>
-          <img width={"250px"} src={monachina3} alt="" />
-        </div>
-      </div>
+  return (
+    <div className={classes.container}>
+      <Box
+        component="form"
+        className={classes.box}
+      >
+        <TextField 
+          label="Usuario"
+          variant="outlined"
+          className={classes.textField}
+        />
+        <TextField 
+          label="Contraseña"
+          variant="outlined"
+          className={classes.textField}
+        />
+        <Button 
+          variant="contained" 
+          sx={{
+            display: "block",
+            marginTop: "30px"
+          }}
+          >Login</Button>
+      </Box>
     </div>
   );
 }

@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import { useFormik} from "formik";
 import * as Yup from "yup";
 
-//MUI
+
+import { Button, Grid, TextField } from "@mui/material";
+import { Box } from "@material-ui/core";
 import { Button,TextField } from "@mui/material";
+
 
 //Schema de validacion
 const validationSchema = Yup.object({
@@ -72,7 +75,10 @@ function Registro() {
   return (
     <div style={divCenter}>
       <h1>Bienvenid@ a Codigo Sancocho</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <Box 
+        type="form" 
+        onSubmit={formik.handleSubmit}
+      >
         <TextField
           fullWidth
           id="first"
@@ -144,7 +150,7 @@ function Registro() {
         <Button color="secondary" variant="contained" type="submit">
           Registrate
         </Button>
-      </form>
+      </Box>
     </div>
   );
 }

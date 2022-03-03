@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 //MUI
-import { Button, TextField } from "@mui/material";
+import { Button, TextField,Typography } from "@mui/material";
 import { Box } from "@material-ui/core";
 
 //Schema de validacion
@@ -60,11 +60,11 @@ function Registro() {
     padding: "80px 0px 80px 50px",
   };
 
-  
-
   return (
     <div style={divCenter}>
-      <h1>Bienvenid@ a Codigo Sancocho</h1>
+      <Typography sx={{ fontSize: 24,textAlign:"center",margin:3,fontWeight:600 }} color="text.primary" >
+        Bievenid@ a Codigo sancocho
+      </Typography>
       <Box type="form">
         <form onSubmit={formik.handleSubmit}>
           <TextField

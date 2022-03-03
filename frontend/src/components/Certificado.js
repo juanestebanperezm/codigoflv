@@ -17,7 +17,7 @@ function Certificado() {
         
         padding: '8px 150px 50px 250px'
     }}>
-        <Grid container spacing={2} columns={16}>
+        <Grid container spacing={2} columns={16} sx={{marginTop:8}}>
         <Grid item xs={8}>
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia

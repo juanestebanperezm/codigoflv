@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import styles from "../styles/Registro.module.css";
 
 //Formik validacion, no queremos que metan tapados al backend
-import { useFormik, validateYupSchema } from "formik";
+import { useFormik} from "formik";
 import * as Yup from "yup";
 
-//MUI
+
 import { Button, Grid, TextField } from "@mui/material";
 import { Box } from "@material-ui/core";
+import { Button,TextField } from "@mui/material";
+
 
 //Schema de validacion
 const validationSchema = Yup.object({
@@ -68,7 +69,7 @@ function Registro() {
   const divCenter = {
     width: "50%",
     margin: "auto",
-    padding: "120px 0px 0px 50px",
+    padding: "10px 0px 0px 50px",
   };
 
   return (

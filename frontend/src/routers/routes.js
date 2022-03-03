@@ -8,6 +8,7 @@ import Preparate from "../components/preparate/Preparate";
 import Registro from "../components/Registro";
 import RegistroEmpresas from "../components/RegistroEmpresas";
 import Reto from "../components/Reto";
+import NotFound from "../components/NotFound"
 
 const ROUTES = [
   {
@@ -54,6 +55,11 @@ const ROUTES = [
     path: "/registroempresa",
     key: "REGISTRO_EMPRESA",
     component: () => <RegistroEmpresas />
+  },
+  {
+    path: "*",
+    key: "NOT_FOUND",
+    component: () => <NotFound />
   }
 ];
 

@@ -8,8 +8,12 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles=makeStyles({
     anuncios:{
         overflowY:"hidden", 
-        margin:"auto"    
-    }
+        margin:"auto",
+        width:"200%",
+        padding:"50px 600px 0px 0px",
+        
+    },
+    
 })
 
 function AdvertesimentTop() {
@@ -17,7 +21,7 @@ function AdvertesimentTop() {
     const classes=useStyles()
 
   return (
-    <div >
+    <div className={classes.centro} >
       <ImageList sx={{ width: 1250, height: 300 }} cols={12} rowHeight={164} className={classes.anuncios}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>

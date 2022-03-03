@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 
 //Formik validacion, no queremos que metan tapados al backend
-import { useFormik} from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 
 //MUI
-import { Button,TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { Box } from "@material-ui/core";
-
-//Componente externo
-import AdvertisementTop from "./advertisement/AdvertesimentTop"
 
 //Schema de validacion
 const validationSchema = Yup.object({
@@ -25,29 +22,18 @@ const validationSchema = Yup.object({
 });
 
 function Registro() {
-  const [valores, setValores] = useState({
-    mostrarPassword: false,
-  });
-
-  const handleClickShowContra = () => {
-    setValores({
-      ...valores,
-      mostrarPassword: !valores.mostrarPassword,
-    });
-  };
-
   const URL = "http://localhost:3000/usuarios";
   const formik = useFormik({
     initialValues: {
-      first: "",
-      last: "",
-      email: "",
+      first: "foo",
+      last: "bar",
+      email: "foobar@example.com",
       password: "",
       repeat_password: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      let zData = {
+      let dataForm = {
         name: {
           first: values.first,
           last: values.last,
@@ -56,102 +42,100 @@ function Registro() {
         password: values.password,
         repeat_password: values.repeat_password,
       };
-      alert(JSON.stringify(zData, null, 2));
+      alert(JSON.stringify(`${dataForm.name.first} ${dataForm.name.last} Bienvenid@ a Codigo Sancocho`,null,2));
       fetch(URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(zData),
+        body: JSON.stringify(dataForm),
       }).then(() => {
         console.log(":)");
       });
+      formik.resetForm();
     },
   });
 
   const divCenter = {
     width: "50%",
     margin: "auto",
-    padding: "10px 0px 0px 50px",
+    padding: "80px 0px 0px 50px",
   };
 
   return (
     <div style={divCenter}>
       <h1>Bienvenid@ a Codigo Sancocho</h1>
-      <Box 
-        type="form" 
-        onSubmit={formik.handleSubmit}
-      >
-        <TextField
-          fullWidth
-          id="first"
-          name="first"
-          label="Primer Nombre"
-          value={formik.values.first}
-          onChange={formik.handleChange}
-          error={formik.touched.first && Boolean(formik.errors.first)}
-          helperText={formik.touched.first && formik.errors.first}
-          margin="dense"
-        />
+      <Box type="form">
+        <form onSubmit={formik.handleSubmit}>
+          <TextField
+            fullWidth
+            id="first"
+            name="first"
+            label="Primer Nombre"
+            value={formik.values.first}
+            onChange={formik.handleChange}
+            error={formik.touched.first && Boolean(formik.errors.first)}
+            helperText={formik.touched.first && formik.errors.first}
+            margin="dense"
+          />
 
-        <TextField
-          margin="dense"
-          fullWidth
-          id="last"
-          name="last"
-          label="Segundo nombre"
-          value={formik.values.last}
-          onChange={formik.handleChange}
-          error={formik.touched.last && Boolean(formik.errors.last)}
-          helperText={formik.touched.last && formik.errors.last}
-        />
+          <TextField
+            margin="dense"
+            fullWidth
+            id="last"
+            name="last"
+            label="Segundo nombre"
+            value={formik.values.last}
+            onChange={formik.handleChange}
+            error={formik.touched.last && Boolean(formik.errors.last)}
+            helperText={formik.touched.last && formik.errors.last}
+          />
 
-        <TextField
-          margin="dense"
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
+          <TextField
+            margin="dense"
+            fullWidth
+            id="email"
+            name="email"
+            label="Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
 
-        <TextField
-          margin="dense"
-          fullWidth
-          id="password"
-          name="password"
-          label="Contraseña"
-          type={valores.mostrarPassword ? "text" : "password"}
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
+          <TextField
+            margin="dense"
+            fullWidth
+            id="password"
+            name="password"
+            label="Contraseña"
+            type="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+          />
 
-        <TextField
-          margin="dense"
-          fullWidth
-          id="repeat_password"
-          name="repeat_password"
-          label="Repite la contraseña"
-          type="repeat_password"
-          type={valores.mostrarPassword ? "text" : "password"}
-          value={formik.values.repeat_password}
-          onChange={formik.handleChange}
-          error={
-            formik.touched.repeat_password &&
-            Boolean(formik.errors.repeat_password)
-          }
-          helperText={
-            formik.touched.repeat_password && formik.errors.repeat_password
-          }
-        />
+          <TextField
+            margin="dense"
+            fullWidth
+            id="repeat_password"
+            name="repeat_password"
+            label="Repite la contraseña"
+            type="password"
+            value={formik.values.repeat_password}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.repeat_password &&
+              Boolean(formik.errors.repeat_password)
+            }
+            helperText={
+              formik.touched.repeat_password && formik.errors.repeat_password
+            }
+          />
 
-        <Button color="secondary" variant="contained" type="submit">
-          Registrate
-        </Button>
-        
+          <Button color="secondary" variant="contained" type="submit">
+            Registrate
+          </Button>
+        </form>
       </Box>
     </div>
   );

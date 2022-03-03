@@ -2,13 +2,12 @@ import React from "react";
 
 import  "../styles/Footer.css"
 
-import AdvertisementBottom from "./advertisement/AdvertisementBottom";
-
+import AdvertisementTop from "./advertisement/AdvertesimentTop"
 function Footer() {
   return (
     <div>
       <div className="dummy_page">
-        <AdvertisementBottom />
+       
       </div>
       <div className="footer">
         <div className="contain">

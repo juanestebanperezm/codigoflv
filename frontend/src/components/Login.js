@@ -1,23 +1,19 @@
 import { Box, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Button } from "@mui/material";
-import { width } from "@mui/system";
 import React from "react";
-import { boolean } from "yup";
 
-//Imagenes anuncios
-
-import monachina1 from "../components/advertisement/assets/monachina1.jpg";
-import monachina2 from "../components/advertisement/assets/monachina2.jpg"
-import monachina3 from "../components/advertisement/assets/monachina3.jpg"
+//Componentes Anuncios
+import AdvertesimentTop from "./advertisement/AdvertesimentTop";
 
 const useStyles = makeStyles({
   container: {
     display: "flex",
     justifyContent: "center",
-    width: "80%",
+    width: "50%",
     margin: "auto",
-    paddingTop: "10%",
+    paddingTop: "3%",
+    
   },
   box: {
   },
@@ -30,11 +26,17 @@ function Login() {
   const classes = useStyles();
 
   return (
+   
     <div className={classes.container}>
+      
       <Box
+      
         component="form"
         className={classes.box}
       >
+        
+         
+        <h1>Ingresa a Codigo Sancocho</h1>
         <TextField 
           label="Usuario"
           variant="outlined"
@@ -46,12 +48,14 @@ function Login() {
           className={classes.textField}
         />
         <Button 
+        color="secondary"
           variant="contained" 
           sx={{
             display: "block",
             marginTop: "30px"
           }}
           >Login</Button>
+          
       </Box>
     </div>
   );

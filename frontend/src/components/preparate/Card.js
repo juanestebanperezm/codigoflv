@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 //Crear colores
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const Scx = makeStyles((theme) => ({
   text: {
     color: "#ededed",
   },
@@ -27,7 +27,7 @@ export const CardView = ({ id, description, title, language, dificultad }) => {
     navigate(`/reto/${id}`);
   };
   
-  const classes=useStyles();
+  const classes=Scx();
 
   return (
     <Box sx={{ minWidth: 275 }}>

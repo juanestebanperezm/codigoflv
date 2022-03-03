@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { useFormik} from "formik";
 import * as Yup from "yup";
 
-
-import { Button, Grid, TextField } from "@mui/material";
+//MUI
+import { Button,TextField } from "@mui/material";
 import { Box } from "@material-ui/core";
 
+//Componente externo
+import AdvertisementTop from "./advertisement/AdvertesimentTop"
 
 //Schema de validacion
 const validationSchema = Yup.object({
@@ -149,6 +151,7 @@ function Registro() {
         <Button color="secondary" variant="contained" type="submit">
           Registrate
         </Button>
+        
       </Box>
     </div>
   );

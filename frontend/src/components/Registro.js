@@ -57,8 +57,10 @@ function Registro() {
   const divCenter = {
     width: "50%",
     margin: "auto",
-    padding: "80px 0px 0px 50px",
+    padding: "80px 0px 80px 50px",
   };
+
+  
 
   return (
     <div style={divCenter}>
@@ -131,8 +133,8 @@ function Registro() {
               formik.touched.repeat_password && formik.errors.repeat_password
             }
           />
-
-          <Button color="secondary" variant="contained" type="submit">
+          
+          <Button color="secondary" variant="contained" type="submit"  fullWidth sx={{marginTop:2}}>
             Registrate
           </Button>
         </form>

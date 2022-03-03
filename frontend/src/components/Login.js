@@ -20,7 +20,7 @@ function Login() {
         margin: "auto",
         paddingTop: "9%",
         display: "grid",
-        paddingBottom:"7%"
+        paddingBottom:"18%"
       }}
     >
       <h1>Ingresa a Codigo Sancocho</h1>

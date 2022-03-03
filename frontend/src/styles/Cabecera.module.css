@@ -86,11 +86,13 @@ nav {
     height: 60px;
     background: #0c0c0c;
     width: 100%;
-    position: sticky;
+    position: fixed;
+    z-index: 99;
 }
 
 .header {
-    position: sticky;
+    position: fixed;
+    z-index: 99999;
 }
 
 .header .container {

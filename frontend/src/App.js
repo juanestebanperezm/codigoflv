@@ -1,7 +1,7 @@
 import "./App.css";
 
 //Componentes
-import Cabecera from "./components/Cabecera";
+import NavBar from "./components/AppBar";
 import Footer from "./components/Footer";
 import Advertisement from "./components/advertisement/Advertisement";
 import Lateral from "./components/Lateral";
@@ -12,7 +12,7 @@ function App() {
   
   return (
     <div className="App">
-      <Cabecera />
+      <NavBar />
       <Navigation />
       <Advertisement/>
       <Footer/>

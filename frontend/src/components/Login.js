@@ -33,11 +33,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     borderRadius: "0 0 5px 5px",
     flexDirection: "column",
-<<<<<<< HEAD
     backgroundColor: "rgb(39, 38, 64)",
-=======
-    backgroundColor: "#1b3a4b",
->>>>>>> f6c4a062de71ae4665aacedd73afa439c4a796d6
     boxShadow: "1px 5px 6px 1px rgb(0 0 0 / 20%)",
     '@media (max-width:600px)':{
       width: "92%",
@@ -46,31 +42,10 @@ const useStyles = makeStyles({
   textField: {
     marginBottom: "10px",
     width: "100%",
-<<<<<<< HEAD
     color: "#2EFF22"
   },
   linkRegister: {
     color: "black",
-=======
-    display: "block",
-    justifyContent: "center",
-    marginBottom: "20px",
-    
-    
-    
-  },
-  lineTop:{
-    width: "74.8%",
-    height: "5px",
-    borderRadius: "5px 5px 0 0",
-    backgroundColor: "#212f45",
-    '@media (max-width:600px)':{
-      width: "91.7%",
-    }
-  },
-  linkRegister:{
-    color: "#006466",
->>>>>>> f6c4a062de71ae4665aacedd73afa439c4a796d6
     marginLeft: "3px",
     '&:hover':{
       color: "#212f45",

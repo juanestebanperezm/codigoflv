@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100vh",
     margin: "auto",
-   
+  
   },
   form: {
     width: "75%",
@@ -86,6 +86,8 @@ const useStyles = makeStyles({
 })
 
 function Login({ openLogin, setOpenLogin }) {
+  
+
   const classes = useStyles();
   let state = false;
 

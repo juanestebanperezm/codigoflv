@@ -34,7 +34,7 @@ function Cabecera({ openLogin, setOpenLogin }) {
 
   return (
     
-      <Box sx={{ boxShadow: 1 }} >
+    <Box sx={{ boxShadow: 1 }} >
       <AppBar
         sx={{
           display: "flex",
@@ -67,7 +67,7 @@ function Cabecera({ openLogin, setOpenLogin }) {
             
             margin:"auto"
           }}>Compite</Button>
-          <div className={classes.separator}>
+          <div className={classes.separator}></div>
           <Button href="/registro" color="inherit" sx={{
             margin:"auto",
            

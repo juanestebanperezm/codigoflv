@@ -4,6 +4,12 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+//Redux
+import {useSelector,useDispatch} from "react-redux";
+import {signupUser,userSelector,clearState} from "../features/User/UserSlice";
+
+//Router-DOM
+import {useHistory} from "react-router-dom"
 
 //MUI
 import { Button, TextField,Typography } from "@mui/material";

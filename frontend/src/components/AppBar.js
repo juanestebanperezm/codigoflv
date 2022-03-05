@@ -51,19 +51,19 @@ function Cabecera() {
           </Link>
           <Button href="/preparate" color="inherit" sx={{
            
-            width: "5%",
+            
             margin:"auto",
             marginRight: "1.5%"
           }}>Preparate</Button>
           <Button href="/certificate" color="inherit"  sx={{
            
-            width: "5%",
+            
             margin:"auto",
             marginRight: "1%"
           }}>Certificado</Button>
           <Button href="/compite" color="inherit" sx={{
            
-            width: "5%",
+            
             margin:"auto"
           }}>Compite</Button>
           <div className={classes.separator}>

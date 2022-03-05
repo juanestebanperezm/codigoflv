@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     width: "100%",
     height: "100vh",
-    margin: "auto"
+    margin: "auto",
   },
   form: {
     width: "75%",
@@ -109,7 +109,6 @@ function Login({ openLogin, setOpenLogin }) {
 
   return (
     <Box className={classes.container}>
-      
       <Box
         className={classes.form}
       >
@@ -148,10 +147,10 @@ function Login({ openLogin, setOpenLogin }) {
               />
             </FormControl>
             <Button 
-              color="secondary"
+              color="primary"
               variant="contained" 
               sx={{
-                backgroundColor: "#212f45 !important",
+                backgroundColor: "#0b525b !important",
                 display: "block",
                 width: "100%",
                 marginTop: "10px"
@@ -167,8 +166,7 @@ function Login({ openLogin, setOpenLogin }) {
                 </Box>
               </Box>
           </Box>
-        </Box>
-        
+        </Box>        
       </Box>
     </Box>
   );

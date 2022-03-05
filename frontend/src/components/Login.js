@@ -88,17 +88,19 @@ function Login({ openLogin, setOpenLogin }) {
   const classes = useStyles();
   let state = false;
 
-  const [user, setUser] = useState({
-    user: ""
-  })
+  const [user, setUser] = useState("")
 
   const [password, setPassword] = useState({
       password: '',
       showPassword: false,
-    });
+  });
 
-  const handleChange = (event) => {
+  const handleChangePassword = (event) => {
     setPassword({ ...password, password: event.target.value });
+  };
+
+  const handleChangeUser = (event) => {
+    setUser(event.target.value);
   };
 
   const handleClickShowPassword = () => {
@@ -120,8 +122,8 @@ function Login({ openLogin, setOpenLogin }) {
               <InputLabel className={classes.label}>Usuario</InputLabel>
               <OutlinedInput
                 type="text"
-                value={user.user}
-                onChange={handleChange}
+                value={user.value}
+                onChange={handleChangeUser}
                 labelWidth={90}
               />
             </FormControl>
@@ -130,7 +132,7 @@ function Login({ openLogin, setOpenLogin }) {
               <OutlinedInput
                 type={password.showPassword ? 'text' : 'password'}
                 value={password.password}
-                onChange={handleChange}
+                onChange={handleChangePassword}
                 labelWidth={90}
                 endAdornment={
                   <InputAdornment position="end">

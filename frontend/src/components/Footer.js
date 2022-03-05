@@ -1,14 +1,12 @@
 import React from "react";
 
-import  "../styles/Footer.css"
+import "../styles/Footer.css";
 
-import AdvertisementTop from "./advertisement/AdvertesimentTop"
+import AdvertisementTop from "./advertisement/AdvertesimentTop";
 function Footer() {
   return (
     <div>
-      <div className="dummy_page">
-       
-      </div>
+      <div className="dummy_page"></div>
       <div className="footer">
         <div className="contain">
           <div className="col">
@@ -41,16 +39,17 @@ function Footer() {
               <li>janko</li>
             </ul>
           </div>
-          
+
           <div className="col">
             <h1>.</h1>
             <ul>
               <li>$xyh</li>
               <li>lyonhawk</li>
               <li>StevenM</li>
+              <li>MaikolCode</li>
             </ul>
           </div>
-          
+
           <div className="clearfix"></div>
         </div>
       </div>

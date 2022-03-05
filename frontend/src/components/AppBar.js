@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import logo from "../assets/codigo-sancocho.png";
 import { AppBar, Box, Toolbar, Link } from "@mui/material";
@@ -40,15 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-const OuterTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#212f45",
-    },
-  },
-});
-
-function Cabecera() {
+function Cabecera({ openLogin, setOpenLogin }) {
   const classes = useStyles();
 
   return (
@@ -85,7 +77,12 @@ function Cabecera() {
             <Link href="/registro" color="inherit" className={classes.links}>
               Registro
             </Link>
-            <Link href="/login" color="inherit" className={classes.links}>
+            <Link
+              className={classes.links}
+              onClick={() => {
+                openLogin ? setOpenLogin(false) : setOpenLogin(true);
+              }}
+            >
               Login
             </Link>
           </div>

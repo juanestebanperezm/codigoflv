@@ -62,7 +62,7 @@ function Registro() {
   };
 
   return (
-    <div style={divCenter}>
+    <Box style={divCenter}>
       <Typography sx={{ fontSize: 24,textAlign:"center",margin:3,fontWeight:600 }} color="text.primary" >
         Bievenid@ a Codigo sancocho
       </Typography>
@@ -140,7 +140,7 @@ function Registro() {
           </Button>
         </form>
       </Box>
-    </div>
+    </Box>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 import logo from "../assets/logo2.png"
@@ -28,12 +28,13 @@ const OuterTheme=createTheme({
   }
 })
 
-function Cabecera() {
+function Cabecera({ openLogin, setOpenLogin }) {
+
   const classes = useStyles();
 
   return (
     
-      <Box sx={{ boxShadow: 1 }} >
+    <Box sx={{ boxShadow: 1 }} >
       <AppBar
         sx={{
           display: "flex",
@@ -66,7 +67,7 @@ function Cabecera() {
             
             margin:"auto"
           }}>Compite</Button>
-          <div className={classes.separator}>
+          <div className={classes.separator}></div>
           <Button href="/registro" color="inherit" sx={{
             margin:"auto",
            
@@ -80,11 +81,15 @@ function Cabecera() {
             margin:"auto",
            
           }}>Cuenta</Button>
-          <Button href="/login" color="inherit" sx={{
-             margin:"auto",
-             
-          }}>Login</Button>
-          </div>
+          <Button 
+            color="inherit"
+            onClick={() => {
+              openLogin? setOpenLogin(false) : setOpenLogin(true);
+              console.log(openLogin)
+            }}
+            sx={{
+              marginBottom: "11px",
+            }}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

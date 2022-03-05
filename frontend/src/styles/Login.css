@@ -1,6 +1,8 @@
 /* Div inputs width 100%*/
 .MuiOutlinedInput-root{
     width: 100%;
+    color: "#fffff" I !important;
+    
 }
 
 .title-login{
@@ -23,7 +25,7 @@
     justify-content: center;
     width: 38%;
     height: 55vh;
-    border-right: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .fields-form{
@@ -32,10 +34,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .section-link{
     width: 100%;
     display: flex;
     align-items: center;
+    color:white
 }

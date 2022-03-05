@@ -31,7 +31,7 @@ export const CardView = ({ id, description, title, language, dificultad }) => {
 
   return (
     <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined" className={classes.bg_card}>
+      <Card variant="outlined" sx={{backgroundColor:"#212f45"}}>
         <CardContent>
           <Typography
             variant="h5"

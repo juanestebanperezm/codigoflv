@@ -21,7 +21,8 @@ const useStyles = makeStyles({
     alignItems: "center",
     width: "100%",
     height: "100vh",
-    margin: "auto"
+    margin: "auto",
+   
   },
   box: {
     width: "75%",
@@ -32,7 +33,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     borderRadius: "0 0 5px 5px",
     flexDirection: "column",
-    backgroundColor: "lightsteelblue",
+    backgroundColor: "#1b3a4b",
     boxShadow: "1px 5px 6px 1px rgb(0 0 0 / 20%)",
     '@media (max-width:600px)':{
       width: "92%",
@@ -43,6 +44,9 @@ const useStyles = makeStyles({
     display: "block",
     justifyContent: "center",
     marginBottom: "20px",
+    
+    
+    
   },
   lineTop:{
     width: "74.8%",
@@ -54,7 +58,7 @@ const useStyles = makeStyles({
     }
   },
   linkRegister:{
-    color: "black",
+    color: "#006466",
     marginLeft: "3px",
     '&:hover':{
       color: "#212f45",
@@ -88,26 +92,26 @@ function Login() {
   return (
    
     <div className={classes.container}>
-      <lineTop
-        className={classes.lineTop}
-      ></lineTop>
+      
       <Box
         component="form"
         className={classes.box}
       >
-        <div class="container-form">
-          <div class="title-section">
+        <div className="container-form">
+          <div className="title-section">
             <img src={marcaAgua} className={classes.image} alt="codigo-sancocho"/>
           </div>
-          <div class="fields-form"> 
+          <div className="fields-form"> 
             <TextField
               error = {state}
               label="Usuario"
               variant="outlined"
               className={classes.textField}
+              
             />
-            <FormControl variant="outlined" className={classes.textField}>
-            <InputLabel htmlFor="outlined-adornment-password">{passwordText}</InputLabel>
+            <FormControl variant="outlined" className={classes.textField} 
+               >
+            <InputLabel htmlFor="outlined-adornment-password"  >{passwordText}</InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
               type={values.showPassword ? 'text' : 'password'}
@@ -129,15 +133,15 @@ function Login() {
             />
             </FormControl>
             <Button 
-              color="secondary"
+              color="primary"
               variant="contained" 
               sx={{
-                backgroundColor: "#212f45 !important",
+                backgroundColor: "#0b525b !important",
                 display: "block",
                 width: "100%",
               }}
               >Login</Button>
-              <div class="section-link">
+              <div className="section-link">
                 <p>Aun no tiene cuenta parce? 
                   <Link to="/Registro" className={classes.linkRegister}>Registrese aqui</Link>
                 </p>

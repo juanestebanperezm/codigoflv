@@ -1,17 +1,20 @@
+import {
+  Box,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import marcaAgua from "../assets/codigo-sancocho.png";
 import React, { useState } from "react";
 
-import { Box, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/styles";
-import { Button, withStyles } from "@mui/material";
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
-import marcaAgua from "../assets/codigo-sancocho.png"
-
-//Componentes Anuncios
-import AdvertesimentTop from "./advertisement/AdvertesimentTop";
-
+import "../styles/Login.css";
 
 const useStyles = makeStyles({
   container: {
@@ -22,7 +25,6 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100vh",
     margin: "auto",
-   
   },
   form: {
     width: "75%",
@@ -35,21 +37,21 @@ const useStyles = makeStyles({
     flexDirection: "column",
     backgroundColor: "rgb(39, 38, 64)",
     boxShadow: "1px 5px 6px 1px rgb(0 0 0 / 20%)",
-    '@media (max-width:600px)':{
+    "@media (max-width:600px)": {
       width: "92%",
-    }
+    },
   },
   textField: {
     marginBottom: "10px",
     width: "100%",
-    color: "#2EFF22"
+    color: "#2EFF22",
   },
   linkRegister: {
     color: "black",
     marginLeft: "3px",
-    '&:hover':{
+    "&:hover": {
       color: "#212f45",
-    }
+    },
   },
   image: {
     width: "100%",
@@ -78,30 +80,22 @@ const useStyles = makeStyles({
     flexDirection: "column",
   },
   sectionLink: {
-    marginTop: "10px"
+    marginTop: "10px",
   },
   label: {
-    color: "white"
-  }
-})
+    color: "white",
+  },
+});
 
 function Login({ openLogin, setOpenLogin }) {
   const classes = useStyles();
-  let state = false;
-
-  const [user, setUser] = useState("")
 
   const [password, setPassword] = useState({
-      password: '',
-      showPassword: false,
+    showPassword: false,
   });
 
   const handleChangePassword = (event) => {
     setPassword({ ...password, password: event.target.value });
-  };
-
-  const handleChangeUser = (event) => {
-    setUser(event.target.value);
   };
 
   const handleClickShowPassword = () => {
@@ -110,66 +104,69 @@ function Login({ openLogin, setOpenLogin }) {
 
   return (
     <Box className={classes.container}>
-      
-      <Box
-        className={classes.form}
-      >
+      <Box className={classes.form}>
         <Box className={classes.containerForm}>
           <Box className={classes.titleSection}>
-            <img src={marcaAgua} className={classes.image} alt="codigo-sancocho"/>
+            <img
+              src={marcaAgua}
+              className={classes.image}
+              alt="codigo-sancocho"
+            />
           </Box>
           <Box className={classes.fieldsForm}>
             <FormControl variant="outlined" className={classes.textField}>
               <InputLabel className={classes.label}>Usuario</InputLabel>
-              <OutlinedInput
-                type="text"
-                value={user.value}
-                onChange={handleChangeUser}
-                labelWidth={90}
-              />
+              <OutlinedInput type="text" labelWidth={90} />
             </FormControl>
             <FormControl variant="outlined" className={classes.textField}>
               <InputLabel className={classes.label}>Contraseña</InputLabel>
               <OutlinedInput
-                type={password.showPassword ? 'text' : 'password'}
+                type={password.showPassword ? "text" : "password"}
                 value={password.password}
                 onChange={handleChangePassword}
                 labelWidth={90}
                 endAdornment={
                   <InputAdornment position="end">
-                    <IconButton
-                      onClick={handleClickShowPassword}
-                      edge="end"
-                    >
-                      {password.showPassword ? <Visibility /> : <VisibilityOff />}
+                    <IconButton onClick={handleClickShowPassword} edge="end">
+                      {password.showPassword ? (
+                        <Visibility />
+                      ) : (
+                        <VisibilityOff />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 }
-                
               />
             </FormControl>
-            <Button 
+            <Button
               color="primary"
-              variant="contained" 
+              variant="contained"
               sx={{
                 backgroundColor: "#0b525b !important",
                 display: "block",
                 width: "100%",
-                marginTop: "10px"
+                marginTop: "10px",
               }}
-              >Login</Button>
-              <Box className={classes.sectionLink}>
-                <Box component="p">¿Aún no tiene cuenta parce? 
-                  <Link to="/Registro" className={classes.linkRegister}onClick={
-                    () => {
-                      openLogin? setOpenLogin(false) : setOpenLogin(true);
-                      console.log(openLogin)
-                    }}>Regístrese aquí</Link>
-                </Box>
+            >
+              Login
+            </Button>
+            <Box className={classes.sectionLink}>
+              <Box component="p">
+                ¿Aún no tiene cuenta parce?
+                <Link
+                  to="/Registro"
+                  className={classes.linkRegister}
+                  onClick={() => {
+                    openLogin ? setOpenLogin(false) : setOpenLogin(true);
+                    console.log(openLogin);
+                  }}
+                >
+                  Regístrese aquí
+                </Link>
               </Box>
+            </Box>
           </Box>
         </Box>
-        
       </Box>
     </Box>
   );

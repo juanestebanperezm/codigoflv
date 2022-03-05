@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 import logo from "../assets/logo2.png"
 import { AppBar, Box, Button, Toolbar, Link } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
-import { flexbox, margin } from "@mui/system";
 
 const useStyles = makeStyles({
   image: {
@@ -19,7 +18,8 @@ const useStyles = makeStyles({
 })
 
 
-function Cabecera() {
+function Cabecera({ openLogin, setOpenLogin }) {
+
   const classes = useStyles();
 
   return (
@@ -65,9 +65,15 @@ function Cabecera() {
             marginBottom: "11px",
             marginRight: ".5%"
           }}>Cuenta</Button>
-          <Button href="/login" color="inherit" sx={{
-            marginBottom: "11px",
-          }}>Login</Button>
+          <Button 
+            color="inherit"
+            onClick={() => {
+              openLogin? setOpenLogin(false) : setOpenLogin(true);
+              console.log(openLogin)
+            }}
+            sx={{
+              marginBottom: "11px",
+            }}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

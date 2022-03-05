@@ -3,7 +3,6 @@ import React from "react";
 import Certificado from "../components/Certificado";
 import Compite from "../components/Compite";
 import Cuenta from "../components/Cuenta";
-import Login from "../components/Login";
 import Preparate from "../components/preparate/Preparate";
 import Registro from "../components/Registro";
 import RegistroEmpresas from "../components/RegistroEmpresas";
@@ -40,11 +39,6 @@ const ROUTES = [
     path: "/cuenta",
     key: "CUENTA",
     component: () => <Cuenta />
-  },
-  {
-    path: "/login",
-    key: "LOGIN",
-    component: () => <Login />
   },
   {
     path: "/registro",

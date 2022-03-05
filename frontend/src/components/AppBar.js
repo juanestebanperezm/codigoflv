@@ -1,94 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 
-
-import logo from "../assets/logo2.png"
-import { AppBar, Box, Button, Toolbar, Link, ThemeProvider } from "@mui/material";
+import logo from "../assets/codigo-sancocho.png";
+import { AppBar, Box, Toolbar, Link } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import { createTheme } from "@mui/system";
 
 const useStyles = makeStyles({
   image: {
-    display: "inline",
-    minWidth: "120px",
-    width: "17%",
-    marginBottom: "5px"
+    width: "8em",
   },
-  separator: {
-    display:"flex",
-    width:"30%"
-  
-  }
-})
+  appBar: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  containerLogo: {
+    display: "flex",
+    alignItems: "center",
+    width: "15%",
+    height: "10vh",
+  },
+  containerLinks: {
+    width: "50%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "0 20px",
+  },
+  links: {
+    color: "white !important",
+    cursor: "pointer",
+    textDecoration: "none !important",
+    transition: "color 0.2s ease",
+    paddingBottom: "2px",
+    borderBottom: "2px solid transparent",
+    "&:hover": {
+      color: "lightgray !important",
+      borderBottom: "2px solid #070617",
+    },
+  },
+});
 
-const OuterTheme=createTheme({
-  palette:{
-    primary:{
-      main:"#212f45"
-    }
-  }
-})
-
-function Cabecera() {
+function Cabecera({ openLogin, setOpenLogin }) {
   const classes = useStyles();
 
   return (
-    
-      <Box sx={{ boxShadow: 1 }} >
+    <Box sx={{ boxShadow: 1 }}>
       <AppBar
         sx={{
-          display: "flex",
-          height: "9%",
-          backgroundColor:"#212f45",
-          boxSizing:"border-box",
-          
+          backgroundColor: "#212f45",
         }}
       >
-        <Toolbar>
-          <Link href="/" sx={{
-            maxWidth: 160,
-          }}>
-            <img className={classes.image} src={logo} alt="porque mierda ya no hay logo"/>
+        <Toolbar className={classes.appBar}>
+          <Link href="/" className={classes.containerLogo}>
+            <img
+              className={classes.image}
+              src={logo}
+              alt="porque mierda ya no hay logo"
+            />
           </Link>
-          <Button href="/preparate" color="inherit" sx={{
-           
-            
-            margin:"auto",
-            marginRight: "1.5%"
-          }}>Preparate</Button>
-          <Button href="/certificate" color="inherit"  sx={{
-           
-            
-            margin:"auto",
-            marginRight: "1%"
-          }}>Certificado</Button>
-          <Button href="/compite" color="inherit" sx={{
-           
-            
-            margin:"auto"
-          }}>Compite</Button>
-          <div className={classes.separator}>
-          <Button href="/registro" color="inherit" sx={{
-            margin:"auto",
-           
-            
-          }}>Registro</Button>
-          <Button href="/registroempresa" color="inherit" sx={{
-            margin:"auto",
-           
-          }}>Empresas</Button>
-          <Button href="/cuenta" color="inherit" sx={{
-            margin:"auto",
-           
-          }}>Cuenta</Button>
-          <Button href="/login" color="inherit" sx={{
-             margin:"auto",
-             
-          }}>Login</Button>
+          <div className={classes.containerLinks}>
+            <Link href="/preparate" className={classes.links}>
+              Preparate
+            </Link>
+            <Link href="/certificate" color="inherit" className={classes.links}>
+              Certificado
+            </Link>
+            <Link href="/compite" color="inherit" className={classes.links}>
+              Compite
+            </Link>
+            <Link href="/registroempresa" className={classes.links}>
+              Empresas
+            </Link>
+            <Link href="/cuenta" color="inherit" className={classes.links}>
+              Cuenta
+            </Link>
+            <Link href="/registro" color="inherit" className={classes.links}>
+              Registro
+            </Link>
+            <Link
+              className={classes.links}
+              onClick={() => {
+                openLogin ? setOpenLogin(false) : setOpenLogin(true);
+              }}
+            >
+              Login
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
     </Box>
-    
   );
 }
 

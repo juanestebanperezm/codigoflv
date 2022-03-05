@@ -12,7 +12,7 @@ import {signupUser,userSelector,clearState} from "../features/User/UserSlice";
 import {useHistory} from "react-router-dom"
 
 //MUI
-import { Button, TextField,Typography } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@material-ui/core";
 
 //Schema de validacion
@@ -32,7 +32,7 @@ function Registro() {
   const URL = "http://localhost:3000/usuarios";
   const formik = useFormik({
     initialValues: {
-      first: "foo",
+      first: "fooo",
       last: "bar",
       email: "foobar@example.com",
       password: "",
@@ -49,7 +49,13 @@ function Registro() {
         password: values.password,
         repeat_password: values.repeat_password,
       };
-      alert(JSON.stringify(`${dataForm.name.first} ${dataForm.name.last} Bienvenid@ a Codigo Sancocho`,null,2));
+      alert(
+        JSON.stringify(
+          `${dataForm.name.first} ${dataForm.name.last} Bienvenid@ a Codigo Sancocho`,
+          null,
+          2
+        )
+      );
       fetch(URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -68,8 +74,11 @@ function Registro() {
   };
 
   return (
-    <div style={divCenter}>
-      <Typography sx={{ fontSize: 24,textAlign:"center",margin:3,fontWeight:600 }} color="text.primary" >
+    <Box style={divCenter}>
+      <Typography
+        sx={{ fontSize: 24, textAlign: "center", margin: 3, fontWeight: 600 }}
+        color="text.primary"
+      >
         Bievenid@ a Codigo sancocho
       </Typography>
       <Box type="form">
@@ -140,13 +149,19 @@ function Registro() {
               formik.touched.repeat_password && formik.errors.repeat_password
             }
           />
-          
-          <Button color="secondary" variant="contained" type="submit"  fullWidth sx={{marginTop:2}}>
+
+          <Button
+            color="secondary"
+            variant="contained"
+            type="submit"
+            fullWidth
+            sx={{ marginTop: 2 }}
+          >
             Registrate
           </Button>
         </form>
       </Box>
-    </div>
+    </Box>
   );
 }
 

@@ -1,17 +1,20 @@
-import { Box, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import {
+  Box,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Button } from "@mui/material";
-import React from "react";
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { Link } from "react-router-dom";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import marcaAgua from "../assets/codigo-sancocho.png";
+import React, { useState } from "react";
 
-import  "../styles/Login.css"
-import marcaAgua from "../assets/codigo-sancocho.png"
-
-//Componentes Anuncios
-import AdvertesimentTop from "./advertisement/AdvertesimentTop";
-
+import "../styles/Login.css";
 
 const useStyles = makeStyles({
   container: {
@@ -22,9 +25,8 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100vh",
     margin: "auto",
-   
   },
-  box: {
+  form: {
     width: "75%",
     height: "70vh",
     padding: "10px",
@@ -33,126 +35,141 @@ const useStyles = makeStyles({
     alignItems: "center",
     borderRadius: "0 0 5px 5px",
     flexDirection: "column",
-    backgroundColor: "#1b3a4b",
+    backgroundColor: "rgb(39, 38, 64)",
     boxShadow: "1px 5px 6px 1px rgb(0 0 0 / 20%)",
-    '@media (max-width:600px)':{
+    "@media (max-width:600px)": {
       width: "92%",
-    }
+    },
   },
   textField: {
+    marginBottom: "10px",
     width: "100%",
-    display: "block",
-    justifyContent: "center",
-    marginBottom: "20px",
-    
-    
-    
+    color: "#2EFF22",
   },
-  lineTop:{
-    width: "74.8%",
-    height: "5px",
-    borderRadius: "5px 5px 0 0",
-    backgroundColor: "#212f45",
-    '@media (max-width:600px)':{
-      width: "91.7%",
-    }
-  },
-  linkRegister:{
-    color: "#006466",
+  linkRegister: {
+    color: "black",
     marginLeft: "3px",
-    '&:hover':{
+    "&:hover": {
       color: "#212f45",
-    }
+    },
   },
-  image:{
+  image: {
     width: "100%",
-  }
-})
-function Login() {
+  },
+  containerForm: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "20px",
+    height: "100%",
+  },
+  titleSection: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "38%",
+    height: "55vh",
+    borderRight: "1px solid rgba(0,0,0,0.3)",
+  },
+  fieldsForm: {
+    width: "58%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  sectionLink: {
+    marginTop: "10px",
+  },
+  label: {
+    color: "white",
+  },
+});
+
+function Login({ openLogin, setOpenLogin }) {
   const classes = useStyles();
-  let state = false;
-  const [values, setValues] = React.useState({
-    password: '',
+
+  const [password, setPassword] = useState({
     showPassword: false,
   });
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+
+  const handleChangePassword = (event) => {
+    setPassword({ ...password, password: event.target.value });
   };
 
   const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setPassword({ ...password, showPassword: !password.showPassword });
   };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  let passwordText = 'Contraseña';
 
   return (
-   
-    <div className={classes.container}>
-      
-      <Box
-        component="form"
-        className={classes.box}
-      >
-        <div className="container-form">
-          <div className="title-section">
-            <img src={marcaAgua} className={classes.image} alt="codigo-sancocho"/>
-          </div>
-          <div className="fields-form"> 
-            <TextField
-              error = {state}
-              label="Usuario"
-              variant="outlined"
-              className={classes.textField}
-              
+    <Box className={classes.container}>
+      <Box className={classes.form}>
+        <Box className={classes.containerForm}>
+          <Box className={classes.titleSection}>
+            <img
+              src={marcaAgua}
+              className={classes.image}
+              alt="codigo-sancocho"
             />
-            <FormControl variant="outlined" className={classes.textField} 
-               >
-            <InputLabel htmlFor="outlined-adornment-password"  >{passwordText}</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={values.showPassword ? 'text' : 'password'}
-              value={values.password}
-              onChange={handleChange('password')}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={90}
-            />
+          </Box>
+          <Box className={classes.fieldsForm}>
+            <FormControl variant="outlined" className={classes.textField}>
+              <InputLabel className={classes.label}>Usuario</InputLabel>
+              <OutlinedInput type="text" labelWidth={90} />
             </FormControl>
-            <Button 
+            <FormControl variant="outlined" className={classes.textField}>
+              <InputLabel className={classes.label}>Contraseña</InputLabel>
+              <OutlinedInput
+                type={password.showPassword ? "text" : "password"}
+                value={password.password}
+                onChange={handleChangePassword}
+                labelWidth={90}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleClickShowPassword} edge="end">
+                      {password.showPassword ? (
+                        <Visibility />
+                      ) : (
+                        <VisibilityOff />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            <Button
               color="primary"
-              variant="contained" 
+              variant="contained"
               sx={{
                 backgroundColor: "#0b525b !important",
                 display: "block",
                 width: "100%",
+                marginTop: "10px",
               }}
-              >Login</Button>
-              <div className="section-link">
-                <p>Aun no tiene cuenta parce? 
-                  <Link to="/Registro" className={classes.linkRegister}>Registrese aqui</Link>
-                </p>
-              </div>
-          </div>
-        </div>
-        
+            >
+              Login
+            </Button>
+            <Box className={classes.sectionLink}>
+              <Box component="p">
+                ¿Aún no tiene cuenta parce?
+                <Link
+                  to="/Registro"
+                  className={classes.linkRegister}
+                  onClick={() => {
+                    openLogin ? setOpenLogin(false) : setOpenLogin(true);
+                    console.log(openLogin);
+                  }}
+                >
+                  Regístrese aquí
+                </Link>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
-    </div>
+    </Box>
   );
 }
 
 export default Login;
-

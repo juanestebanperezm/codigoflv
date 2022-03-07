@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 import { makeStyles } from "@material-ui/styles";
 
@@ -15,16 +15,15 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     color: "white",
-}
-})
+    zIndex: "2",
+  },
+});
 
 export default function Modal({ children }) {
   const classes = useStyles();
 
   return ReactDOM.createPortal(
-    <div className={classes.modal}>
-      {children}
-    </div>,
-    document.getElementById('login')
-  )
+    <div className={classes.modal}>{children}</div>,
+    document.getElementById("login")
+  );
 }

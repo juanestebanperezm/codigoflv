@@ -22,6 +22,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
+    zIndex: "2",
     width: "100%",
     height: "100vh",
     margin: "auto",
@@ -33,7 +34,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    borderRadius: "0 0 5px 5px",
+    borderRadius: "5px",
     flexDirection: "column",
     backgroundColor: "rgb(39, 38, 64)",
     boxShadow: "1px 5px 6px 1px rgb(0 0 0 / 20%)",
@@ -47,10 +48,12 @@ const useStyles = makeStyles({
     color: "#2EFF22",
   },
   linkRegister: {
-    color: "black",
+    color: "#CCDBF4",
+    textDecoration: "none",
     marginLeft: "3px",
+    transition: "all 0.2s ease",
     "&:hover": {
-      color: "#212f45",
+      color: "#73A1E8",
     },
   },
   image: {

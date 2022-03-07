@@ -1,6 +1,9 @@
 import express, { Application } from 'express';
 import morgan from 'morgan';
 
+// Enrutador
+import apiRouter from '../apiServices/api.router';
+
 export class AppServer {
 	private app: Application;
 	private paths: {
@@ -9,6 +12,7 @@ export class AppServer {
 		competencies: string;
 		answers: string;
 		roles: string;
+		api: string
 	}
 	constructor(private port?: number | string) {
 		// Express
@@ -20,7 +24,8 @@ export class AppServer {
 			users: "/users",
 			competencies: "/competencies",
 			answers: "/answers",
-			roles: "/roles"
+			roles: "/roles",
+			api: "/"
 		};
 
 		// Settings
@@ -42,7 +47,7 @@ export class AppServer {
 	}
 
 	routes() {
-    this.app.use(this.paths.users, usersRouter);
+		this.app.use(this.paths.api, apiRouter)
 	}
 
 	listen() {

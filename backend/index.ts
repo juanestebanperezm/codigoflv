@@ -3,7 +3,6 @@ import { AppServer } from "./bin/server";
 
 
 dotenv.config();
-const app = new AppServer(3000);
-app.listen();
+export const app = new AppServer(3000).getApp();
+export const server = app.listen();
 
-export default app;

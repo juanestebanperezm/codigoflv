@@ -12,3 +12,17 @@ body {
 code {
   font-family: "Fredoka", sans-serif;
 }
+#email-label {
+  color: rgba(255, 255, 255, 0.486);
+}
+#password-label {
+  color: rgba(255, 255, 255, 0.486);
+}
+#email {
+  color: aliceblue;
+  border-color: aliceblue;
+}
+#password {
+  color: aliceblue;
+  border-color: aliceblue;
+}

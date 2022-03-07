@@ -15,6 +15,15 @@ const Scx = makeStyles((theme) => ({
   text: {
     color: "#ededed",
   },
+  textTitle:{
+    color: "#ededed",
+    
+  },
+  boton:{
+    display:"flex",
+    
+  },
+
   bg_card: {
     backgroundColor: "#212f45",
   },
@@ -37,23 +46,24 @@ export const CardView = ({ id, description, title, language, dificultad }) => {
             variant="h5"
             sx={{ fontSize: 30 }}
             gutterBottom
-            className={classes.text}
+            className={classes.textTitle}
           >
             {title}
           </Typography>
           <Typography component="div" className={classes.text}>
             {description}
           </Typography>
-          <Typography sx={{ mb: 0.1 }} className={classes.text}>
+          <Typography sx={{ mb: 0.1 }} className={classes.textTitle}>
             {dificultad} - {language}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.boton}>
           <Button
             onClick={handleClick}
             size="small"
             color="secondary"
             variant="contained"
+            
           >
             Ir al reto
           </Button>

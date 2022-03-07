@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
 import * as Yup from "yup";
-import { Box, makeStyles } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { Button, TextField } from "@mui/material";
 import { useFormik } from "formik";
 
@@ -21,79 +21,6 @@ const LoginValidation = Yup.object({
 });
 
 function Login({ openLogin, setOpenLogin }) {
-  const useStyles = makeStyles({
-    container: {
-      display: "flex",
-      justifyContent: "center",
-      flexDirection: "column",
-      alignItems: "center",
-      zIndex: "2",
-      width: "100%",
-      height: "100vh",
-      margin: "auto",
-    },
-    form: {
-      width: "75%",
-      height: "70vh",
-      padding: "10px",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      borderRadius: "5px",
-      flexDirection: "column",
-      backgroundColor: "rgb(39, 38, 64)",
-      boxShadow: "1px 5px 6px 1px rgb(0 0 0 / 20%)",
-      "@media (max-width:600px)": {
-        width: "92%",
-      },
-    },
-    textField: {
-      marginBottom: "10px",
-      width: "100%",
-      color: "#2EFF22",
-    },
-    linkRegister: {
-      color: "#CCDBF4",
-      textDecoration: "none",
-      marginLeft: "3px",
-      transition: "all 0.2s ease",
-      "&:hover": {
-        color: "#73A1E8",
-      },
-    },
-    image: {
-      width: "100%",
-    },
-    containerForm: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      padding: "20px",
-      height: "100%",
-    },
-    titleSection: {
-      display: "flex",
-      alignItems: "center",
-      flexDirection: "column",
-      justifyContent: "center",
-      width: "38%",
-      height: "55vh",
-      borderRight: "1px solid rgba(0,0,0,0.3)",
-    },
-    fieldsForm: {
-      width: "58%",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
-    },
-    sectionLink: {
-      marginTop: "10px",
-    },
-    label: {
-      color: "white",
-    },
-  });
   const formik = useFormik({
     initialValues: {
       email: "",

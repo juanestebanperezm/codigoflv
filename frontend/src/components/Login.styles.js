@@ -31,10 +31,12 @@ const useStyles = makeStyles({
     color: "#2EFF22",
   },
   linkRegister: {
-    color: "black",
+    color: "#CCDBF4",
+    textDecoration: "none",
     marginLeft: "3px",
+    transition: "all 0.2s ease",
     "&:hover": {
-      color: "#212f45",
+      color: "#73A1E8",
     },
   },
   image: {

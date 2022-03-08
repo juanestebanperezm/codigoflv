@@ -1,121 +1,109 @@
 import React from "react";
-
-// MUI
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import { Box } from "@mui/material";
+import { Button } from "@material-ui/core";
+import logo from "../assets/codigo-sancocho.png";
+import useStyles from "./Certificado.styles";
 
 function Certificado() {
+  const style = useStyles();
+
   return (
-   
-      <div style={{
-        
-        padding: '8px 150px 50px 250px'
-    }}>
-        <Grid container spacing={2} columns={16} sx={{marginTop:8}}>
-        <Grid item xs={8}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="https://logos-marcas.com/wp-content/uploads/2021/10/Python-Emblema.png"
-              alt="green iguana"
+    <div className={style.containerCertificates}>
+      <h1>Certificate con Sancocho</h1>
+      <p>
+        Certificados mas reales que su socio, solo necesita ser el propio para
+        programar y breves.
+      </p>
+      <div className={style.containerCards}>
+        <div className={style.card}>
+          <div className={style.titleContent}>
+            <h1>Python</h1>
+            <img
+              className={style.imageCertificate}
+              src="http://assets.stickpng.com/images/5848152fcef1014c0b5e4967.png"
+              alt="python socio"
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Python
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Certificate en Python 🐍, despues de adquirir 10.000 puntos de
-                EXP o convierte en usuario Boost 🚀
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="secondary" variant="contained">
-                Certificarse
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={8}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
-              alt="green iguana"
+          </div>
+          <div className={style.textContent}>
+            <p>
+              Certificate en <strong>Python</strong> 🐍, despues de adquirir
+              10.000 puntos de EXP o convierte en usuario Boost. 🚀
+            </p>
+            <div className={style.containerButtons}>
+              <Button className={style.buttonCertificate}>Certificate</Button>
+              <img
+                src={logo}
+                alt="y el hpta logo?"
+                className={style.sancochoLogo}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={style.card}>
+          <div className={style.titleContent}>
+            <h1>C++</h1>
+            <img
+              className={style.imageCertificate}
+              src="https://2.bp.blogspot.com/-DrHDBZWMWC0/WyLLvXElCpI/AAAAAAAAACg/BpyMuVGLcaQJ3ur3HgsVqcgZ_di2-Qb1QCLcBGAs/s1600/c-plus-plus-logo.png"
+              alt="c++ socio"
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                JavaScript
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Certificate en JavaScript 🖥, despues de adquirir 10.000 puntos
-                de experiencia o convierte en usuario Boost 🚀
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="secondary" variant="contained">
-                Certificarse
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={8}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png"
-              alt="green iguana"
+          </div>
+          <div className={style.textContent}>
+            <p>
+              Certificate en <strong>C++</strong>, despues de adquirir 10.000
+              puntos de experiencia o convierte en usuario Boost 🚀
+            </p>
+            <div className={style.containerButtons}>
+              <Button className={style.buttonCertificate}>Certificate</Button>
+              <img
+                src={logo}
+                alt="y el hpta logo?"
+                className={style.sancochoLogo}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={style.card}>
+          <div className={style.titleContent}>
+            <h1>JavaScript</h1>
+            <img
+              className={style.imageCertificate}
+              src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg"
+              alt="JavaScript socio"
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                C++
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Certificate en C++ ➕ ➕ , despues de adquirir 10.000 puntos de
-                experiencia o convierte en usuario Boost 🚀
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="secondary" variant="contained">
-                Certificarse
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={8}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="https://images.emojiterra.com/google/android-11/512px/1f468-1f4bb.png"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Estamos trabajando 👷
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Proximamente mas lenguajes y sus certficados 🚧
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="secondary" variant="contained">
-                Inicio
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-      </Grid>
+          </div>
+          <div className={style.textContent}>
+            <p>
+              Certificate en <strong>JavaScript</strong> 🖥, despues de adquirir
+              10.000 puntos de experiencia o convierte en usuario Boost 🚀
+            </p>
+            <div className={style.containerButtons}>
+              <Button className={style.buttonCertificate}>Certificate</Button>
+              <img
+                src={logo}
+                alt="y el hpta logo?"
+                className={style.sancochoLogo}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={style.card}>
+          <div className={style.titleContent}>
+            <h1>Estamos trabajando 👷</h1>
+          </div>
+          <div className={style.textContent}>
+            <p>Proximamente mas lenguajes y sus certficados 🚧</p>
+            <div className={style.containerButtons}>
+              <Button className={style.buttonCertificate}>Certificate</Button>
+              <img
+                src={logo}
+                alt="y el hpta logo?"
+                className={style.sancochoLogo}
+              />
+            </div>
+          </div>
+        </div>
       </div>
-  
+    </div>
   );
 }
 

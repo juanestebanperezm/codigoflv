@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 //Formik validacion, no queremos que metan tapados al backend
 import { useFormik } from "formik";

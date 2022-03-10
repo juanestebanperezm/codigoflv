@@ -4,6 +4,9 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+//Router-DOM
+import { Link } from "react-router-dom";
+
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { updateVal } from "../features/register/slice";
@@ -44,7 +47,7 @@ const selectLast = (state) => state.register.last;
 const selectEmail = (state) => state.register.email;
 const selectPassword = (state) => state.register.password;
 
-function Registro() {
+function Registro({ openRegister, setOpenRegister }) {
   const dispatch = useDispatch();
   const first = useSelector(selectFirst);
   const last = useSelector(selectLast);
@@ -117,7 +120,7 @@ function Registro() {
             name="first"
             label="Primer Nombre"
             value={formik.values.first}
-            onChange={(event,val) => {
+            onChange={(event, val) => {
               formik.handleChange(event);
               updateValFromStore("first", val);
             }}
@@ -133,7 +136,7 @@ function Registro() {
             name="last"
             label="Segundo nombre"
             value={formik.values.last}
-            onChange={(event,val) => {
+            onChange={(event, val) => {
               formik.handleChange(event);
               updateValFromStore("last", val);
             }}
@@ -148,7 +151,7 @@ function Registro() {
             name="email"
             label="Email"
             value={formik.values.email}
-            onChange={(event ,val) => {
+            onChange={(event, val) => {
               formik.handleChange(event);
               updateValFromStore("email", val);
             }}
@@ -164,7 +167,7 @@ function Registro() {
             label="Contraseña"
             type="password"
             value={formik.values.password}
-            onChange={(event,val) => {
+            onChange={(event, val) => {
               formik.handleChange(event);
               updateValFromStore("password", val);
             }}
@@ -180,7 +183,7 @@ function Registro() {
             label="Repite la contraseña"
             type="password"
             value={formik.values.repeat_password}
-            onChange={(event,val) => {
+            onChange={(event, val) => {
               formik.handleChange(event);
               updateValFromStore("repeat_password", val);
             }}
@@ -203,6 +206,20 @@ function Registro() {
             Registrate
           </Button>
         </form>
+      </Box>
+      <Box>
+        <Box component="p">
+          ¿Ya tienes cuenta?
+          <Link
+            to="/login"
+            onClick={() => {
+              openRegister ? setOpenRegister(false) : setOpenRegister(true);
+              console.log(openRegister);
+            }}
+          >
+            Regístrese aquí
+          </Link>
+        </Box>
       </Box>
     </Box>
   );

@@ -3,6 +3,13 @@ import React, { useEffect, useState } from "react";
 // ESTILOS
 import styles from "../styles/Compite.module.css";
 
+//MUI
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 function Compite() {
   const URL = "http://localhost:3000/competencias";
@@ -18,53 +25,83 @@ function Compite() {
   }, []);
 
   return (
+    <Box sx={{ width: "50%", margin: "auto" }}>
+      <Typography>Todas las competencias</Typography>
 
-      <div className={styles["contenedor"]}>
-      <p className={styles["all"]}>Todas las competencias</p>
-      <h1 className={styles["campeonatos"]}>Competencias con premios</h1>
+      <Typography variant="h1" sx={{ fontSize: "3vh", marginTop: "9vh" }}>
+        Competencias con premios
+      </Typography>
 
-      <div className={styles["activas"]}>
-        <h2 className={styles["compa"]}>Competencias activas</h2>
+      <Card>
+        <Typography
+          variant="h5"
+          color="secondary"
+          sx={{ fontFamily: "fredoka", fontWeight: "700" }}
+        >
+          Competencias activas
+        </Typography>
         {!competencias
           ? "Cargando competencias"
           : competencias
               .filter((e) => e.state === true)
               .map((comp) => {
                 return (
-                  <div className={styles["tarjeta"]}>
-                    <h3 className={styles["competencia-name"]}>{comp.title}</h3>
-                    <p className={styles["competencia-dsc"]}>
+                  <CardContent>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        margin: "1vh 2vh",
+                        fontFamily: "fredoka",
+                        fontWeight: "600",
+                      }}
+                    >
+                      {comp.title}
+                    </Typography>
+                    <Typography sx={{ margin: "2vh" }}>
                       {comp.description}
-                    </p>
-                    <div className={styles["botones"]}>
-                      <button className={styles["button-64"]} role="button">
-                        <span className="text">Ingresar</span>
-                      </button>
-                    </div>
-                  </div>
+                    </Typography>
+
+                    <Button
+                      color="secondary"
+                      role="button"
+                      sx={{ margin: "2vh 2vh" }}
+                    >
+                      Ingresar
+                    </Button>
+                  </CardContent>
                 );
               })}
-      </div>
+      </Card>
 
-      <div className={styles["finalizadas"]}>
-        <h2 className={styles["compf"]}>Competencias Finalizadas</h2>
+      <Card sx={{ margin: "3vh" }}>
+        <Typography
+          variant="h5"
+          color="gray"
+          sx={{ fontFamily: "fredoka", fontWeight: "600" }}
+        >
+          Competencias Finalizadas
+        </Typography>
         {!competencias
           ? "Cargando, ten paciencia o puedes ir golpeando el computador :D"
           : competencias
               .filter((e) => e.state === false)
               .map((comp) => {
                 return (
-                  <div className={styles["tarjeta"]}>
-                    <h3 className={styles["competencia-name"]}>{comp.title}</h3>
-                    <p className={styles["competencia-dsc"]}>
+                  <CardContent>
+                    <Typography
+                      sx={{ fontFamily: "fredoka", fontWeight: "600" }}
+                      variant="h6"
+                    >
+                      {comp.title}
+                    </Typography>
+                    <Typography sx={{ margin: "2vh" }}>
                       {comp.description}
-                    </p>
-                  </div>
+                    </Typography>
+                  </CardContent>
                 );
               })}
-      </div>
-    </div>
-   
+      </Card>
+    </Box>
   );
 }
 

@@ -1,23 +1,23 @@
-import React from "react";
-
-import styles from "../styles/RegistroEmpresas.module.css";
-
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import useStyle from "./RegistroEmpresas.styles";
 
 function RegistroEmpresas() {
   return (
-    <div>
-      <div className={styles["informacion-general"]}>
-        <h1 className={styles["titulo"]}>
-          Los mejores equipos de desarrollo{" "}
-        </h1>
-        <p className={styles["parrafos"]}>
-          Facilita la adquision de desarrolladores por medio de competencias,
-          retos y eventos de codigo
-        </p>
-      </div>
-      <div className={styles["cards"]}>
-      </div>
-    </div>
+    <>
+      <Box sx={{ width: "200vh", margin: "15vh 5vh" }}>
+        <Typography
+          variant="h2"
+          sx={{ fontWeight: "700" }}
+          style={{ textAlign: "center", fontFamily: "fredoka" }}
+          component="div"
+          gutterBottom
+        >
+          Los mejores equipos
+        </Typography>
+      </Box>
+    </>
   );
 }
 

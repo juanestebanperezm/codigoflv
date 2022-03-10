@@ -40,7 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Cabecera({ openLogin, setOpenLogin }) {
+function Cabecera({ openLogin, setOpenLogin,openRegister,setOpenRegister }) {
   const classes = useStyles();
 
   return (
@@ -74,7 +74,14 @@ function Cabecera({ openLogin, setOpenLogin }) {
             <Link href="/cuenta" color="inherit" className={classes.links}>
               Cuenta
             </Link>
-            <Link href="/registro" color="inherit" className={classes.links}>
+            <Link
+              href="/registro"
+              color="inherit"
+              className={classes.links}
+              onClick={() => {
+                openRegister ? setOpenRegister(false) : setOpenRegister(true);
+              }}
+            >
               Registro
             </Link>
             <Link

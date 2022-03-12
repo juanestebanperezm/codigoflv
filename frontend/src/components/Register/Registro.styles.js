@@ -7,15 +7,15 @@ const useStyles = makeStyles({
     margin: "15vh 70vh",
     padding: "5vh 4vh",
     borderRadius: 5,
-    color:"#ffff"
+    color: "#ffff",
   },
- 
+
   titulo: {
     color: "#ffff",
     textAlign: "center",
   },
-  
-  
+
+ 
 });
 
 export default useStyles;

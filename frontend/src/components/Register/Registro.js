@@ -110,111 +110,110 @@ function Registro() {
       >
         Bievenid@ a Codigo sancocho
       </Typography>
-     
-        <form onSubmit={formik.handleSubmit}  >
-          <TextField
-            sx={{color: "#2EFF22",}}
-            fullWidth
-            id="first"
-            name="first"
-            label="Primer Nombre"
-            value={formik.values.first}
-            onChange={(event, val) => {
-              formik.handleChange(event);
-              updateValFromStore("first", val);
-            }}
-            error={formik.touched.first && Boolean(formik.errors.first)}
-            helperText={formik.touched.first && formik.errors.first}
-            margin="dense"
-          />
 
-          <TextField
-            margin="dense"
-            fullWidth
-            id="last"
-            name="last"
-            label="Segundo nombre"
-            value={formik.values.last}
-            onChange={(event, val) => {
-              formik.handleChange(event);
-              updateValFromStore("last", val);
-            }}
-            error={formik.touched.last && Boolean(formik.errors.last)}
-            helperText={formik.touched.last && formik.errors.last}
-          />
+      <form onSubmit={formik.handleSubmit}>
+        <TextField
+          sx={{ input: { color: "#ccdbf4" }, label: { color: "#ccdbf4" } }}
+          fullWidth
+          id="first"
+          name="first"
+          label="Primer Nombre"
+          value={formik.values.first}
+          onChange={(event, val) => {
+            formik.handleChange(event);
+            updateValFromStore("first", val);
+          }}
+          error={formik.touched.first && Boolean(formik.errors.first)}
+          helperText={formik.touched.first && formik.errors.first}
+          margin="dense"
+        />
 
-          <TextField
-            margin="dense"
-            fullWidth
-            id="email"
-            name="email"
-            label="Email"
-            value={formik.values.email}
-            onChange={(event, val) => {
-              formik.handleChange(event);
-              updateValFromStore("email", val);
-            }}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
+        <TextField
+          sx={{ input: { color: "#ccdbf4" }, label: { color: "#ccdbf4" } }}
+          margin="dense"
+          fullWidth
+          id="last"
+          name="last"
+          label="Segundo nombre"
+          value={formik.values.last}
+          onChange={(event, val) => {
+            formik.handleChange(event);
+            updateValFromStore("last", val);
+          }}
+          error={formik.touched.last && Boolean(formik.errors.last)}
+          helperText={formik.touched.last && formik.errors.last}
+        />
 
-          <TextField
-            margin="dense"
-            fullWidth
-            id="password"
-            name="password"
-            label="Contraseña"
-            type="password"
-            value={formik.values.password}
-            onChange={(event, val) => {
-              formik.handleChange(event);
-              updateValFromStore("password", val);
-            }}
-            error={formik.touched.password && Boolean(formik.errors.password)}
-            helperText={formik.touched.password && formik.errors.password}
-          />
+        <TextField
+          sx={{ input: { color: "#ccdbf4" }, label: { color: "#ccdbf4" } }}
+          margin="dense"
+          fullWidth
+          id="email"
+          name="email"
+          label="Email"
+          value={formik.values.email}
+          onChange={(event, val) => {
+            formik.handleChange(event);
+            updateValFromStore("email", val);
+          }}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
 
-          <TextField
-            margin="dense"
-            fullWidth
-            id="repeat_password"
-            name="repeat_password"
-            label="Repite la contraseña"
-            type="password"
-            value={formik.values.repeat_password}
-            onChange={(event, val) => {
-              formik.handleChange(event);
-              updateValFromStore("repeat_password", val);
-            }}
-            error={
-              formik.touched.repeat_password &&
-              Boolean(formik.errors.repeat_password)
-            }
-            helperText={
-              formik.touched.repeat_password && formik.errors.repeat_password
-            }
-          />
+        <TextField
+          sx={{ input: { color: "#ccdbf4" }, label: { color: "#ccdbf4" } }}
+          margin="dense"
+          fullWidth
+          id="password"
+          name="password"
+          label="Contraseña"
+          type="password"
+          value={formik.values.password}
+          onChange={(event, val) => {
+            formik.handleChange(event);
+            updateValFromStore("password", val);
+          }}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />
 
-          <Button
-            color="secondary"
-            variant="contained"
-            type="submit"
-            fullWidth
-            sx={{ marginTop: 2 }}
-          >
-            Registrate
-          </Button>
-        </form>
-      
+        <TextField
+          sx={{ input: { color: "#ccdbf4" }, label: { color: "#ccdbf4" } }}
+          margin="dense"
+          fullWidth
+          id="repeat_password"
+          name="repeat_password"
+          label="Repite la contraseña"
+          type="password"
+          value={formik.values.repeat_password}
+          onChange={(event, val) => {
+            formik.handleChange(event);
+            updateValFromStore("repeat_password", val);
+          }}
+          error={
+            formik.touched.repeat_password &&
+            Boolean(formik.errors.repeat_password)
+          }
+          helperText={
+            formik.touched.repeat_password && formik.errors.repeat_password
+          }
+        />
+
+        <Button
+          color="secondary"
+          variant="contained"
+          type="submit"
+          fullWidth
+          sx={{ marginTop: 2 }}
+        >
+          Registrate
+        </Button>
+      </form>
+
       <Box>
         <Box component="p">
           ¿Ya tienes cuenta?
-          <Link
-            to="/login"
-            
-          >
-            Regístrese aquí
-          </Link>
+          <Link to="/login">Regístrese aquí</Link>
         </Box>
       </Box>
     </Box>

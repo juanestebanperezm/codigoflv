@@ -90,12 +90,12 @@ function Login({ openLogin, setOpenLogin }) {
                 helperText={formik.touched.password && formik.errors.password}
               />
               <Button
-                color="primary"
+                color="secondary"
                 variant="contained"
                 fullWidth
                 type="submit"
               >
-                Submit
+                Ingresar
               </Button>
             </form>
             <Box className={classes.sectionLink}>

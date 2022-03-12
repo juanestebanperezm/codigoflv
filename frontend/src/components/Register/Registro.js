@@ -13,6 +13,9 @@ import { updateVal } from "../../features/register/slice";
 import { useDebouncedCallback } from "use-debounce";
 import { debounce } from "lodash";
 
+//Styles
+import useStyles from "./Registro.styles";
+
 //MUI
 import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@material-ui/core";
@@ -47,7 +50,8 @@ const selectLast = (state) => state.register.last;
 const selectEmail = (state) => state.register.email;
 const selectPassword = (state) => state.register.password;
 
-function Registro({ openRegister, setOpenRegister }) {
+function Registro() {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const first = useSelector(selectFirst);
   const last = useSelector(selectLast);
@@ -98,23 +102,18 @@ function Registro({ openRegister, setOpenRegister }) {
     },
   });
 
-  const divCenter = {
-    width: "50%",
-    margin: "auto",
-    padding: "80px 0px 80px 50px",
-  };
-
   return (
-    <Box style={divCenter}>
+    <Box className={classes.container}>
       <Typography
-        sx={{ fontSize: 24, textAlign: "center", margin: 3, fontWeight: 600 }}
-        color="text.primary"
+        className={classes.titulo}
+        sx={{ fontSize: 24, fontFamily: "Fredoka", fontWeight: 700 }}
       >
         Bievenid@ a Codigo sancocho
       </Typography>
-      <Box type="form">
-        <form onSubmit={formik.handleSubmit}>
+     
+        <form onSubmit={formik.handleSubmit}  >
           <TextField
+            sx={{color: "#2EFF22",}}
             fullWidth
             id="first"
             name="first"
@@ -206,16 +205,13 @@ function Registro({ openRegister, setOpenRegister }) {
             Registrate
           </Button>
         </form>
-      </Box>
+      
       <Box>
         <Box component="p">
           ¿Ya tienes cuenta?
           <Link
             to="/login"
-            onClick={() => {
-              openRegister ? setOpenRegister(false) : setOpenRegister(true);
-              console.log(openRegister);
-            }}
+            
           >
             Regístrese aquí
           </Link>

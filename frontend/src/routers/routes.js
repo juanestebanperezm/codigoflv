@@ -1,12 +1,12 @@
 import React from "react";
 
-import Certificado from "../components/Certificado";
-import Compite from "../components/Compite";
-import Cuenta from "../components/Cuenta";
+import Certificado from "../components/Certification/Certificado";
+import Compite from "../components/Contests/Compite";
+import Cuenta from "../components/Account/Cuenta";
 import Preparate from "../components/preparate/Preparate";
-import Registro from "../components/Registro";
-import RegistroEmpresas from "../components/RegistroEmpresas";
-import Reto from "../components/Reto";
+import Registro from "../components/Register/Registro";
+import RegistroEmpresas from "../components/EnterpriseRegister/RegistroEmpresas";
+import Reto from "../components/preparate/Reto";
 import NotFound from "../components/NotFound"
 
 const ROUTES = [

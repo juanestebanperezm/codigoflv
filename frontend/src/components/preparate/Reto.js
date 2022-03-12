@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 //Componente externo
 
-import styles from "../styles/Reto.module.css";
+import styles from "../../styles/Reto.module.css";
 
 import MirrorCode from "./MirrorCode";
 

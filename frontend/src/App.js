@@ -4,11 +4,9 @@ import "./App.css";
 
 //Componentes
 import AppBar from "./components/AppBar";
-import Footer from "./components/Footer";
 import Advertisement from "./components/advertisement/Advertisement";
-import Lateral from "./components/Lateral";
 import { Navigation } from "./routers/Navigation";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import Modal from "./components/Modal";
 
 
@@ -20,8 +18,7 @@ function App() {
       <AppBar openLogin={openLogin} setOpenLogin={setOpenLogin} />
       <Navigation />
       <Advertisement/>
-      <Footer/>
-
+     
       {openLogin && (
         <Modal>
           <Login openLogin={openLogin} setOpenLogin={setOpenLogin}/>

@@ -7,7 +7,7 @@ import { Box } from "@material-ui/core";
 import { Button, TextField } from "@mui/material";
 import { useFormik } from "formik";
 
-import marcaAgua from "../assets/codigo-sancocho.png";
+import marcaAgua from "../../assets/codigo-sancocho.png";
 
 import useStyles from "./Login.styles";
 

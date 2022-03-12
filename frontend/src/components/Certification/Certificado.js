@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import logo from "../assets/codigo-sancocho.png";
+import logo from "./../../assets/codigo-sancocho.png";
 import useStyles from "./Certificado.styles";
 
 function Certificado() {

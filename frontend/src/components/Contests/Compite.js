@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// ESTILOS
-import styles from "../styles/Compite.module.css";
 
 //MUI
 import Box from "@mui/material/Box";

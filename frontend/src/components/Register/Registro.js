@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
-import { updateVal } from "../features/register/slice";
+import { updateVal } from "../../features/register/slice";
 import { useDebouncedCallback } from "use-debounce";
 import { debounce } from "lodash";
 

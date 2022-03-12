@@ -30,11 +30,11 @@ function Compite() {
         Competencias con premios
       </Typography>
 
-      <Card>
+      <Card >
         <Typography
           variant="h5"
           color="secondary"
-          sx={{ fontFamily: "fredoka", fontWeight: "700" }}
+          sx={{ fontFamily: "fredoka", fontWeight: "700",margin:"1vh 0vh" }}
         >
           Competencias activas
         </Typography>
@@ -44,22 +44,24 @@ function Compite() {
               .filter((e) => e.state === true)
               .map((comp) => {
                 return (
-                  <CardContent>
+                  <CardContent sx={{backgroundColor:"#212f45"}}>
                     <Typography
                       variant="h6"
                       sx={{
                         margin: "1vh 2vh",
                         fontFamily: "fredoka",
                         fontWeight: "600",
+                        color:"lightgray"
                       }}
                     >
                       {comp.title}
                     </Typography>
-                    <Typography sx={{ margin: "2vh" }}>
+                    <Typography sx={{ margin: "2vh",color:"lightgray" }}>
                       {comp.description}
                     </Typography>
 
                     <Button
+                     variant="contained"
                       color="secondary"
                       role="button"
                       sx={{ margin: "2vh 2vh" }}
@@ -75,7 +77,7 @@ function Compite() {
         <Typography
           variant="h5"
           color="gray"
-          sx={{ fontFamily: "fredoka", fontWeight: "600" }}
+          sx={{ fontFamily: "fredoka", fontWeight: "600",margin:"1vh 0vh" }}
         >
           Competencias Finalizadas
         </Typography>
@@ -85,14 +87,14 @@ function Compite() {
               .filter((e) => e.state === false)
               .map((comp) => {
                 return (
-                  <CardContent>
+                  <CardContent sx={{backgroundColor:"#212f45"}}>
                     <Typography
-                      sx={{ fontFamily: "fredoka", fontWeight: "600" }}
+                      sx={{ fontFamily: "fredoka", fontWeight: "600",color:"lightgray" }}
                       variant="h6"
                     >
                       {comp.title}
                     </Typography>
-                    <Typography sx={{ margin: "2vh" }}>
+                    <Typography sx={{ margin: "2vh",color:"lightgray" }}>
                       {comp.description}
                     </Typography>
                   </CardContent>

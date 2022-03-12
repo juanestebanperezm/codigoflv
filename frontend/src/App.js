@@ -17,7 +17,6 @@ function App() {
     <div className="App">
       <AppBar openLogin={openLogin} setOpenLogin={setOpenLogin} />
       <Navigation />
-      <Advertisement/>
      
       {openLogin && (
         <Modal>

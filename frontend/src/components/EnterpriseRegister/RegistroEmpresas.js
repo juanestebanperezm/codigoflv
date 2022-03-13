@@ -43,7 +43,7 @@ function RegistroEmpresas() {
       
         <ImageList className={classes.carrusel} sx={{width:"150vh",overflow:"hidden"}} cols={4} rowHeight={400} >
           {itemData.map((item) => (
-            <ImageListItem sx={{margin:"0vh 2vh"}} key={item.img}>
+            <ImageListItem sx={{margin:"0vh 2vh"}} className={classes.imagen} key={item.img}>
               <img
                 src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}

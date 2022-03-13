@@ -1,51 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
-import * as Yup from "yup";
 import { Box } from "@material-ui/core";
 import { Button, TextField } from "@mui/material";
-import { useFormik } from "formik";
 
 import marcaAgua from "../../assets/codigo-sancocho.png";
 
 import useStyles from "./Login.styles";
 
-const LoginValidation = Yup.object({
-  email: Yup.string("Enter your email")
-    .email("Enter a valid email")
-    .required("Email is required"),
-  password: Yup.string("Enter your password")
-    .min(8, "Password should be of minimum 8 characters length")
-    .required("Password is required"),
-});
+//Manejo de estado
+import { login, reset } from "../../features/auth/authSlice";
+import { useSelector, useDispatch } from "react-redux";
+
+//router dom
+import { useNavigate } from "react-router-dom";
 
 function Login({ openLogin, setOpenLogin }) {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: LoginValidation,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
   const classes = useStyles();
 
-  //Contraseñas
-  const [password, setPassword] = useState({
-    showPassword: false,
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
   });
 
-  const handleChangePassword = (event) => {
-    setPassword({ ...password, password: event.target.value });
+  const { email, password } = formData;
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      alert("Error al ingresar el usuario o contraseña son invalidos");
+    }
+
+    if (isSuccess || user) {
+      navigate("/preparate");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleClickShowPassword = () => {
-    setPassword({ ...password, showPassword: !password.showPassword });
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      email,
+      password,
+    };
+
+    dispatch(login(userData));
   };
+
+  if (isLoading) {
+    return <h1>:)</h1>;
+  }
 
   return (
     <Box className={classes.container}>
@@ -59,7 +79,7 @@ function Login({ openLogin, setOpenLogin }) {
             />
           </Box>
           <Box className={classes.fieldsForm}>
-            <form>
+            <form onSubmit={onSubmit}>
               <TextField
                 fullWidth
                 id="email"
@@ -68,10 +88,8 @@ function Login({ openLogin, setOpenLogin }) {
                 sx={{
                   marginBottom: "15px",
                 }}
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
+                value={email}
+                onChange={onChange}
               />
               <TextField
                 fullWidth
@@ -82,12 +100,8 @@ function Login({ openLogin, setOpenLogin }) {
                 sx={{
                   marginBottom: "15px",
                 }}
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
+                value={password}
+                onChange={onChange}
               />
               <Button
                 color="secondary"

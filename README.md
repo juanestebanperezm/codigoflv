@@ -21,6 +21,6 @@ Por le momento se encuentra en fase de desarrollo. Con diferentes funcionalidade
 ## Frontend
 ## Backend
 
-![Imgen](https://i.imgur.com/xIPBnX1.jpeg)
+
 
 
